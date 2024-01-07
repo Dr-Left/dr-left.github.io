@@ -24,6 +24,7 @@ I mainly focus on Natural Language Processing. However, I tried diverse domains 
 
 To Learn More About Me
 ======
+
 Fun Experiences
 ------
 
