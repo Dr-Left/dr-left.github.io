@@ -27,32 +27,47 @@ I love to explore multiple domains because doing so helps me acquire a wider and
 
 Publications
 ======
-![Illustration of Agentverse](https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386){:align-left width="150rpx"}
 
 
-**AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors**
+<div>
+<img align="left" height="150rpx" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386">
+<h5>
+AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
+</h5>
 
-Weize Chen\*, Yusheng Su\*, *Jingwei Zuo*, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou\
-*ICLR 2024* [[paper](https://arxiv.org/abs/2308.10848)][[code](https://github.com/OpenBMB/AgentVerse)]
+<p>
+Weize Chen*, Yusheng Su*, <i>Jingwei Zuo</i>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+</p>
+<i>ICLR 2024</i> [<a href="https://arxiv.org/abs/2308.10848">paper</a>] [<a href="https://github.com/OpenBMB/AgentVerse">code</a>]
+
+</div>
+
+
 
 
 Experiences
 ======
-![Tsinghua logo](/images/tsinghua.png){:align-left width='100rpx'}
-**Tsinghua University**\
-2021.09-Present
 
-**B.Eng. in Electrical Engineering**\
-**B.S. in Fundamental Science (Math & Physics)**
+<div style="margin: 1em">
 
-Research intern at THUNLP, advised by Prof. Zhiyuan Liu
+<img align="left" height="120rpx"  src="/images/tsinghua.png" style="margin-right: 1em">
+<b>Tsinghua University</b><br>
+<text>2021.09-Present</text><br>
+<b>B.Eng. in Electrical Engineering</b><br>
+<b>B.S. in Fundamental Sciences (Math & Physics)</b><br>
+<text>Research intern at THUNLP, advised by Prof. Zhiyuan Liu</text>
 
-![Northeastern Logo](/images/northeastern.png){:align-left width='100rpx'}
-**Northeastern University**
-2023.9-12
+</div>
 
-Exchange student
+<div style="margin: 1em">
 
+<img align="left" height="120rpx"  src="/images/northeastern.png" style="margin-right: 1em">
+<b>Northeastern University</b><br>
+<text>2023.9-12</text><br>
+<b>Exchange student</b> at College of Engineering<br>
+
+</div>
+<br>
 
 To Learn More About Me
 ======
