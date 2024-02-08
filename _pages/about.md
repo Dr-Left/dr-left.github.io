@@ -30,7 +30,7 @@ Publications
 
 
 <div>
-<img align="left" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" style="150px">
+<img align="left" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" style="height:150px">
 <h3>
 AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
 </h3>
