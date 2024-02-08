@@ -30,10 +30,10 @@ Publications
 
 
 <div>
-<img align="left" height="60rpx" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386">
-<h5>
+<img align="left" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" style="150px">
+<h3>
 AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
-</h5>
+</h3>
 
 <p>
 Weize Chen*, Yusheng Su*, <i>Jingwei Zuo</i>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
@@ -50,7 +50,7 @@ Experiences
 
 <div style="margin: 1em">
 
-<img align="left" height="50rpx"  src="/images/tsinghua.png" style="margin-right: 1em">
+<img align="left" src="/images/tsinghua.png" style="height: 120px;margin-right: 1em">
 <b>Tsinghua University</b><br>
 <text>2021.09-Present</text><br>
 <b>B.Eng. in Electrical Engineering</b><br>
@@ -61,7 +61,7 @@ Experiences
 
 <div style="margin: 1em">
 
-<img align="left" height="50rpx"  src="/images/northeastern.png" style="margin-right: 1em">
+<img align="left" src="/images/northeastern.png" style="height: 120px;margin-right: 1em">
 <b>Northeastern University</b><br>
 <text>2023.9-12</text><br>
 <b>Exchange student</b> at College of Engineering<br>
