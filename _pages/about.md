@@ -27,27 +27,31 @@ I love to explore multiple domains because doing so helps me acquire a wider and
 
 Publications
 ======
-![Illustration of Agentverse](https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386){:align-left width="300rpx"}
+![Illustration of Agentverse](https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386){:align-left width="150rpx"}
 
 
 **AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors**
 
-Weize Chen\*, Yusheng Su\*, *Jingwei Zuo*, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+Weize Chen\*, Yusheng Su\*, *Jingwei Zuo*, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou\
 *ICLR 2024* [[paper](https://arxiv.org/abs/2308.10848)][[code](https://github.com/OpenBMB/AgentVerse)]
 
 
 Experiences
 ======
 ![Tsinghua logo](/images/tsinghua.png){:align-left width='100rpx'}
-**Tsinghua University**
+**Tsinghua University**\
 2021.09-Present
 
-B.Eng. in Electrical Engineering
-
-B.S. in Fundamental Science (Math & Physics)
+**B.Eng. in Electrical Engineering**\
+**B.S. in Fundamental Science (Math & Physics)**
 
 Research intern at THUNLP, advised by Prof. Zhiyuan Liu
 
+![Northeastern Logo](/images/northeastern.png){:align-left width='100rpx'}
+**Northeastern University**
+2023.9-12
+
+Exchange student
 
 
 To Learn More About Me
