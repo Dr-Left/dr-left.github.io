@@ -38,7 +38,7 @@ To Learn More About Me
 Fun Experiences
 ------
 
-I went to Northeastern University for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
+I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong🇭🇰, Macao🇲🇴, Japan🇯🇵, Singapore🇸🇬, Australia🇦🇺, the US🇺🇸 and of course many places of interest in mainland China.
 
 Fun Facts About Me
 ------
