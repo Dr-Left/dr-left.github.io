@@ -30,7 +30,7 @@ Publications
 
 
 <div>
-<img align="left" height="150rpx" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386">
+<img align="left" height="60rpx" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386">
 <h5>
 AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
 </h5>
@@ -50,7 +50,7 @@ Experiences
 
 <div style="margin: 1em">
 
-<img align="left" height="120rpx"  src="/images/tsinghua.png" style="margin-right: 1em">
+<img align="left" height="50rpx"  src="/images/tsinghua.png" style="margin-right: 1em">
 <b>Tsinghua University</b><br>
 <text>2021.09-Present</text><br>
 <b>B.Eng. in Electrical Engineering</b><br>
@@ -61,7 +61,7 @@ Experiences
 
 <div style="margin: 1em">
 
-<img align="left" height="120rpx"  src="/images/northeastern.png" style="margin-right: 1em">
+<img align="left" height="50rpx"  src="/images/northeastern.png" style="margin-right: 1em">
 <b>Northeastern University</b><br>
 <text>2023.9-12</text><br>
 <b>Exchange student</b> at College of Engineering<br>
