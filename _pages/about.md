@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. Currently, I am working as a research intern with PhD student [Guangxuan Xiao](https://guangxuanx.com/), under the advisory of Prof. [Song Han](https://hanlab.mit.edu/songhan). Initially, I worked as a research intern at [THUNLP](https://github.com/thunlp) under the advisory of Prof. [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/).
+I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. I study at [Weiyang College](https://www.wyc.tsinghua.edu.cn/#), majoring in **Foundamental Science** and **Electrical Engineering**. Currently, I am working as a research intern with PhD student [Guangxuan Xiao](https://guangxuanx.com/), under the advisory of Prof. [Song Han](https://hanlab.mit.edu/songhan). Initially, I worked as a research intern at [THUNLP](https://github.com/thunlp) under the advisory of Prof. [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/).
 
 
 Research
@@ -27,8 +27,26 @@ I love to explore multiple domains because doing so helps me acquire a wider and
 
 Publications
 ======
-**AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors [[paper](https://arxiv.org/abs/2308.10848)][[code](https://github.com/OpenBMB/AgentVerse)]**
-Weize Chen, Yusheng Su, *Jingwei Zuo*, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+![Illustration of Agentverse](https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386){:align-left width="300rpx"}
+
+
+**AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors**
+
+Weize Chen\*, Yusheng Su\*, *Jingwei Zuo*, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+*ICLR 2024* [[paper](https://arxiv.org/abs/2308.10848)][[code](https://github.com/OpenBMB/AgentVerse)]
+
+
+Experiences
+======
+![Tsinghua logo](/images/tsinghua.png){:align-left width='100rpx'}
+**Tsinghua University**
+2021.09-Present
+
+B.Eng. in Electrical Engineering
+
+B.S. in Fundamental Science (Math & Physics)
+
+Research intern at THUNLP, advised by Prof. Zhiyuan Liu
 
 
 
@@ -38,7 +56,7 @@ To Learn More About Me
 Fun Experiences
 ------
 
-I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong🇭🇰, Macao🇲🇴, Japan🇯🇵, Singapore🇸🇬, Australia🇦🇺, the US🇺🇸 and of course many places of interest in mainland China.
+I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
 
 Fun Facts About Me
 ------
