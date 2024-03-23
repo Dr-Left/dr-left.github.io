@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. I study at [Weiyang College](https://www.wyc.tsinghua.edu.cn/#), majoring in **Foundamental Science** and **Electrical Engineering**. Currently, I am working as a research intern with PhD student [Guangxuan Xiao](https://guangxuanx.com/), under the advisory of Prof. [Song Han](https://hanlab.mit.edu/songhan). Initially, I worked as a research intern at [THUNLP](https://github.com/thunlp) under the advisory of Prof. [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/).
+I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. I study at [Weiyang College](https://www.wyc.tsinghua.edu.cn/#), majoring in **Fundamental Sciences** and **Electrical Engineering**. Currently, I am working as a research intern with PhD student [Guangxuan Xiao](https://guangxuanx.com/), under the advisory of Prof. [Song Han](https://hanlab.mit.edu/songhan). Initially, I worked as a research intern at [THUNLP](https://github.com/thunlp) under the advisory of Prof. [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/).
 
 
 Research
@@ -23,6 +23,12 @@ TL;DR
 I mainly focus on Natural Language Processing. However, I tried diverse domains within this field: I dived into the **multi-agent** domain by working on the project [AgentVerse](https://arxiv.org/abs/2308.10848) at THUNLP, and I also explored the **efficient LLM** domain by working on the head pruning of LLMs at HanLab.
 
 I love to explore multiple domains because doing so helps me acquire a wider and more comprehensive perspective of one certain field when I first enter it. Nevertheless, I didn't just scratch the surface of each domain -- I will stick to it until I fully completed at least one project in that domain, or can't dig anything out after several months of endeavors.
+
+Currently, I believe my research taste can be elaborated by this question:
+
+**How to enhance AI's abilities without making the system clumsy?**
+
+Although I would like to see the AI's abilities being escalated, I don't want to build AI models that are too inefficient -- the resources (electricity, fuels) are limited on the earth and we should cherish them.
 
 
 Publications
@@ -91,3 +97,6 @@ Contact
 ------
 
 Feel free to reach out to me by email! I am always glad to talk to someone else, because other's talk often inspires me and my words may inspire others too:)
+
+
+<script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=PLx4dxWhdKP5GkYlqnVt60EqFTM9RFctoAxAAmHySUg"></script>
