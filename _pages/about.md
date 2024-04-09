@@ -91,7 +91,7 @@ When I get nervous, I like to scratch my hair😬. So next time you see me doing
 Hobbies
 ------
 
-I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤, but I feel bad if I don't sing well. I like to travel and explore new places:). I also like to drink coffee☕ made from medium roasted coffee beans mixed with whole milk (I especially like Organic Valley Grass Fed Whole Milk🐄 (Not an AD!)). (Sugar can be added, but not too much, because I want to keep fit💪.)
+I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤, but I feel bad if I don't sing well. I like to travel and explore new places:). I also like coffee☕.
 
 Contact
 ------
