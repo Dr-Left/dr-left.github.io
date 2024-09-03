@@ -8,77 +8,100 @@ redirect_from:
   - /about.html
 ---
 
-I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. I study at [Weiyang College](https://www.wyc.tsinghua.edu.cn/#), majoring in **Fundamental Sciences** and **Electrical Engineering**. Currently, I am working as a research intern with PhD student [Guangxuan Xiao](https://guangxuanx.com/), under the advisory of Prof. [Song Han](https://hanlab.mit.edu/songhan). Initially, I worked as a research intern at [THUNLP](https://github.com/thunlp) under the advisory of Prof. [Zhiyuan Liu](https://nlp.csai.tsinghua.edu.cn/~lzy/).
+I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
 
+Currently, I am working as a remote visiting student at Professor [Beidi Chen](https://www.andrew.cmu.edu/user/beidic/)'s [InfiniAI Lab](https://keroro824.github.io/lab-page/) at CMU, and closely collaborating with PhD student [Zhuoming Chen](https://dreaming-panda.github.io/).
 
 Research
 =====
 
-TL;DR
+My main research question is:
+
+**How to increase the efficiency of machine learning systems?**
+
+This question could be solved via a diversity of methods, ranging from pruning tokens, quantizing the parameters, to building more efficient serving systems.
+
+Other explorations
 -----
-
-- Multi-agents
-- Efficient models
-
-I mainly focus on Natural Language Processing. However, I tried diverse domains within this field: I dived into the **multi-agent** domain by working on the project [AgentVerse](https://arxiv.org/abs/2308.10848) at THUNLP, and I also explored the **efficient LLM** domain by working on the head pruning of LLMs at HanLab.
-
-I love to explore multiple domains because doing so helps me acquire a wider and more comprehensive perspective of one certain field when I first enter it. Nevertheless, I didn't just scratch the surface of each domain -- I will stick to it until I fully completed at least one project in that domain, or can't dig anything out after several months of endeavors.
-
-Currently, I believe my research taste can be elaborated by this question:
-
-**How to enhance AI's abilities without making the system clumsy?**
-
-Although I would like to see the AI's abilities being escalated, I don't want to build AI models that are too inefficient -- the resources (electricity, fuels) are limited on the earth and we should cherish them.
+When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP. After that, I switched to the field of efficient models, under the mentorship of Guangxuan Xiao and Prof. Song Han at Han Lab. The project I did at Han Lab is already finished, and the paper will soon be put on ArXiv.
 
 
 Publications
 ======
-
-
-<div>
-<img align="left" src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" style="height:150px">
-<h3>
-AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
-</h3>
-
-<p>
-Weize Chen*, Yusheng Su*, <i>Jingwei Zuo</i>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
-</p>
-<i>ICLR 2024</i> [<a href="https://arxiv.org/abs/2308.10848">paper</a>] [<a href="https://github.com/OpenBMB/AgentVerse">code</a>]
-
+<div style="display: flex; align-items: center;">
+    <div style="flex-shrink: 0; margin-right: 20px;">
+        <img src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" alt="AgentVerse Illustration" style="max-width: 300px;">
+    </div>
+    <div>
+        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+            AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
+        </div>
+        <div style="font-size: 14px; margin-bottom: 10px;">
+            Weize Chen*, Yusheng Su*, <i>Jingwei Zuo</i>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+        </div>
+        <div style="font-size: 14px; color: gray;">
+            ICLR 2024
+        </div>
+        <div style="font-size: 14px; margin-top: 10px;">
+            <a href="https://arxiv.org/abs/2308.10848" style="text-decoration: none; color: blue;">[paper]</a>
+            <a href="https://github.com/OpenBMB/AgentVerse" style="text-decoration: none; color: blue;">[code]</a>
+        </div>
+    </div>
 </div>
 
-
-
-
-Experiences
+Academic Experiences
 ======
 
-<div style="margin: 1em">
+<div style="margin: 1em 0; display: flex; align-items: flex-start;">
 
-<img align="left" src="/images/tsinghua.png" style="height: 120px;margin-right: 1em">
-<b>Tsinghua University</b><br>
-<text>2021.09-Present</text><br>
-<b>B.Eng. in Electrical Engineering</b><br>
-<b>B.S. in Fundamental Sciences (Math & Physics)</b><br>
-<text>Research intern at THUNLP, advised by Prof. Zhiyuan Liu</text>
+<img src="/images/cmu-seal-r.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
+
+<div>
+<b style="font-size: 1.1em;">Carnegie Mellon University</b><br>
+<text style="font-size: 1em;">2024.07-Present</text><br>
+<b style="font-size: 1em;">Remote visiting research assistant</b><br>
+<text style="font-size: 1em; color: #333;">InfiniAI Lab, advised by Prof. Beidi Chen</text>
+</div>
 
 </div>
 
-<div style="margin: 1em">
+<div style="margin: 1em 0; display: flex; align-items: flex-start;">
 
-<img align="left" src="/images/northeastern.png" style="height: 120px;margin-right: 1em">
-<b>Northeastern University</b><br>
-<text>2023.9-12</text><br>
-<b>Exchange student</b> at College of Engineering<br>
+<img src="/images/tsinghua.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
+
+<div>
+<b style="font-size: 1.1em;">Tsinghua University</b><br>
+<text style="font-size: 1em;">2021.09-Present</text><br>
+<b style="font-size: 1em;">B.Eng. in Electrical Engineering</b><br>
+<b style="font-size: 1em;">B.S. in Fundamental Sciences (Math & Physics)</b><br>
+<text style="font-size: 1em; color: #333;">Research intern at THUNLP, advised by Prof. Zhiyuan Liu</text>
+</div>
 
 </div>
-<br>
+
+<div style="margin: 1em 0; display: flex; align-items: flex-start;">
+
+<img src="/images/northeastern.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
+
+<div>
+<b style="font-size: 1.1em;">Northeastern University</b><br>
+<text style="font-size: 1em;">2023.9-12</text><br>
+<b style="font-size: 1em;">Exchange student</b> at College of Engineering
+</div>
+
+</div>
+
 
 To Learn More About Me
 ======
 
-Fun Experiences
+Ideals
+------
+I would love to witness a world where humans could obtain more convenience, harmony, and happiness. Undeniably, my current research interest is only one minute factor contributing to this grand (and probably quixote) ideal. But the thing is, I would not like my research to go against this prospect at any time and under any circumstance.
+
+I advocate for the open source community.
+
+Other Experiences
 ------
 
 I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
@@ -91,9 +114,9 @@ When I get nervous, I like to scratch my hair😬. So next time you see me doing
 Hobbies
 ------
 
-I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤, but I feel bad if I don't sing well. I like to travel and explore new places:). I also like coffee☕.
+I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤. I like to travel and explore new places:).
 
-Contact
+Contacts
 ------
 
 Feel free to reach out to me by email! If you are in Beijing now, probably we may even have an in-person coffee-chat! I am always glad to talk to someone else, because other's talk often inspires me and my words may inspire others too:)
