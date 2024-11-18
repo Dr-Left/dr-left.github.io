@@ -10,7 +10,7 @@ redirect_from:
 
 I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
 
-Currently, I am working as a remote visiting student at Professor [Beidi Chen](https://www.andrew.cmu.edu/user/beidic/)'s [InfiniAI Lab](https://keroro824.github.io/lab-page/) at CMU, and closely collaborating with PhD student [Zhuoming Chen](https://dreaming-panda.github.io/).
+Email: naohzjw [at] gmail [dot] com
 
 Research
 =====
