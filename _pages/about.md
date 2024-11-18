@@ -21,9 +21,22 @@ My main research question is:
 
 This question could be solved via a diversity of methods, ranging from pruning tokens, quantizing the parameters, to building more efficient serving systems.
 
+
+
+How I develop such a research focus?
+
+<p style="font-size: 0.85em; color: #999999; font-style: italic; line-height: 1.4; margin: 10px 0;">
+        Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year. [1] It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
+</p>
+
+
+
+
+
+
 Other explorations
 -----
-When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP. After that, I switched to the field of efficient models, under the mentorship of Guangxuan Xiao and Prof. Song Han at Han Lab. The project I did at Han Lab is already finished, and the paper will soon be put on ArXiv.
+When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP.
 
 
 Publications
@@ -109,6 +122,7 @@ Academic Experiences
 <b style="font-size: 1.1em;">Northeastern University</b><br>
 <text style="font-size: 1em;">2023.9-12</text><br>
 <b style="font-size: 1em;">Exchange student</b> at College of Engineering
+Selected on <b style="fondt-size: 1em;"> Dean's list</b>
 </div>
 
 </div>
