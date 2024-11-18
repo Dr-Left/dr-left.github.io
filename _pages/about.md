@@ -37,7 +37,7 @@ Publications
             AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
         </div>
         <div style="font-size: 14px; margin-bottom: 10px;">
-            Weize Chen*, Yusheng Su*, <i>Jingwei Zuo</i>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
+            Weize Chen*, Yusheng Su*, <b>Jingwei Zuo</b>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
         </div>
         <div style="font-size: 14px; color: gray;">
             ICLR 2024
@@ -58,7 +58,7 @@ Publications
             DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads
         </div>
         <div style="font-size: 14px; margin-bottom: 10px;">
-            Guangxuan Xiao, Jiaming Tang, Jingwei Zuo, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
+            Guangxuan Xiao, Jiaming Tang, <b>Jingwei Zuo</b>, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
         </div>
         <div style="font-size: 14px; color: gray;">
             arXiv
