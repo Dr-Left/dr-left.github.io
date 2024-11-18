@@ -51,7 +51,7 @@ Publications
 
 <div style="display: flex; align-items: center;">
     <div style="flex-shrink: 0; margin-right: 20px;">
-        <img src="https://arxiv.org/abs/2410.10819" alt="DuoAttention Illustration" style="max-width: 300px;">
+        <img src="../images/duo_thumbnail.jpg" alt="DuoAttention Illustration" style="max-width: 300px;">
     </div>
     <div>
         <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
