@@ -49,6 +49,28 @@ Publications
     </div>
 </div>
 
+<div style="display: flex; align-items: center;">
+    <div style="flex-shrink: 0; margin-right: 20px;">
+        <img src="https://arxiv.org/abs/2410.10819" alt="DuoAttention Illustration" style="max-width: 300px;">
+    </div>
+    <div>
+        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+            DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads
+        </div>
+        <div style="font-size: 14px; margin-bottom: 10px;">
+            Guangxuan Xiao, Jiaming Tang, Jingwei Zuo, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
+        </div>
+        <div style="font-size: 14px; color: gray;">
+            arXiv
+        </div>
+        <div style="font-size: 14px; margin-top: 10px;">
+            <a href="https://arxiv.org/abs/2410.10819" style="text-decoration: none; color: blue;">[paper]</a>
+            <a href="https://github.com/mit-han-lab/duo-attention" style="text-decoration: none; color: blue;">[code]</a>
+            <a href="https://youtu.be/tyTkZOqKt6U" style="text-decoration: none; color: blue;">[demo]</a>
+        </div>
+    </div>
+</div>
+
 Academic Experiences
 ======
 
