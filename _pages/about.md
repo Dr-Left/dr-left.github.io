@@ -10,23 +10,22 @@ redirect_from:
 
 I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
 
-Email: naohzjw [at] gmail [dot] com
+Email: [naohzjw [at] gmail [dot] com](mailto:naohzjw [at] gmail [dot] com)
 
-Research
+Research 
 =====
 
 My main research question is:
 
-**How to increase the efficiency of machine learning systems?**
+👉  How to increase the efficiency of machine learning systems?
+{: .notice}
 
 This question could be solved via a diversity of methods, ranging from pruning tokens, quantizing the parameters, to building more efficient serving systems.
 
-<b style="font-size: 0.9em;"> How I develop such a research focus? </b>
-<div style="font-size: 0.85em; color: #444444; line-height: 1.4; margin: 10px 0;">
-<p>
-        Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year. <a href="https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/#:~:text=That%20means%20the%20energy%20ChatGPT%20uses%20each%20year%20to%20handle%20requests%20could%20power%2043%2C204%20U.S.%20homes%20for%20an%20entire%20year" style="text-decoration: none; color: blue;">[1]</a> It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
-        </p>
-</div>
+### 💡  How I develop such a research focus?
+
+>  Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year.[[1]](https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/#:~:text=That%20means%20the%20energy%20ChatGPT%20uses%20each%20year%20to%20handle%20requests%20could%20power%2043%2C204%20U.S.%20homes%20for%20an%20entire%20year") It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
+
 
 Other explorations
 -----
@@ -40,9 +39,9 @@ Publications
         <img src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" alt="AgentVerse Illustration" style="max-width: 300px;">
     </div>
     <div>
-        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
             AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors
-        </div>
+        </h3>
         <div style="font-size: 14px; margin-bottom: 10px;">
             Weize Chen*, Yusheng Su*, <b>Jingwei Zuo</b>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou
         </div>
@@ -61,9 +60,9 @@ Publications
         <img src="../images/duo_thumbnail.jpg" alt="DuoAttention Illustration" style="max-width: 300px;">
     </div>
     <div>
-        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
             DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads
-        </div>
+        </h3>
         <div style="font-size: 14px; margin-bottom: 10px;">
             Guangxuan Xiao, Jiaming Tang, <b>Jingwei Zuo</b>, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
         </div>
@@ -86,7 +85,7 @@ Academic Experiences
 <img src="/images/cmu-seal-r.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
 
 <div>
-<b style="font-size: 1.1em;">Carnegie Mellon University</b><br>
+<h6 style="font-size: 1.1em;">Carnegie Mellon University</h6><br>
 <text style="font-size: 1em;">2024.07-Present</text><br>
 <b style="font-size: 1em;">Remote visiting research assistant</b><br>
 <text style="font-size: 1em; color: #333;">InfiniAI Lab, advised by Prof. Beidi Chen</text>
@@ -99,7 +98,7 @@ Academic Experiences
 <img src="/images/tsinghua.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
 
 <div>
-<b style="font-size: 1.1em;">Tsinghua University</b><br>
+<h6 style="font-size: 1.1em;">Tsinghua University</h6><br>
 <text style="font-size: 1em;">2021.09-Present</text><br>
 <b style="font-size: 1em;">B.Eng. in Electrical Engineering</b><br>
 <b style="font-size: 1em;">B.S. in Fundamental Sciences (Math & Physics)</b><br>
@@ -113,9 +112,9 @@ Academic Experiences
 <img src="/images/northeastern.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
 
 <div>
-<b style="font-size: 1.1em;">Northeastern University</b><br>
+<h6 style="font-size: 1.1em">Northeastern University</h6><br>
 <text style="font-size: 1em;">2023.9-12</text><br>
-<b style="font-size: 1em;">Exchange student</b> at College of Engineering
+<b style="font-size: 1em;">Exchange student</b> at College of Engineering<br>
 Selected on <b style="fondt-size: 1em;"> Dean's list</b>
 </div>
 

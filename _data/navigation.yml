@@ -1,9 +1,7 @@
 # main links links
 main:
-  # - title: "Publications"
-  #   url: /publications/
-
-  # - title
+  - title: "Publications"
+    url: "#publications"
 
   # - title: "Talks"
   #   url: /talks/    
@@ -11,16 +9,19 @@ main:
   # - title: "Teaching"
   #   url: /teaching/    
     
-  # - title: "Portfolio"
-  #   url: /portfolio/
+
         
   # - title: "Blog Posts"
-  #   url: /year-archive/
-  - title: "Projects"
-    url: /projects/
     
   - title: "CV"
     url: /files/CV_Jingwei_Zuo.pdf
+
+  - title: "Blogs"
+    url: /year-archive/
+  
+  - title: "Portfolio"
+    url: /portfolio/
+
     
-  # - title: "Guide"
-  #   url: /markdown/
+  - title: "Guide"
+    url: /markdown/

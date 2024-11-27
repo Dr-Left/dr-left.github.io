@@ -98,6 +98,8 @@ blockquote {
   padding-right: 1em;
   font-style: italic;
   border-left: 0.25em solid $primary-color;
+  
+  color: lighten($primary-color, 5%);
 
   cite {
     font-style: italic;
