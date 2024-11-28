@@ -13,3 +13,4 @@ node_modules
 package-lock.json
 *.docx
 *.doc
+*.DS_Store
