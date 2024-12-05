@@ -12,7 +12,7 @@ title                    : "Jingwei (Chris) Zuo"
 title_separator          : "-"
 name                     : &name "Jingwei (Chris) Zuo"
 description              : &description "NLPer, 25' Undergrad @ Tsinghua University | 23Fall Exchange @ Northeastern University \n Research intern @ MITHanLab"
-url                      : http://jingwei-zuo.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://jingwei-zuo.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "dr-left.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -84,9 +84,9 @@ og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : "微信公众号" 
+  name                   : "听Chris一席话"
+  links: "https://mp.weixin.qq.com/mp/qrcode?scene=10000005&size=102&__biz=Mzg5NDc0MDA1NA==&mid=2247483850&idx=1&sn=57c203b64423d97fce3fb50ec34b67d4&send_time="
 
 
 # Analytics
@@ -99,20 +99,20 @@ analytics:
 # Site Author
 author:
   name             : "Jingwei (Chris) Zuo"
-  avatar           : "profile_2.jpg"
-  bio              : "📚25' Undergrad at Tsinghua<br>🧑🏻‍💻Machine Learning Systems<br>🎾Tennis Amateur"
+  avatar           : "profile_small.png"
+  bio              : "<i>Less is more.</i>"
   location         : "Beijing, China"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=AshbdmQAAAAJ&hl=en"
-  email            : "naohzjw [at] gmail [dot] com"
+  email            : "jingwei.zuo [at] rice [dot] edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         : "checkpoint/828281030927956/?next=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100085003284032"
+  # facebook         : "checkpoint/828281030927956/?next=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100085003284032"
   foursquare       :
   github           : "dr-left"
   google_plus      :
@@ -133,6 +133,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
+  # mpweixin          : "听Chris一席话"
 
 
 # Reading Files
@@ -140,6 +141,7 @@ include:
   - .htaccess
   - _pages
   - files
+  - .well-known
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
