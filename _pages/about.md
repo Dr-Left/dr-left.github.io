@@ -10,6 +10,8 @@ redirect_from:
 
 I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
 
+Now interning at [Moonshot AI](https://www.moonshot.cn/).
+
 Email: [naohzjw [at] gmail [dot] com](mailto:naohzjw [at] gmail [dot] com)
 
 Research 
@@ -31,6 +33,10 @@ Other explorations
 -----
 When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP.
 
+
+News
+=====
+12/16/2024: 🎉 Start to intern at [Moonshot AI](https://www.moonshot.cn/)
 
 Publications
 ======
@@ -86,7 +92,7 @@ Academic Experiences
 
 <div>
 <h6 style="font-size: 1.1em;">Carnegie Mellon University</h6><br>
-<text style="font-size: 1em;">2024.07-Present</text><br>
+<text style="font-size: 1em;">2024.07-10</text><br>
 <b style="font-size: 1em;">Remote visiting research assistant</b><br>
 <text style="font-size: 1em; color: #333;">InfiniAI Lab, advised by Prof. Beidi Chen</text>
 </div>
