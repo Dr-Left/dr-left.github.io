@@ -40,9 +40,31 @@ News
 
 Publications
 ======
+
 <div style="display: flex; align-items: center;">
     <div style="flex-shrink: 0; margin-right: 20px;">
-        <img src="https://github.com/OpenBMB/AgentVerse/assets/11704492/6db1c907-b7fc-42f9-946c-89853a28f386" alt="AgentVerse Illustration" style="max-width: 300px;">
+        <img src="../images/duo_thumbnail.jpg" alt="DuoAttention Illustration" style="max-width: 300px;">
+    </div>
+    <div>
+        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
+            DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads
+        </h3>
+        <div style="font-size: 14px; margin-bottom: 10px;">
+            Guangxuan Xiao, Jiaming Tang, <b>Jingwei Zuo</b>, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
+        </div>
+        <div style="font-size: 14px; color: gray;">
+            ICLR 2025
+        </div>
+        <div style="font-size: 14px; margin-top: 10px;">
+            <a href="https://arxiv.org/abs/2410.10819" style="text-decoration: none; color: blue;">[paper]</a>
+            <a href="https://github.com/mit-han-lab/duo-attention" style="text-decoration: none; color: blue;">[code]</a>
+            <a href="https://youtu.be/tyTkZOqKt6U" style="text-decoration: none; color: blue;">[demo]</a>
+        </div>
+    </div>
+</div>
+<div style="display: flex; align-items: center;">
+    <div style="flex-shrink: 0; margin-right: 20px;">
+        <img src="../images/agentverse.png" alt="AgentVerse Illustration" style="max-width: 300px;">
     </div>
     <div>
         <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
@@ -61,27 +83,6 @@ Publications
     </div>
 </div>
 
-<div style="display: flex; align-items: center;">
-    <div style="flex-shrink: 0; margin-right: 20px;">
-        <img src="../images/duo_thumbnail.jpg" alt="DuoAttention Illustration" style="max-width: 300px;">
-    </div>
-    <div>
-        <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">
-            DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads
-        </h3>
-        <div style="font-size: 14px; margin-bottom: 10px;">
-            Guangxuan Xiao, Jiaming Tang, <b>Jingwei Zuo</b>, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han
-        </div>
-        <div style="font-size: 14px; color: gray;">
-            arXiv
-        </div>
-        <div style="font-size: 14px; margin-top: 10px;">
-            <a href="https://arxiv.org/abs/2410.10819" style="text-decoration: none; color: blue;">[paper]</a>
-            <a href="https://github.com/mit-han-lab/duo-attention" style="text-decoration: none; color: blue;">[code]</a>
-            <a href="https://youtu.be/tyTkZOqKt6U" style="text-decoration: none; color: blue;">[demo]</a>
-        </div>
-    </div>
-</div>
 
 Academic Experiences
 ======

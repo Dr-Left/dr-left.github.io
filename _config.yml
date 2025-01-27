@@ -84,9 +84,9 @@ og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : "微信公众号" 
+  name                   : "听Chris一席话"
+  links: "https://mp.weixin.qq.com/mp/qrcode?scene=10000005&size=102&__biz=Mzg5NDc0MDA1NA==&mid=2247483850&idx=1&sn=57c203b64423d97fce3fb50ec34b67d4&send_time="
 
 
 # Analytics
@@ -133,6 +133,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
+  mpweixin          : "听Chris一席话"
 
 
 # Reading Files
