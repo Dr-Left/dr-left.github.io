@@ -10,6 +10,8 @@ redirect_from:
 
 I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
 
+Incoming Ph.D. student at Rice University CS department.
+
 Now interning at [Moonshot AI](https://www.moonshot.cn/).
 
 Email: [naohzjw [at] gmail [dot] com](mailto:naohzjw [at] gmail [dot] com)
