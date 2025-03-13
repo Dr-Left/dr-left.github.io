@@ -14,7 +14,7 @@ Incoming Ph.D. student at Rice University CS department.
 
 Now interning at [Moonshot AI](https://www.moonshot.cn/).
 
-Email: [naohzjw [at] gmail [dot] com](mailto:naohzjw [at] gmail [dot] com)
+Email: jingwei.zuo [at] rice [dot] edu
 
 Research 
 =====
