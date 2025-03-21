@@ -8,40 +8,37 @@ redirect_from:
   - /about.html
 ---
 
-I am an undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/), set to graduate in 2025. My research focuses on efficient machine learning systems.
+I am an incoming Ph.D. student at Rice University CS department. Currently, I am an senior undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/) and doing my internship at [Moonshot AI](https://www.moonshot.cn/).
 
-Incoming Ph.D. student at Rice University CS department.
-
-Now interning at [Moonshot AI](https://www.moonshot.cn/).
+My research focuses on efficient machine learning systems.
 
 Email: jingwei.zuo [at] rice [dot] edu
 
 Research 
-=====
+-------
 
 My main research question is:
 
 👉  How to increase the efficiency of machine learning systems?
 {: .notice}
 
-This question could be solved via a diversity of methods, ranging from pruning tokens, quantizing the parameters, to building more efficient serving systems.
-
 ### 💡  How I develop such a research focus?
 
 >  Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year.[[1]](https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/#:~:text=That%20means%20the%20energy%20ChatGPT%20uses%20each%20year%20to%20handle%20requests%20could%20power%2043%2C204%20U.S.%20homes%20for%20an%20entire%20year") It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
 
 
-Other explorations
------
+### Other explorations
 When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP.
 
 
 News
-=====
-12/16/2024: 🎉 Start to intern at [Moonshot AI](https://www.moonshot.cn/)
+-------
+01/23/2025: 🎉 DuoAttention accepted by ICLR 2025! 
+12/16/2024: 📍 Start to intern at [Moonshot AI](https://www.moonshot.cn/)!
+
 
 Publications
-======
+-------
 
 <div style="display: flex; align-items: center;">
     <div style="flex-shrink: 0; margin-right: 20px;">
@@ -84,73 +81,105 @@ Publications
         </div>
     </div>
 </div>
+<br>
 
+Experiences
+-------
+<div style="margin: 1em 0; display: flex; align-items: center;">
+    <img src="/images/moonshot.jpeg" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+    <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Moonshot AI</h3>
+            <span style="font-size: 0.7em; color: #666; font-style: italic;">Beijing, China</span>
+        </div>
+        <div style="font-size: 0.8em; margin: 0;">2024.12-Present</div>
+        <div style="font-size: 0.8em; margin: 0;"><b>AI Internship</b></div>
+        <div style="font-size: 0.8em; color: #333; margin: 0;">AI Infrastructure Team, focusing on training/inference optimization and scaling</div>
+    </div>
+</div>
 
-Academic Experiences
-======
+<div style="margin: 1em 0; display: flex; align-items: center;">
+    <img src="/images/infini-ai.png" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+    <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Carnegie Mellon University</h3>
+            <span style="font-size: 0.7em; color: #666; font-style: italic;">Pittsburgh, PA, USA</span>
+        </div>
+        <div style="font-size: 0.8em; margin: 0;">2024.07-10</div>
+        <div style="font-size: 0.8em; margin: 0;"><b>Remote Research Internship</b></div>
+        <div style="font-size: 0.8em; color: #333; margin: 0;">InfiniAI Lab, advised by Prof. Beidi Chen</div>
+    </div>
+</div>
+
+<div style="margin: 1em 0; display: flex; align-items: center;">
+    <img src="/images/hanlab.png" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+    <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Massachusetts Institute of Technology</h3>
+            <span style="font-size: 0.7em; color: #666; font-style: italic;">Cambridge, MA, USA</span>
+        </div>
+        <div style="font-size: 0.8em; margin: 0;">2023.10-2024.05</div>
+        <div style="font-size: 0.8em; margin: 0;"><b>Research Internship</b></div>
+        <div style="font-size: 0.8em; color: #333; margin: 0;">Han Lab, advised by Prof. Song Han</div>
+    </div>
+</div>
+
+<div style="margin: 1em 0; display: flex; align-items: center;">
+    <img src="/images/THUNLP.png" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+    <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Tsinghua University</h3>
+            <span style="font-size: 0.7em; color: #666; font-style: italic;">Beijing, China</span>
+        </div>
+        <div style="font-size: 0.8em; margin: 0;">2023.03-09</div>
+        <div style="font-size: 0.8em; margin: 0;"><b>Research Internship</b></div>
+        <div style="font-size: 0.8em; color: #333; margin: 0;">Natural Language Processing Lab (THUNLP), advised by Prof. Zhiyuan Liu</div>
+    </div>
+</div>
+<br>
+
+Educations
+-------
+
+<div style="margin: 2em 0; display: flex; align-items: flex-start;">
+  <img src="/images/tsinghua.png" style="height: 100px; margin-right: 20px; flex-shrink: 0;">
+  <div style="display: flex; flex-direction: column; gap: 5px;">
+    <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Tsinghua University</h3>
+    <div style="font-size: 0.8em; margin: 0;">2021.09-Present</div>
+    <div style="font-size: 0.8em; font-weight: 600; margin: 0;">B.Eng. in Electrical Engineering</div>
+    <div style="font-size: 0.8em; font-weight: 600; margin: 0;">B.S. in Fundamental Sciences (Math & Physics)</div>
+  </div>
+</div>
 
 <div style="margin: 1em 0; display: flex; align-items: flex-start;">
-
-<img src="/images/cmu-seal-r.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
-
-<div>
-<h6 style="font-size: 1.1em;">Carnegie Mellon University</h6><br>
-<text style="font-size: 1em;">2024.07-10</text><br>
-<b style="font-size: 1em;">Remote visiting research assistant</b><br>
-<text style="font-size: 1em; color: #333;">InfiniAI Lab, advised by Prof. Beidi Chen</text>
+  <img src="/images/northeastern.png" style="height: 100px; margin-right: 20px; flex-shrink: 0;">
+  <div style="display: flex; flex-direction: column; gap: 5px;">
+    <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Northeastern University</h3>
+    <div style="font-size: 0.8em; margin: 0;">2023.09-12</div>
+    <div style="font-size: 0.8em; margin: 0;"><b>Exchange student</b> at College of Engineering</div>
+    <div style="font-size: 0.8em; margin: 0;">Selected on <b>Dean's list</b></div>
+  </div>
 </div>
-
-</div>
-
-<div style="margin: 1em 0; display: flex; align-items: flex-start;">
-
-<img src="/images/tsinghua.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
-
-<div>
-<h6 style="font-size: 1.1em;">Tsinghua University</h6><br>
-<text style="font-size: 1em;">2021.09-Present</text><br>
-<b style="font-size: 1em;">B.Eng. in Electrical Engineering</b><br>
-<b style="font-size: 1em;">B.S. in Fundamental Sciences (Math & Physics)</b><br>
-<text style="font-size: 1em; color: #333;">Research intern at THUNLP, advised by Prof. Zhiyuan Liu</text>
-</div>
-
-</div>
-
-<div style="margin: 1em 0; display: flex; align-items: flex-start;">
-
-<img src="/images/northeastern.png" style="height: 120px; margin-right: 20px; flex-shrink: 0;">
-
-<div>
-<h6 style="font-size: 1.1em">Northeastern University</h6><br>
-<text style="font-size: 1em;">2023.9-12</text><br>
-<b style="font-size: 1em;">Exchange student</b> at College of Engineering<br>
-Selected on <b style="fondt-size: 1em;"> Dean's list</b>
-</div>
-
-</div>
-
+<br>
 
 To Learn More About Me
-======
+-------
 
-Ideals
-------
+### Ideals
+
 I would love to witness a world where humans could obtain more convenience, harmony, and happiness. Undeniably, my current research interest is only one minute factor contributing to this grand (and probably quixote) ideal. But the thing is, I would not like my research to go against this prospect at any time and under any circumstance.
 
 I advocate for the open source community.
 
-Other Experiences
-------
+### Other Experiences
 
 I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
 
-Fun Facts About Me
-------
+### Fun Facts About Me
 
 When I get nervous, I like to scratch my hair😬. So next time you see me doing that in a debate, you know you've got me there.
 
-Hobbies
-------
+### Hobbies
 
 I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤. I like to travel and explore new places:).
 
