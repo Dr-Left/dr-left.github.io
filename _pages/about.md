@@ -22,10 +22,12 @@ My main research question is:
 👉  How to increase the efficiency of machine learning systems?
 {: .notice}
 
-### 💡  How I develop such a research focus?
-
->  Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year.[[1]](https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/#:~:text=That%20means%20the%20energy%20ChatGPT%20uses%20each%20year%20to%20handle%20requests%20could%20power%2043%2C204%20U.S.%20homes%20for%20an%20entire%20year") It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
-
+<details>
+<summary>💡  How I develop such a research focus? </summary>
+<div>
+Nowadays, modern deep neural networks, represented by large language models (LLMs), have an enormous number of parameters and consume significant amounts of energy. Scaling up the model to achieve superior capabilities is important, whereas keeping the cost down is also important. The energy OpenAI’s ChatGPT uses each year to respond to the users’ requests could power 43,204 U.S. homes for the entire year.<a href="https://www.bestbrokers.com/forex-brokers/ais-power-demand-calculating-chatgpts-electricity-consumption-for-handling-over-78-billion-user-queries-every-year/#:~:text=That%20means%20the%20energy%20ChatGPT%20uses%20each%20year%20to%20handle%20requests%20could%20power%2043%2C204%20U.S.%20homes%20for%20an%20entire%20year">[1]</a> It is an outrageous number, which consolidates my belief that we should make every endeavor to cut down the cost of AI models, thereby making the new technology accessible to everybody and making the earth a greener one.
+</div>
+</details>
 
 ### Other explorations
 When first entering the research field of artificial intelligence in 2023, I participated in the AgentVerse project (which is about multi-agents) , in collaboration with Weize Chen, Yusheng Su and other excellent guys at THUNLP.
@@ -166,23 +168,38 @@ Educations
 To Learn More About Me
 -------
 
-### Ideals
-
+<details>
+<summary style="font-weight: bold; "> Ideals</summary>
+<div>
 I would love to witness a world where humans could obtain more convenience, harmony, and happiness. Undeniably, my current research interest is only one minute factor contributing to this grand (and probably quixote) ideal. But the thing is, I would not like my research to go against this prospect at any time and under any circumstance.
 
 I advocate for the open source community.
+</div>
+</details>
 
-### Other Experiences
+<details>
+<summary style="font-weight: bold;"> Other Experiences</summary>
+<div>
+I went to Northeastern University for a one-semester exchange program in 2023 Fall and had a gorgeous time there!
 
-I went to [Northeastern University](https://www.northeastern.edu/) for a one-semester exchange program in 2023 Fall and had a gorgeous time there. I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
+I love traveling around and have been to Hong Kong, Macao, Japan, Singapore, Australia, the US and of course many places of interest in mainland China.
+</div>
+</details>
 
-### Fun Facts About Me
+<details>
+<summary style="font-weight: bold;"> Fun Facts</summary>
+<div>
+When I get nervous, I like to scratch my hair😬. So next time you 
+see me doing that in a debate, you know you've got me there.
+</div>
+</details>
 
-When I get nervous, I like to scratch my hair😬. So next time you see me doing that in a debate, you know you've got me there.
-
-### Hobbies
-
+<details>
+<summary style="font-weight: bold;"> Hobbies</summary>
+<div>
 I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤. I like to travel and explore new places:).
+</div>
+</details>
 
 Contacts
 ------
