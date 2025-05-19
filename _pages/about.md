@@ -14,6 +14,9 @@ My research focuses on efficient machine learning systems.
 
 Email: jingwei.zuo [at] rice [dot] edu
 
+ℹ️ Preferred contact methods: Email / Scheduling an online chat with several prepared questions > > Wechat messaging / Text-messaging > Calling.
+{: .notice}
+
 Research 
 -------
 
