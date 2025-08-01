@@ -13,3 +13,11 @@ https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/workin
 add css here:
 
 `assets/css/academicons.css`
+
+
+## Bug with the version of bundle
+
+```bash
+rm Gemfile.lock
+bundle install
+```

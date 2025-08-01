@@ -8,21 +8,18 @@ redirect_from:
   - /about.html
 ---
 
-I am an incoming Ph.D. student at Rice University CS department. Currently, I am a senior undergrad at [Tsinghua University](https://www.tsinghua.edu.cn/en/).
+I am an incoming Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu). Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
 
 My research focuses on efficient machine learning systems.
 
 Email: jingwei.zuo [at] rice [dot] edu
-
-ℹ️ Preferred contact methods: Email / Scheduling an online chat with several prepared questions > > Wechat messaging / Text-messaging > Calling.
-{: .notice}
 
 Research 
 -------
 
 My main research question is:
 
-👉  How to increase the efficiency of machine learning systems?
+👉  How to compute more with less resources?
 {: .notice}
 
 <details>
@@ -84,8 +81,26 @@ Publications
 </div>
 <br>
 
+Academic Services
+-------
+
+Service as a reviewer for the following conferences:
+- NeurIPS 2025
+
 Experiences
 -------
+
+<div style="margin: 1em 0; display: flex; align-items: center;">
+    <img src="/images/moonshot.jpeg" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+    <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Moonshot AI</h3>
+            <span style="font-size: 0.7em; color: #666; font-style: italic;">Beijing, China</span>
+        </div>
+        <div style="font-size: 0.8em; margin: 0;">2024.12-2025.05</div>
+        <div style="font-size: 0.8em; margin: 0;"><b>AI Infrastructure Internship</b></div>
+    </div>
+</div>
 
 <div style="margin: 1em 0; display: flex; align-items: center;">
     <img src="/images/infini-ai.png" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
@@ -131,10 +146,19 @@ Educations
 -------
 
 <div style="margin: 2em 0; display: flex; align-items: flex-start;">
+  <img src="/images/rice.png" style="height: 100px; margin-right: 20px; flex-shrink: 0;">
+  <div style="display: flex; flex-direction: column; gap: 5px;">
+    <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Rice University</h3>
+    <div style="font-size: 0.8em; margin: 0;">2025.09-Present</div>
+    <div style="font-size: 0.8em; font-weight: 600; margin: 0;">Doctoral Study</div>
+  </div>
+</div>
+
+<div style="margin: 2em 0; display: flex; align-items: flex-start;">
   <img src="/images/tsinghua.png" style="height: 100px; margin-right: 20px; flex-shrink: 0;">
   <div style="display: flex; flex-direction: column; gap: 5px;">
     <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">Tsinghua University</h3>
-    <div style="font-size: 0.8em; margin: 0;">2021.09-Present</div>
+    <div style="font-size: 0.8em; margin: 0;">2021.09-2025.6</div>
     <div style="font-size: 0.8em; font-weight: 600; margin: 0;">B.Eng. in Electrical Engineering</div>
     <div style="font-size: 0.8em; font-weight: 600; margin: 0;">B.S. in Fundamental Sciences (Math & Physics)</div>
   </div>
@@ -183,11 +207,19 @@ see me doing that in a debate, you know you've got me there.
 <details>
 <summary style="font-weight: bold;"> Hobbies</summary>
 <div>
-I love playing tennis🎾 because smashing the ball just feels great. I also like listening to all kinds of music🎶, ranging from Mandopop (e.g. Jay Chou) to classical music (e.g. Tchaikovski). Sometimes I sing👨‍🎤. I like to travel and explore new places:).
+<ul>
+<li><strong>Sports:</strong> Tennis.</li>
+<li><strong>Music:</strong> Sometimes I play piano. Classical music and pop music are both my favorites.</li>
+<li><strong>Photography:</strong> Pictures of nature. Portfolio: (Ig) chris.z_pics</li>
+<li><strong>Reading:</strong> books about sociology, psychology, and history, also novels.</li>
+</ul>
 </div>
 </details>
 
 Contacts
 ------
 
-Feel free to reach out to me by email! If you are in Beijing now, probably we may even have an in-person coffee-chat! I am always glad to talk to someone else, because other's talk often inspires me and my words may inspire others too:)
+Feel free to reach out to me by email! We may even have an in-person coffee-chat if we are in the same city! I am always glad to talk to someone else, because other's talk often inspires me and my words may inspire others too:)
+
+ℹ️ Preferred contact methods: Email / Scheduling an online chat with several prepared questions > Wechat messaging / Text-messaging > Calling.
+{: .notice}
