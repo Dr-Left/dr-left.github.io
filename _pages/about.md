@@ -210,7 +210,7 @@ see me doing that in a debate, you know you've got me there.
 <ul>
 <li><strong>Sports:</strong> Tennis.</li>
 <li><strong>Music:</strong> Sometimes I play piano. Classical music and pop music are both my favorites.</li>
-<li><strong>Photography:</strong> Pictures of nature. Portfolio: (Ig) chris.z_pics</li>
+<li><strong>Photography:</strong> At the crossing between nature and humanity. Portfolio: (Ig) chris.z_pics</li>
 <li><strong>Reading:</strong> books about sociology, psychology, and history, also novels.</li>
 </ul>
 </div>
