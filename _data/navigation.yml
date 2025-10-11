@@ -21,11 +21,11 @@ main:
         
   # - title: "Blog Posts"
     
-  - title: "CV"
-    url: /files/CV_Jingwei_Zuo.pdf
+  # - title: "CV"
+  #   url: /files/CV_Jingwei_Zuo.pdf
 
-  - title: "Blogs"
-    url: /year-archive/
+  # - title: "Blogs"
+  #   url: /year-archive/
   
   # - title: "Portfolio"
   #   url: /portfolio/

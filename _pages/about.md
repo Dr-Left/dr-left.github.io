@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am an incoming Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu). Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
+I am a first year Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu), advised by Dr. Yuke Wang. Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
 
 My research focuses on efficient machine learning systems.
 
