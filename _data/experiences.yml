@@ -1,6 +1,6 @@
 - name: "Google"
   image: "/images/google.png"
-  location: "Sunnyvale, CA, USA"
+  location: "Seattle, WA, USA"
   date: "2026.05-Present"
   role: "PhD SWE Internship"
   detail: "Google Cloud"
