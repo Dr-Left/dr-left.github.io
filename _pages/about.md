@@ -105,6 +105,3 @@ Contacts
 ------
 
 Feel free to reach out to me by email! We may even have an in-person coffee-chat if we are in the same city! I am always glad to talk to someone else, because other's talk often inspires me and my words may inspire others too:)
-
-ℹ️ Preferred contact methods: Email / Online Chat > Wechat > Calling.
-{: .notice}
