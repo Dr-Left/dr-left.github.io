@@ -1,0 +1,25 @@
+- title: "DuoAttention: Efficient Long-Context LLM Inference with Retrieval and Streaming Heads"
+  authors: "Guangxuan Xiao, Jiaming Tang, <b>Jingwei Zuo</b>, Junxian Guo, Shang Yang, Haotian Tang, Yao Fu, Song Han"
+  venue: "ICLR 2025"
+  image: "../images/duo_thumbnail.jpg"
+  image_alt: "DuoAttention Illustration"
+  abstract: "We identify two distinct types of attention heads in large language models: retrieval heads, which require access to the full KV cache to locate relevant tokens, and streaming heads, which only need a constant-size cache. DuoAttention exploits this asymmetry to significantly reduce memory usage and decoding latency for long-context inference, while preserving model accuracy."
+  links:
+    - label: paper
+      url: "https://arxiv.org/abs/2410.10819"
+    - label: code
+      url: "https://github.com/mit-han-lab/duo-attention"
+    - label: demo
+      url: "https://youtu.be/tyTkZOqKt6U"
+
+- title: "AgentVerse: Facilitating Multi-Agent Collaboration and Exploring Emergent Behaviors"
+  authors: "Weize Chen*, Yusheng Su*, <b>Jingwei Zuo</b>, Cheng Yang, Chenfei Yuan, Chi-Min Chan, Heyang Yu, Yaxi Lu, Yi-Hsin Hung, Chen Qian, Yujia Qin, Xin Cong, Ruobing Xie, Zhiyuan Liu, Maosong Sun, Jie Zhou"
+  venue: "ICLR 2024"
+  image: "../images/agentverse.png"
+  image_alt: "AgentVerse Illustration"
+  abstract: "AgentVerse is a versatile framework designed to facilitate the deployment of multiple LLM-based agents in various applications. It provides a structured pipeline for multi-agent collaboration and uncovers emergent social behaviors arising from agent interactions, offering insights into collective intelligence in LLM-based systems."
+  links:
+    - label: paper
+      url: "https://arxiv.org/abs/2308.10848"
+    - label: code
+      url: "https://github.com/OpenBMB/AgentVerse"

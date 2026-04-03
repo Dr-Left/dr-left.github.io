@@ -1,0 +1,18 @@
+{% for exp in site.data.experiences %}
+<div class="exp-entry" style="margin: 1em 0; display: flex; align-items: center;">
+  <img src="{{ exp.image }}" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+  <div style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">{{ exp.name }}</h3>
+      {% if exp.location %}
+      <span style="font-size: 0.7em; color: #666; font-style: italic;">{{ exp.location }}</span>
+      {% endif %}
+    </div>
+    <div style="font-size: 0.8em; margin: 0;">{{ exp.date }}</div>
+    <div style="font-size: 0.8em; margin: 0;"><b>{{ exp.role }}</b></div>
+    {% if exp.detail %}
+    <div style="font-size: 0.8em; color: #333; margin: 0;">{{ exp.detail }}</div>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}

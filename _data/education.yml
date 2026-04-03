@@ -1,0 +1,19 @@
+- name: "Rice University"
+  image: "/images/rice.png"
+  date: "2025.09-Present"
+  degrees:
+    - "<b>Doctoral Study</b> in Computer Science and Information Systems"
+
+- name: "Tsinghua University"
+  image: "/images/tsinghua.png"
+  date: "2021.09-2025.6"
+  degrees:
+    - "<b>B.Eng. in Electrical Engineering</b>"
+    - "<b>B.S. in Fundamental Sciences (Math & Physics)</b>"
+
+- name: "Northeastern University"
+  image: "/images/northeastern.png"
+  date: "2023.09-12"
+  degrees:
+    - "<b>Exchange student</b> at College of Engineering"
+    - "Selected on <b>Dean's list</b>"

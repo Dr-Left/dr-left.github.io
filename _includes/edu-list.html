@@ -1,0 +1,12 @@
+{% for edu in site.data.education %}
+<div class="edu-entry" style="margin: 2em 0; display: flex; align-items: flex-start;">
+  <img src="{{ edu.image }}" style="width: 100px; margin-right: 20px; flex-shrink: 0;">
+  <div style="display: flex; flex-direction: column; gap: 5px;">
+    <h3 style="margin: 0; font-size: 1.0em; font-weight: 600;">{{ edu.name }}</h3>
+    <div style="font-size: 0.8em; margin: 0;">{{ edu.date }}</div>
+    {% for degree in edu.degrees %}
+    <div style="font-size: 0.8em; margin: 0;">{{ degree }}</div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}

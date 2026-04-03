@@ -86,3 +86,171 @@ details {
     border-bottom: 2px solid #f2f2f2;
     margin-bottom: 25px;
   }
+
+/* ============================================================
+   Section Headers
+   ============================================================ */
+.page__content h2 {
+  padding-left: 0.6em;
+  border-bottom: none;
+  border-left: 4px solid #0072de;
+  color: #3a3f44;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+/* ============================================================
+   News Timeline
+   ============================================================ */
+.news-list {
+  margin: 0.5em 0 1.5em 0;
+  border-left: 2px solid #d0d7de;
+  padding-left: 1.2em;
+}
+
+.news-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75em;
+  margin-bottom: 0.6em;
+  padding: 0.25em 0;
+  font-size: 0.9em;
+  position: relative;
+}
+
+.news-item::before {
+  content: "";
+  position: absolute;
+  left: -1.52em;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0072de;
+}
+
+.news-date {
+  font-weight: 600;
+  color: #0072de;
+  white-space: nowrap;
+  font-size: 0.85em;
+  min-width: 7em;
+}
+
+.news-text {
+  color: #3a3f44;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   Publication Cards
+   ============================================================ */
+.pub-card {
+  padding: 16px;
+  margin-bottom: 1.2em;
+  border: 1px solid #e8ecf0;
+  border-radius: 6px;
+  background: #fff;
+  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.pub-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 114, 222, 0.10);
+  border-color: #b3d0f7;
+}
+
+.pub-abstract {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 0.82em;
+  color: #555;
+  line-height: 1.6;
+  border-top: 1px solid transparent;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  padding: 0 2px;
+}
+
+.pub-card:hover .pub-abstract {
+  max-height: 10em;
+  padding: 10px 2px 2px;
+  border-top-color: #e8ecf0;
+}
+
+.pub-card img {
+  border-radius: 4px;
+}
+
+.pub-links a {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 9px;
+  font-size: 0.78em;
+  font-weight: 500;
+  color: #0072de !important;
+  text-decoration: none !important;
+  border: 1px solid #0072de;
+  border-radius: 3px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.pub-links a:hover {
+  background-color: #0072de;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+/* ============================================================
+   Experience & Education Entries
+   ============================================================ */
+.exp-entry,
+.edu-entry {
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.exp-entry h3,
+.exp-entry div,
+.edu-entry h3,
+.edu-entry div {
+  font-family: "Inter", sans-serif;
+}
+
+.exp-entry span {
+  font-family: "Lora", Georgia, serif;
+}
+
+.exp-entry:hover,
+.edu-entry:hover {
+  background-color: #f3f7fd;
+}
+
+.exp-entry img,
+.edu-entry img {
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.exp-entry + .exp-entry,
+.edu-entry + .edu-entry {
+  border-top: 1px solid #f0f0f0;
+  margin-top: 0 !important;
+  padding-top: 14px;
+}
+
+/* ============================================================
+   Responsive: stack pub-card image on mobile
+   ============================================================ */
+@media (max-width: 600px) {
+  .pub-card {
+    flex-direction: column !important;
+  }
+  .pub-card > div:first-child {
+    margin-right: 0 !important;
+    margin-bottom: 12px;
+  }
+  .pub-card img {
+    max-width: 100% !important;
+    width: 100%;
+  }
+}
