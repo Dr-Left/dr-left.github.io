@@ -239,18 +239,53 @@ details {
 }
 
 /* ============================================================
-   Responsive: stack pub-card image on mobile
+   Responsive: mobile layout fixes
    ============================================================ */
 @media (max-width: 600px) {
-  .pub-card {
+  /* Publications: stack image above text */
+  .pub-inner-row {
     flex-direction: column !important;
   }
-  .pub-card > div:first-child {
+  .pub-inner-row > div:first-child {
     margin-right: 0 !important;
     margin-bottom: 12px;
   }
-  .pub-card img {
+  .pub-inner-row img {
     max-width: 100% !important;
     width: 100%;
+  }
+
+  /* Publications: always show abstract (no hover on touch) */
+  .pub-abstract {
+    max-height: none !important;
+    padding: 10px 2px 2px !important;
+    border-top-color: #e8ecf0 !important;
+  }
+
+  /* Experiences: stack logo above text */
+  .exp-entry {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .exp-entry > img {
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+  }
+
+  /* Experiences: wrap name/location vertically */
+  .exp-header-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px;
+  }
+
+  /* Education: stack logo above text */
+  .edu-entry {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .edu-entry > img {
+    margin-right: 0 !important;
+    margin-bottom: 10px;
   }
 }

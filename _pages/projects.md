@@ -48,6 +48,18 @@ redirect_from:
     .project-entry:hover {
         background-color: #f3f7fd;
     }
+
+    @media (max-width: 600px) {
+        .project-entry {
+            flex-direction: column;
+        }
+        .project-image {
+            height: auto;
+            width: 80px;
+            margin-right: 0;
+            margin-bottom: 12px;
+        }
+    }
 </style>
 
 <div class="project-entry" style="margin: 1em 0; display: flex; align-items: flex-start;">
