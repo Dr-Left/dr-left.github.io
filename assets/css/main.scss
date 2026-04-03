@@ -255,8 +255,8 @@ details {
     width: 100%;
   }
 
-  /* Publications: always show abstract (no hover on touch) */
-  .pub-abstract {
+  /* Publications: show abstract when tapped (class toggled by JS) */
+  .pub-card.abstract-open .pub-abstract {
     max-height: none !important;
     padding: 10px 2px 2px !important;
     border-top-color: #e8ecf0 !important;

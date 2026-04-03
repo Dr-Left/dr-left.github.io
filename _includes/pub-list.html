@@ -20,3 +20,15 @@
   {% endif %}
 </div>
 {% endfor %}
+
+<script>
+if ('ontouchstart' in window) {
+  document.querySelectorAll('.pub-card').forEach(function(card) {
+    card.addEventListener('click', function(e) {
+      if (!e.target.closest('a')) {
+        this.classList.toggle('abstract-open');
+      }
+    });
+  });
+}
+</script>
