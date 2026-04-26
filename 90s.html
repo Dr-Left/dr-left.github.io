@@ -1,0 +1,79 @@
+---
+layout: null
+permalink: /90s.html
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.data.profile.name }}</title>
+</head>
+<body>
+
+<p><a href="/">&larr; back to the normal site</a></p>
+
+<h1>{{ site.data.profile.name }} ({{ site.data.profile.name_zh }})</h1>
+
+<img src="/images/profile_small.png" alt="{{ site.data.profile.name }}" width="150">
+
+{{ site.data.profile.intro | markdownify }}
+
+<p>Email: {{ site.data.profile.email }}</p>
+
+<h2>Research</h2>
+<p>My main research question is: <strong>{{ site.data.profile.research_question }}</strong></p>
+
+<h2>News</h2>
+<ul>
+{% for item in site.data.news %}
+  <li>{{ item.date }} &mdash; {{ item.text }}</li>
+{% endfor %}
+</ul>
+
+<h2>Publications</h2>
+<ul>
+{% for pub in site.data.publications %}
+  <li>
+    <strong>{{ pub.title }}</strong><br>
+    {{ pub.authors }}<br>
+    <em>{{ pub.venue }}</em>
+    {% if pub.links %}<br>{% for link in pub.links %}[<a href="{{ link.url }}">{{ link.label }}</a>] {% endfor %}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+<h2>Experiences</h2>
+<ul>
+{% for exp in site.data.experiences %}
+  <li>
+    <strong>{{ exp.name }}</strong>{% if exp.location %}, {{ exp.location }}{% endif %} ({{ exp.date }})<br>
+    {{ exp.role }}{% if exp.detail %} &mdash; {{ exp.detail }}{% endif %}
+  </li>
+{% endfor %}
+</ul>
+
+<h2>Education</h2>
+<ul>
+{% for edu in site.data.education %}
+  <li>
+    <strong>{{ edu.name }}</strong> ({{ edu.date }})
+    <ul>
+      {% for d in edu.degrees %}<li>{{ d }}</li>{% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>Hobbies</h2>
+<ul>
+{% for h in site.data.profile.hobbies %}
+  <li><strong>{{ h.name }}:</strong> {{ h.detail }}</li>
+{% endfor %}
+</ul>
+
+<p><a href="/">&larr; back to the normal site</a></p>
+
+</body>
+</html>

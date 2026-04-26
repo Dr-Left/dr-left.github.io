@@ -7,9 +7,12 @@
 main:
   - title: "Publications"
     url: "#publications"
-  
+
   - title: "Projects"
     url: "/projects/"
+
+  - title: "Plain HTML"
+    url: "/90s.html"
 
   # - title: "Talks"
   #   url: /talks/    

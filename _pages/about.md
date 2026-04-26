@@ -8,18 +8,16 @@ redirect_from:
   - /about.html
 ---
 
-I am a first year Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu), advised by [Dr. Yuke Wang](https://www.wang-yuke.com). Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
+{{ site.data.profile.intro | markdownify }}
 
-My research focuses on efficient machine learning systems.
-
-Email: jingwei.zuo [at] rice [dot] edu
+Email: {{ site.data.profile.email }}
 
 Research 
 -------
 
 My main research question is:
 
-👉  How to compute more with less resources?
+👉  {{ site.data.profile.research_question }}
 {: .notice}
 
 <details>
@@ -93,11 +91,8 @@ see me doing that in a debate, you know you've got me there.
 <summary style="font-weight: bold;"> Hobbies</summary>
 <div>
 <ul>
-<li><strong>Sports:</strong> Tennis.</li>
-<li><strong>Music:</strong> Sometimes I play piano. Classical music and pop music are both my favorites.</li>
-<li><strong>Photography:</strong> At the crossing between nature and humanity. Portfolio: (Ig) chris.z_pics</li>
-<li><strong>Reading:</strong> books about sociology, psychology, and history, also novels.</li>
-</ul>
+{% for h in site.data.profile.hobbies %}<li><strong>{{ h.name }}:</strong> {{ h.detail }}</li>
+{% endfor %}</ul>
 </div>
 </details>
 
