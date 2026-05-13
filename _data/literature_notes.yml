@@ -1,137 +1,25 @@
 - slug: deepseek-v4-million-token-context
   title: "DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence (1)"
   source_url: "https://jingwei-zuo.notion.site/35f0d39fb5ca8055a9adee24a2c27e22"
-  sections:
-    - heading: "Quick Note"
-      body: |
-        **Core Methodology?**
+  preview: |
+    Quick Note
 
-        - Hybrid Attention (Compressed Sparse Attention + Heavily Compressed Attention)
-        - Manifold-Constrained Hyper-Connections (mHC)
-        - Muon Optimizer
-        - Pretrain: >32T
-        - Post-Train: Domain-specific experts then on-policy distillation (wherein the unified model acts as the student learning to optimize the reverse KL loss with teacher models)
+    Core Methodology?
 
-        **Motivation**
-
-        - Quadratic Attention is INEFFICIENT
-
-        **Strenghts**
-
-        - 27% of FLOPs and 10% of KV compared to Deepseek-V3.2
-
-        **Core Architecture**
-
-        - Still MoE
-          - a single fused kernel for MoE modules that overlaps computation communication and memory access.
-          - remove constraint of N_routing target nodes
-          - Hash routing. (for initial layers)
-        - Still MTP
-        - mHC
-          - 感觉很fancy的数学+实验验证对了就OK。这种constraint的insight成立的可能有千千万，但是实验成功与否不知道。能work就是好方法。
-          - 说实话感觉kimi的attention residuals似乎更简介一点。这个看上去非常数学。
-        - Hybrid Attention (CSA+HCA)
-          - CSA: compresses the KV caches along the sequence dimension and then performs DeepSeek Sparse Attention (DSA)
-          - 简单说来，就是把每m个token压缩成一个，然后再用lightning indexer挑选topk做最经典的multi-head attention计算。
-          - 压缩的时候有两套预料（Ca, Cb），当前这个块压缩的hidden C_comp会看到当前当前block(m个token)的Ca，和前一个block （也是m个token）的Cb.
-          - HCA: More aggressive to KV cache, but dense attention
-          - m’ >> m,也就是说这里压缩更激进
-          - 这里没有两套hidden做overlapped compression
-          - 锐评：感觉dpsk对attention的设计屡屡非常激进。别家可能都觉得attention是bottleneck，那interleave一下linear和dense就完了，dpsk还对dense做了heavy conpression，然后sparse部分也是在DSA基础上再加了m→1的compression.
-          - Sliding window attention: to preserve locality. (insight: after separating into blocks, the query cannot access information from other tokens within the same block)
-          - 感觉就是heuristically要把该保留的信息通道保留，剩下的交给伟大的adam优化器去做。如果训练不稳定，再想想法子让它不那么容易发散，比如加入一些约束条件。(比如mHC)
-          - Attention Sink integrated
-        - Backend implementation:
-          - TileLang
-          - batch-invariant and deterministic kernel libraries
-          - 严重怀疑dpsk设计这么复杂的kernel系统是为了debug硬件精度问题（华为昇腾听说经常数值结果会不稳定）。
-          - FP4 quantization-aware training for MoE weights and the indexer QK path to reduce memory and computation
-          - tensor-level checkpointing → fine-grained recomputation control; hybrid ZeRO for Muon, mHC implem via recomputation and fused kernels; two stage contextual parallelism
-          - Inference: het-KV cache with on-disk storage for shared-prefix reuse.
-    - heading: "Related Works"
-      body: |
-        <Main baseline>
-
-        Other methods to solve the same problems
-    - heading: "Relation to My Research"
-      body: |
-        **Main research Gap**
-
-        123
+    - Hybrid Attention (Compressed Sparse Attention + Heavily Compressed Attention)
+    - Manifold-Constrained Hyper-Connections (mHC)
+    - Muon Optimizer
 
 - slug: leann-low-storage-overhead-vector-index
   title: "LEANN: A LOW-STORAGE OVERHEAD VECTOR INDEX"
   authors: "Yichuan Wang"
   publication_date: "November 25, 2025"
   source_url: "https://jingwei-zuo.notion.site/35f0d39fb5ca807f9f6bc8ee387de017"
-  summary: "本人观点，仅供参考。"
-  sections:
-    - heading: "Quick Note"
-      body: |
-        **What Problem it is Trying to Solve? (Motivation)**
+  preview: |
+    个人观点，仅供参考。
 
-        Low-memory footprint RAG via ANNS (Approximate Nearest Neighbor Search).
+    Quick Note
 
-        **Core Methodology?**
+    What Problem it is Trying to Solve? (Motivation)
 
-        **Two Stages Search with Lightweight Heavily Compressed Product Quantization table (1/100x) (sec. 4)**
-
-        Offline Stage: Pruned graph + PQ-compressed embedding table
-
-        这里会用很高的PQ compression rate (100x)，强力压缩，可以节省很多vector存储的内存。但导致一个问题：量化误差很大。内存开销： O(4N x dim/100)
-
-        motivation是因为我们用100×压缩的PQ，所以quantization error很大，所以DiskANN的"PQ筛选+rerank"模式失效，所以我们需要interleave exact和approximate distance。
-
-        锐评：但这个"问题"本身是论文为了storage指标自己造出来的 -- 一个design choice引出了另一个design choice，再引出第三个，最后包装成"a suite of optimizations"。从first principles看，未必是最优结构。
-
-        Online Stage: Two-level search strategy.
-
-        - Lightweight approx distances using PQ
-        - Recompute exact embeddings on demand
-
-        Dynamic Batching (sec. 4.2) ..略 提高GPU利用率而做batching。引入staleness，但是大幅提高利用率。
-
-        这是用来解决仅仅用PQ搜索带来的劣势的。用精确距离(exact distances) 去选择需要访问点节点。然后近似距离(approximate distances) 来剪枝。
-
-        算法里面AQ是approximate distance的queue，EQ是exact distance的queue.
-
-        **Graph Pruning: Preserve high-degree nodes & discard dense embeddings (sec. 5)**
-
-        Motivation: metadata storage is still high (~10s of GB)
-
-        Key Observation: 不同edge不并不是同等重要的。High-degree nodes are accessed more frequently than low-degree nodes.
-
-        Core method: 保留高连通性的节点，在其他地方做pruning.
-
-        Most nodes are limited to a lower degree m, while a small fraction of nodes (β%) can retain up to M connections
-
-        **Graph partitioning-based build strategy (sec. 6)**
-
-        storage-efficient index build. 前两个method解决了静态存储高的问题，这个technique解决peak storage usage很高的问题
-
-        - Soft assignment with k-means
-        - Shard-wise graph construction
-        - Graph merging
-
-        这块感觉偏implementation了，核心的目的就是减少动态内存开销。
-
-        **Strengths and weaknesses?**
-
-        锐评：
-
-        LLM generation场景下，推理模型生成速度比较慢，几十秒的llm generation，所以几秒的searching overhead微乎其微。但是如果场景换成立刻出结果的场景(prefill only) 之类的，overhead 就会很大了。 实际上的overhead是HNSW / diskANN的几百倍。 而且都是single-hop QA， retrieval Overhead只有一次，如果multi-hop，overhead积累之后就是different story
-
-        LEANN最适配的场景是"强GPU + 受限SSD" -- 这个组合在现实中并不那么常见，至少远不像论文叙事暗示的那样普遍。 appendix里的Mac结果：没有强GPU时，recomputation成本立刻爆炸 -- HotpotQA retrieval从RTX 4090上的7秒变成Mac上的44.8秒，几乎追平了generation时间。换句话说：
-
-        - 有RTX 4090的人通常不缺那188GB存储；
-        - 真正存储受限的设备（手机、轻薄本、低配MacBook）跑LEANN的延迟体验会很差。
-    - heading: "Related Works"
-      body: |
-        ANNS methods: PQ, IVF, HNSW
-
-        Other methods to solve the same problems
-    - heading: "Relation to My Research"
-      body: |
-        **Main research Gap**
-
-        123
+    Low-memory footprint RAG via ANNS (Approximate Nearest Neighbor Search).

@@ -1,5 +1,6 @@
 {% assign notes = site.data.literature_notes %}
 <div class="lit-notes-list">
+  <p class="lit-note-disclaimer">个人观点，仅供参考。</p>
   {% for note in notes %}
   <article class="lit-note-card" id="{{ note.slug }}">
     {% if note.publication_date or note.authors %}
@@ -11,18 +12,12 @@
     <h3 class="lit-note-title">{{ note.title }}</h3>
     {% if note.source_url %}
     <div class="lit-note-links">
-      <a href="{{ note.source_url }}">[Source]</a>
+      <a href="{{ note.source_url }}">[Read full note on Notion]</a>
     </div>
     {% endif %}
-    {% if note.summary %}
-    <div class="lit-note-summary">{{ note.summary | markdownify }}</div>
+    {% if note.preview %}
+    <div class="lit-note-preview">{{ note.preview | markdownify }}</div>
     {% endif %}
-    {% for section in note.sections %}
-    <section class="lit-note-section">
-      <h4>{{ section.heading }}</h4>
-      {{ section.body | markdownify }}
-    </section>
-    {% endfor %}
   </article>
   {% endfor %}
 </div>

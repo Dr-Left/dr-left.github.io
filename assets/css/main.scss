@@ -208,6 +208,12 @@ details {
   margin: 0.5em 0 1.5em;
 }
 
+.lit-note-disclaimer {
+  margin: 0 0 0.2em;
+  color: #777;
+  font-size: 0.85em;
+}
+
 .lit-note-card {
   padding: 16px;
   border: 1px solid #e8ecf0;
@@ -246,28 +252,15 @@ details {
   text-decoration: none !important;
 }
 
-.lit-note-summary {
-  color: #3a3f44;
+.lit-note-preview {
+  color: #777;
   font-size: 0.9em;
   line-height: 1.55;
 }
 
-.lit-note-section {
-  margin-top: 0.9em;
-  color: #3a3f44;
-  font-size: 0.88em;
-  line-height: 1.55;
-}
-
-.lit-note-section h4 {
-  margin: 0 0 0.35em;
-  color: #3a3f44;
-  font-size: 1em;
-}
-
-.lit-note-section p,
-.lit-note-section ul,
-.lit-note-section ol {
+.lit-note-preview p,
+.lit-note-preview ul,
+.lit-note-preview ol {
   margin-bottom: 0.5em;
 }
 
