@@ -34,13 +34,6 @@ News
 {% include news-list.html %}
 
 
-Literature Reading Notes
--------
-
-{% include literature-note-list.html %}
-<br>
-
-
 Publications
 -------
 
