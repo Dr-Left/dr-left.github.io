@@ -8,6 +8,9 @@ main:
   - title: "Publications"
     url: "#publications"
 
+  - title: "Literature Notes"
+    url: "/literature-reading-notes/"
+
   - title: "Projects"
     url: "/projects/"
 

@@ -1,0 +1,28 @@
+{% assign notes = site.data.literature_notes %}
+<div class="lit-notes-list">
+  {% for note in notes %}
+  <article class="lit-note-card" id="{{ note.slug }}">
+    {% if note.publication_date or note.authors %}
+    <div class="lit-note-meta">
+      {% if note.publication_date %}<span>{{ note.publication_date }}</span>{% endif %}
+      {% if note.authors %}<span>{{ note.authors }}</span>{% endif %}
+    </div>
+    {% endif %}
+    <h3 class="lit-note-title">{{ note.title }}</h3>
+    {% if note.source_url %}
+    <div class="lit-note-links">
+      <a href="{{ note.source_url }}">[Source]</a>
+    </div>
+    {% endif %}
+    {% if note.summary %}
+    <div class="lit-note-summary">{{ note.summary | markdownify }}</div>
+    {% endif %}
+    {% for section in note.sections %}
+    <section class="lit-note-section">
+      <h4>{{ section.heading }}</h4>
+      {{ section.body | markdownify }}
+    </section>
+    {% endfor %}
+  </article>
+  {% endfor %}
+</div>
