@@ -104,7 +104,8 @@ body {
 }
 
 .pub-card:last-child,
-.os-card:last-child {
+.os-card:last-child,
+.project-card:last-child {
   margin-bottom: 0;
 }
 
@@ -305,6 +306,84 @@ h1 {
   display: none;
 }
 
+
+/* ============================================================
+   Hobby Project Cards
+
+   Chrome, hover panel and type all come from the shared card rules
+   above; only layout and the title treatment are specific here.
+   ============================================================ */
+.project-inner-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.project-thumb {
+  flex-shrink: 0;
+}
+
+.project-thumb img {
+  width: 120px;
+  border-radius: 4px;
+}
+
+.project-body {
+  min-width: 0;
+}
+
+.project-title {
+  margin: 0 0 0.35rem;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+}
+
+.project-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: $ink !important;
+  text-decoration: none !important;
+  transition: color $card-ease;
+}
+
+.project-title .fa-github {
+  color: $github-ink;
+  transition: color $card-ease;
+}
+
+.project-title a:hover,
+.project-title a:hover .fa-github {
+  color: $link-blue !important;
+}
+
+.project-title-text {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+}
+
+@media (max-width: 600px) {
+  .project-inner-row {
+    flex-direction: column;
+  }
+  .project-thumb img {
+    width: 90px;
+  }
+}
+
 /* ============================================================
    Section Headers
    ============================================================ */
@@ -385,7 +464,8 @@ h1 {
 /* ============================================================
    Publication Cards
    ============================================================ */
-.pub-card {
+.pub-card,
+.project-card {
   display: flex;
   flex-direction: column;
   padding: 18px;
@@ -439,7 +519,8 @@ h1 {
   color: $ink-mute;
 }
 
-.pub-card:hover {
+.pub-card:hover,
+.project-card:hover {
   box-shadow: 0 6px 20px rgba(0, 114, 222, 0.11);
   border-color: $card-border-hover;
   transform: translateY(-1px);
@@ -455,7 +536,8 @@ h1 {
    ------------------------------------------------------------ */
 .pub-abstract,
 .exp-details,
-.os-details {
+.os-details,
+.project-details {
   display: grid;
   grid-template-rows: 0fr;
   border-top: 1px solid transparent;
@@ -467,7 +549,8 @@ h1 {
 
 .pub-abstract-inner,
 .exp-details-inner,
-.os-details-inner {
+.os-details-inner,
+.project-details-inner {
   overflow: hidden;
   min-height: 0;
 }
@@ -478,7 +561,8 @@ h1 {
 @media (hover: hover) and (pointer: fine) {
   html:not(.is-touch) .pub-card:hover .pub-abstract,
   html:not(.is-touch) .exp-entry:hover .exp-details,
-  html:not(.is-touch) .os-card:hover .os-details {
+  html:not(.is-touch) .os-card:hover .os-details,
+  html:not(.is-touch) .project-card:hover .project-details {
     grid-template-rows: 1fr;
     opacity: 1;
     padding: 12px 2px 2px;
@@ -489,14 +573,16 @@ h1 {
 /* Tap-toggled state, available at every width */
 .pub-card.abstract-open .pub-abstract,
 .exp-entry.details-open .exp-details,
-.os-card.details-open .os-details {
+.os-card.details-open .os-details,
+.project-card.details-open .project-details {
   grid-template-rows: 1fr;
   opacity: 1;
   padding: 12px 2px 2px;
   border-top-color: $card-border;
 }
 
-.pub-abstract-inner {
+.pub-abstract-inner,
+.project-details-inner {
   font-family: $serif;
   font-size: $t-body;
   line-height: $lh-prose;
@@ -1000,13 +1086,15 @@ h1 {
 /* Subtle cue that a card has more to reveal on hover */
 .exp-entry.has-details,
 .pub-card.has-details,
-.os-card.has-details {
+.os-card.has-details,
+.project-card.has-details {
   position: relative;
 }
 
 .exp-entry.has-details::after,
 .pub-card.has-details::after,
-.os-card.has-details::after {
+.os-card.has-details::after,
+.project-card.has-details::after {
   content: "\f078"; /* font-awesome chevron-down */
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -1020,7 +1108,8 @@ h1 {
 
 .exp-entry.has-details:hover::after,
 .pub-card.has-details:hover::after,
-.os-card.has-details:hover::after {
+.os-card.has-details:hover::after,
+.project-card.has-details:hover::after {
   opacity: 0;
   transform: translateY(3px);
 }

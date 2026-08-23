@@ -1,0 +1,34 @@
+{% for proj in site.data.projects %}
+<div class="project-card{% if proj.description %} has-details{% endif %}">
+  <div class="project-inner-row">
+    <div class="project-thumb">
+      <img src="{{ proj.image }}" alt="{{ proj.image_alt }}">
+    </div>
+    <div class="project-body">
+      <h3 class="project-title">
+        <a href="{{ proj.links[0].url }}" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github" aria-hidden="true"></i><span class="project-title-text">{{ proj.title }}</span>
+        </a>
+      </h3>
+      <div class="project-meta">
+        <span>{{ proj.meta }}</span>
+        {% if proj.slug %}
+        <span class="exp-stars" data-repo="{{ proj.slug }}" title="Stars on GitHub">
+          <i class="fas fa-star" aria-hidden="true"></i><span class="exp-star-count">&middot;&middot;&middot;</span>
+        </span>
+        {% endif %}
+      </div>
+      <div class="pub-links">
+        {% for link in proj.links %}
+        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% if proj.description %}
+  <div class="project-details">
+    <div class="project-details-inner">{{ proj.description }}</div>
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
