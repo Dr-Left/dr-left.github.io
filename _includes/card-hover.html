@@ -1,9 +1,13 @@
 <script>
-/* Hover reveals each card's detail panel via CSS. Touch devices have no
-   hover, so there we toggle the panel on tap instead (clicks on links
-   still follow through). One handler covers every card type. */
+/* Hover reveals each card's detail panel via CSS. Where there is no real
+   hover, we toggle the panel on tap instead (clicks on links still follow
+   through). One handler covers every card type.
+
+   The capability test must match the CSS media query exactly: gating on
+   'ontouchstart' instead would attach handlers on hover-capable laptops
+   that merely have a touchscreen, and skip them on pointer-less devices. */
 (function () {
-  if (!('ontouchstart' in window)) return;
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
 
   var cards = [
     ['.pub-card.has-details', 'abstract-open'],
