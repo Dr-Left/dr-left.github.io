@@ -1,0 +1,43 @@
+<div class="os-list">
+{% for proj in site.data.opensource %}
+  {% assign has_details = false %}
+  {% if proj.blurb or proj.contributions %}{% assign has_details = true %}{% endif %}
+
+  <div class="os-card{% if has_details %} has-details{% endif %}">
+    <div class="os-head">
+      <a class="os-name" href="{{ proj.url }}" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-github" aria-hidden="true"></i><span class="os-name-text">{{ proj.name }}</span>
+      </a>
+      <span class="exp-stars" data-repo="{{ proj.slug }}" title="Stars on GitHub">
+        <i class="fas fa-star" aria-hidden="true"></i><span class="exp-star-count">&middot;&middot;&middot;</span>
+      </span>
+      <span class="os-spacer"></span>
+      <span class="os-date">{{ proj.date }}</span>
+    </div>
+
+    <div class="os-meta">{{ proj.role }} &middot; {{ proj.org }}</div>
+
+    {% if has_details %}
+    <div class="os-details">
+      <div class="os-details-inner">
+        {% if proj.blurb %}
+        <div class="os-blurb">{{ proj.blurb }}</div>
+        {% endif %}
+
+        {% if proj.contributions %}
+        <ul class="os-prs">
+          {% for c in proj.contributions %}
+          <li>
+            <a href="{{ c.url }}" target="_blank" rel="noopener noreferrer" class="os-pr-num">{{ c.label }}</a>
+            <span class="os-pr-title">{{ c.title }}</span>
+            <span class="os-pr-state os-pr-state--{{ c.state }}">{{ c.state }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+{% endfor %}
+</div>

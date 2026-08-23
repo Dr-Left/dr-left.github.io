@@ -1,34 +1,25 @@
 {% for pub in site.data.publications %}
-<div class="pub-card" style="display: flex; flex-direction: column;">
-  <div class="pub-inner-row" style="display: flex; align-items: center;">
-    <div style="flex-shrink: 0; margin-right: 20px;">
-      <img src="{{ pub.image }}" alt="{{ pub.image_alt }}" style="max-width: 300px;">
+<div class="pub-card{% if pub.abstract %} has-details{% endif %}">
+  <div class="pub-inner-row">
+    <div class="pub-thumb">
+      <img src="{{ pub.image }}" alt="{{ pub.image_alt }}">
     </div>
-    <div>
-      <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">{{ pub.title }}</h3>
-      <div style="font-size: 14px; margin-bottom: 10px;">{{ pub.authors }}</div>
-      <div style="font-size: 14px; color: gray;">{{ pub.venue }}</div>
-      <div class="pub-links" style="font-size: 14px; margin-top: 10px;">
+    <div class="pub-body">
+      <h3 class="pub-title">{{ pub.title }}</h3>
+      <div class="pub-authors">{{ pub.authors }}</div>
+      <div class="pub-venue">{{ pub.venue }}</div>
+      <div class="pub-links">
         {% for link in pub.links %}
-        <a href="{{ link.url }}">[{{ link.label }}]</a>
+        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
         {% endfor %}
       </div>
     </div>
   </div>
   {% if pub.abstract %}
-  <div class="pub-abstract">{{ pub.abstract }}</div>
+  <div class="pub-abstract">
+    <div class="pub-abstract-inner">{{ pub.abstract }}</div>
+  </div>
   {% endif %}
 </div>
 {% endfor %}
 
-<script>
-if ('ontouchstart' in window) {
-  document.querySelectorAll('.pub-card').forEach(function(card) {
-    card.addEventListener('click', function(e) {
-      if (!e.target.closest('a')) {
-        this.classList.toggle('abstract-open');
-      }
-    });
-  });
-}
-</script>

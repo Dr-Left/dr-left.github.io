@@ -1,0 +1,23 @@
+<script>
+/* Hover reveals each card's detail panel via CSS. Touch devices have no
+   hover, so there we toggle the panel on tap instead (clicks on links
+   still follow through). One handler covers every card type. */
+(function () {
+  if (!('ontouchstart' in window)) return;
+
+  var cards = [
+    ['.pub-card.has-details', 'abstract-open'],
+    ['.exp-entry.has-details', 'details-open'],
+    ['.os-card.has-details', 'details-open'],
+    ['.disclosure', 'details-open']
+  ];
+
+  cards.forEach(function (pair) {
+    document.querySelectorAll(pair[0]).forEach(function (card) {
+      card.addEventListener('click', function (e) {
+        if (!e.target.closest('a')) this.classList.toggle(pair[1]);
+      });
+    });
+  });
+})();
+</script>

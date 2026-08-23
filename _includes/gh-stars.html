@@ -1,0 +1,57 @@
+<script>
+/* Fills every [data-repo] star badge on the page with a live count from the
+   GitHub API. Results are cached in localStorage for 6h, and identical repos
+   share a single request, so a page visit costs at most one call per repo
+   against the 60 req/hr unauthenticated limit. */
+(function () {
+  var TTL = 6 * 60 * 60 * 1000;
+
+  function format(n) {
+    return n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
+  }
+
+  function cached(key) {
+    try {
+      var hit = JSON.parse(localStorage.getItem(key));
+      if (hit && Date.now() - hit.t < TTL) return hit.n;
+    } catch (e) { /* unavailable or malformed; just refetch */ }
+    return null;
+  }
+
+  /* Group badges by repo so duplicates across sections share one request. */
+  var groups = {};
+  document.querySelectorAll('.exp-stars[data-repo]').forEach(function (el) {
+    var slug = el.getAttribute('data-repo');
+    (groups[slug] = groups[slug] || []).push(el);
+  });
+
+  Object.keys(groups).forEach(function (slug) {
+    var badges = groups[slug];
+    var key = 'gh-stars:' + slug;
+
+    function render(count) {
+      badges.forEach(function (el) {
+        el.querySelector('.exp-star-count').textContent = format(count);
+        el.classList.add('is-loaded');
+      });
+    }
+
+    var hit = cached(key);
+    if (hit !== null) { render(hit); return; }
+
+    fetch('https://api.github.com/repos/' + slug)
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (d) {
+        if (typeof d.stargazers_count !== 'number') return Promise.reject('no count');
+        try {
+          localStorage.setItem(key, JSON.stringify({ n: d.stargazers_count, t: Date.now() }));
+        } catch (e) {}
+        render(d.stargazers_count);
+      })
+      .catch(function () {
+        /* Rate-limited or offline: drop the badge rather than show a broken one. */
+        badges.forEach(function (el) { el.remove(); });
+      });
+  });
+})();
+</script>

@@ -1,15 +1,39 @@
 - name: "Google"
   image: "/images/google.png"
   location: "Seattle, WA, USA"
-  date: "2026.05-Present"
-  role: "PhD SWE Internship"
+  date: "2026.05-2026.08"
+  role: "SWE Intern, JAX Training Experience Team, Core ML"
   detail: "Google Cloud"
+  repo:
+    name: "MaxText"
+    slug: "AI-Hypercomputer/maxtext"
+    url: "https://github.com/AI-Hypercomputer/maxtext"
+  prs:
+    - label: "#4759"
+      url: "https://github.com/AI-Hypercomputer/maxtext/pull/4759"
+    - label: "#4046"
+      url: "https://github.com/AI-Hypercomputer/maxtext/pull/4046"
+    - label: "#4829"
+      url: "https://github.com/AI-Hypercomputer/maxtext/pull/4829"
+    - label: "#4938"
+      url: "https://github.com/AI-Hypercomputer/maxtext/pull/4938"
+  highlights:
+    - "Implemented Streaming DiLoCo (Distributed Low-Communication Training) in MaxText, Google Cloud's open-source JAX training framework, heavily reducing cross-datacenter (DCN) bandwidth usage while keeping convergence identical to synchronous data-parallel training."
+    - "Leveraged JAX, Pathways, and core Google infrastructure to build asynchronous, communication-overlapping parameter synchronization pipelines, enabling efficient training across isolated, bandwidth-constrained clusters."
+    - "Profiled distributed ML workloads with XProf to resolve JAX compiler sub-optimalities and system bottlenecks."
+    - "Ran large-scale pre-training convergence experiments comparing DiLoCo against data-parallel baselines on 7B dense and 30B MoE models across hundreds of TPU v5p chips."
+    - "Presented at the Google PhD Summit 2026 and TPU B3 Week Summit at the Mountain View office."
 
 - name: "Moonshot AI"
   image: "/images/moonshot.jpeg"
   location: "Beijing, China"
   date: "2024.12-2025.05"
   role: "AI Infrastructure Internship"
+  detail: "LLM Inference Team"
+  highlights:
+    - "Optimized LLM serving through speculative decoding, model parallelism, and effective GPU scheduling on vLLM/SGLang-like serving frameworks."
+    - "Analyzed CPU overhead and GPU kernel time by profiling inference systems with Nsight Systems and the PyTorch profiler."
+    - "Compared parallelism strategies at scale, such as data parallel + expert parallel vs. tensor parallel + expert parallel for large models across multiple nodes."
 
 - name: "Carnegie Mellon University"
   image: "/images/infini-ai.png"
@@ -17,6 +41,9 @@
   date: "2024.07-10"
   role: "Remote Research Internship"
   detail: "InfiniAI Lab, advised by Prof. Beidi Chen"
+  highlights:
+    - "Accelerated long-context LLM inference using top-k sparse attention, supporting long-context generation with minimal latency."
+    - "Applied approximate nearest neighbor search (ANNS) to retrieve high-attention key-value pairs, reducing GPU memory overhead."
 
 - name: "Massachusetts Institute of Technology"
   image: "/images/hanlab.png"
@@ -24,6 +51,14 @@
   date: "2023.10-2024.05"
   role: "Research Internship"
   detail: "Han Lab, advised by Prof. Song Han"
+  repo:
+    name: "DuoAttention"
+    slug: "mit-han-lab/duo-attention"
+    url: "https://github.com/mit-han-lab/duo-attention"
+  highlights:
+    - "Co-designed DuoAttention, a framework reducing inference memory by 2.1x and decoding latency by 3.0x for Llama-2/3 and Mistral models."
+    - "Devised a method applying full KV caching to retrieval heads while using a constant-length KV cache for streaming heads, enabling scalable long-context inference with negligible accuracy loss."
+    - "Resulted in a NeurIPS 2025 poster publication."
 
 - name: "Tsinghua University"
   image: "/images/THUNLP.png"
@@ -31,3 +66,11 @@
   date: "2023.03-09"
   role: "Research Internship"
   detail: "Natural Language Processing Lab (THUNLP), advised by Prof. Zhiyuan Liu"
+  repo:
+    name: "AgentVerse"
+    slug: "OpenBMB/AgentVerse"
+    url: "https://github.com/OpenBMB/AgentVerse"
+  highlights:
+    - "Co-developed AgentVerse, a framework enabling multi-agent collaboration for reasoning, tool use, and embodied AI."
+    - "Validated the framework across diverse settings including reasoning, coding, and tool utilization."
+    - "Open-sourced the code on GitHub, where it continues to be widely used, resulting in an ICLR 2024 poster publication."

@@ -40,63 +40,235 @@
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
 
-/* Custom styles for About Me page with dropdowns */
-details {
-    margin-bottom: 20px;
-    /* border: 1px solid #e8e8e8; */
-    /* border-radius: 4px; */
-    overflow: hidden;
-  }
-  
-  summary {
-    padding: 12px 15px;
-    cursor: pointer;
-    /* background-color: #f7f7f7; */
-    position: relative;
-    display: flex;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 500;
-  }
-  
-  summary::-webkit-details-marker {
-    display: none;
-  }
-  
-  summary::before {
-    content: "▶";
-    margin-right: 10px;
-    font-size: 0.8em;
-    transition: transform 0.3s;
-  }
-  
-  details[open] summary::before {
-    transform: rotate(90deg);
-  }
-  
-  details > div,
-  details > p {
-    padding: 15px;
-    margin: 0;
-  }
-  
-  /* Make headings stand out more */
-  h1 {
-    padding-bottom: 10px;
-    border-bottom: 2px solid #f2f2f2;
-    margin-bottom: 25px;
-  }
+/* ============================================================
+   Shared card tokens
+   ============================================================ */
+$link-blue          : #0072de;
+$card-border        : #e8ecf0;
+$card-border-hover  : #b3d0f7;
+$ink                : #24292f;  // primary text
+$ink-soft           : #57606a;  // secondary text
+$ink-mute           : #7c848c;  // meta text
+$github-ink         : #1f2328;  // GitHub mark
+$card-ease          : 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$panel-ease         : 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+/* ------------------------------------------------------------
+   Type scale
+
+   Sizes are in rem, never em: em compounds through nesting, so the
+   same intent renders at different actual sizes depending on where
+   it sits. rem keeps one role = one size everywhere on the page.
+
+   Four roles, and only four:
+     section  section headings
+     title    card headings (paper / project / org)
+     body     prose — the reading voice, always serif
+     meta     roles, dates, orgs, labels — always sans
+     micro    badges and chips
+   ------------------------------------------------------------ */
+$t-section          : 1.375rem;  // 22px
+$t-title            : 1.0625rem; // 17px
+$t-body             : 0.9375rem; // 15px
+$t-meta             : 0.8125rem; // 13px
+$t-micro            : 0.75rem;   // 12px
+
+$lh-tight           : 1.35;      // headings
+$lh-snug            : 1.5;       // meta, dense lists
+$lh-prose           : 1.7;       // running prose
+
+/* ============================================================
+   Typography polish
+   ============================================================ */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-feature-settings: "kern" 1, "liga" 1, "onum" 1;
+}
+
+.page__content p,
+.page__content li {
+  line-height: $lh-prose;
+  color: #3d4349;
+}
+
+/* The section markup ends each block with a <br>, which stacked on top of
+   the card margins and made the gaps between sections uneven. Neutralise
+   the stray breaks and let margins alone set the rhythm. */
+.page__content > br {
+  display: none;
+}
+
+.pub-card:last-child,
+.os-card:last-child {
+  margin-bottom: 0;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4 {
+  font-family: $sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: $ink;
+}
+
+/* Links: underline that grows in rather than a hard default underline */
+.page__content a:not(.btn):not(.exp-repo-link):not(.pub-links a) {
+  color: $link-blue;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size $card-ease;
+}
+
+.page__content a:not(.btn):not(.exp-repo-link):hover {
+  background-size: 100% 1px;
+}
+
+/* Sidebar author links */
+.author__urls li a {
+  color: $ink-soft !important;
+  transition: color $card-ease;
+}
+
+.author__urls li a:hover {
+  color: $link-blue !important;
+}
+
+.author__urls .fab,
+.author__urls .fas,
+.author__urls .ai {
+  color: $ink-soft;
+  transition: color $card-ease;
+}
+
+.author__urls li a:hover .fab,
+.author__urls li a:hover .fas,
+.author__urls li a:hover .ai {
+  color: $link-blue;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, $card-border, transparent);
+  margin: 2em 0;
+}
+
+/* ============================================================
+   Disclosures (hover to reveal)
+
+   These replace the old <details>/<summary> dropdowns so they open on
+   hover like the cards elsewhere on the page. Hover is bound to the
+   whole .disclosure, not just the summary row -- otherwise the panel
+   would collapse the moment the pointer moved down into it.
+   ============================================================ */
+.disclosure {
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color $card-ease, border-color $card-ease;
+}
+
+.disclosure:hover {
+  background-color: #f7fafe;
+  border-color: $card-border-hover;
+}
+
+.disclosure-summary {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: default;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  font-weight: 600;
+  line-height: $lh-snug;
+  color: $ink;
+}
+
+.disclosure-summary::before {
+  content: "\f054"; /* font-awesome chevron-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 0.7em;
+  color: $link-blue;
+  transition: transform $panel-ease;
+}
+
+.disclosure:hover .disclosure-summary::before {
+  transform: rotate(90deg);
+}
+
+.disclosure-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding: 0 14px;
+  transition: grid-template-rows $panel-ease, padding $panel-ease,
+    opacity $panel-ease;
+}
+
+.disclosure-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+  font-family: $serif;
+  font-size: $t-body;
+  line-height: $lh-prose;
+  color: $ink-soft;
+}
+
+.disclosure-panel-inner p:last-child,
+.disclosure-panel-inner ul:last-child {
+  margin-bottom: 0;
+}
+
+.disclosure:hover .disclosure-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: 0 14px 12px;
+}
+
+/* Make headings stand out more */
+h1 {
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f2f2f2;
+  margin-bottom: 25px;
+}
 
 /* ============================================================
    Section Headers
    ============================================================ */
 .page__content h2 {
-  padding-left: 0.6em;
+  position: relative;
+  padding-left: 0.7em;
   border-bottom: none;
-  border-left: 4px solid #0072de;
-  color: #3a3f44;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
+  border-left: 3px solid $link-blue;
+  color: $ink;
+  margin-top: 2.2rem;
+  margin-bottom: 0.9rem;
+  font-size: $t-section;
+  line-height: $lh-tight;
+}
+
+/* Soft fade at the tail of the accent bar */
+.page__content h2::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  bottom: 0;
+  width: 3px;
+  height: 35%;
+  background: linear-gradient(to bottom, transparent, #fff);
 }
 
 /* ============================================================
@@ -111,10 +283,10 @@ details {
 .news-item {
   display: flex;
   align-items: baseline;
-  gap: 0.75em;
-  margin-bottom: 0.6em;
-  padding: 0.25em 0;
-  font-size: 0.9em;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  padding: 0.15rem 0;
+  font-size: $t-body;
   position: relative;
 }
 
@@ -130,71 +302,163 @@ details {
 }
 
 .news-date {
+  font-family: $sans-serif;
+  font-size: $t-meta;
   font-weight: 600;
-  color: #0072de;
+  line-height: $lh-snug;
+  color: $link-blue;
   white-space: nowrap;
-  font-size: 0.85em;
-  min-width: 7em;
+  font-variant-numeric: tabular-nums;
+  min-width: 5.5rem;
 }
 
 .news-text {
-  color: #3a3f44;
-  line-height: 1.4;
+  font-family: $serif;
+  line-height: $lh-snug;
+  color: $ink-soft;
+}
+
+.news-item::before {
+  box-shadow: 0 0 0 3px rgba(0, 114, 222, 0.12);
 }
 
 /* ============================================================
    Publication Cards
    ============================================================ */
 .pub-card {
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
   margin-bottom: 1.2em;
-  border: 1px solid #e8ecf0;
-  border-radius: 6px;
+  border: 1px solid $card-border;
+  border-radius: 8px;
   background: #fff;
-  transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  transition: box-shadow $card-ease, border-color $card-ease, transform $card-ease;
+}
+
+.pub-inner-row {
+  display: flex;
+  align-items: center;
+}
+
+.pub-thumb {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.pub-thumb img {
+  max-width: 300px;
+}
+
+.pub-body {
+  min-width: 0;
+}
+
+.pub-title {
+  margin: 0 0 0.4rem;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: $ink;
+}
+
+.pub-authors {
+  margin-bottom: 0.3rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-soft;
+}
+
+.pub-venue {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
 }
 
 .pub-card:hover {
-  box-shadow: 0 4px 14px rgba(0, 114, 222, 0.10);
-  border-color: #b3d0f7;
+  box-shadow: 0 6px 20px rgba(0, 114, 222, 0.11);
+  border-color: $card-border-hover;
+  transform: translateY(-1px);
 }
 
-.pub-abstract {
-  max-height: 0;
-  overflow: hidden;
-  font-size: 0.82em;
-  color: #555;
-  line-height: 1.6;
+/* ------------------------------------------------------------
+   Hover-to-expand panels (publications, experiences, projects)
+
+   grid-template-rows animates from 0fr to the content's natural
+   height, so the reveal stays smooth regardless of text length --
+   a fixed max-height would either clip long text or coast through
+   empty space on short text.
+   ------------------------------------------------------------ */
+.pub-abstract,
+.exp-details,
+.os-details {
+  display: grid;
+  grid-template-rows: 0fr;
   border-top: 1px solid transparent;
-  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: grid-template-rows $panel-ease, padding $panel-ease,
+    border-color $panel-ease, opacity $panel-ease;
+  opacity: 0;
   padding: 0 2px;
 }
 
-.pub-card:hover .pub-abstract {
-  max-height: 10em;
-  padding: 10px 2px 2px;
-  border-top-color: #e8ecf0;
+.pub-abstract-inner,
+.exp-details-inner,
+.os-details-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.pub-card:hover .pub-abstract,
+.exp-entry:hover .exp-details,
+.os-card:hover .os-details {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: 12px 2px 2px;
+  border-top-color: $card-border;
+}
+
+.pub-abstract-inner {
+  font-family: $serif;
+  font-size: $t-body;
+  line-height: $lh-prose;
+  color: $ink-soft;
 }
 
 .pub-card img {
   border-radius: 4px;
 }
 
-.pub-links a {
-  display: inline-block;
-  margin-right: 6px;
-  padding: 2px 9px;
-  font-size: 0.78em;
-  font-weight: 500;
-  color: #0072de !important;
-  text-decoration: none !important;
-  border: 1px solid #0072de;
-  border-radius: 3px;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+.pub-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.6rem;
 }
 
-.pub-links a:hover {
-  background-color: #0072de;
+.pub-links a,
+.exp-links a {
+  display: inline-block;
+  padding: 2px 10px;
+  font-family: $sans-serif;
+  font-size: $t-micro;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: $link-blue !important;
+  text-decoration: none !important;
+  border: 1px solid $link-blue;
+  border-radius: 4px;
+  transition: background-color $card-ease, color $card-ease;
+}
+
+.pub-links a:hover,
+.exp-links a:hover {
+  background-color: $link-blue;
   color: #fff !important;
   text-decoration: none !important;
 }
@@ -209,14 +473,16 @@ details {
 }
 
 .lit-note-disclaimer {
-  margin: 0 0 0.2em;
-  color: #777;
-  font-size: 0.85em;
+  margin: 0 0 0.3rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
 }
 
 .lit-note-card {
-  padding: 16px;
-  border: 1px solid #e8ecf0;
+  padding: 16px 18px;
+  border: 1px solid $card-border;
   border-radius: 6px;
   background: #fff;
   transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -230,38 +496,202 @@ details {
 .lit-note-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6em;
-  margin-bottom: 0.4em;
-  color: gray;
-  font-size: 0.82em;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
 }
 
 .lit-note-title {
   margin-top: 0;
-  margin-bottom: 0.4em;
-  font-size: 1.05em;
+  margin-bottom: 0.4rem;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: $ink;
 }
 
 .lit-note-links {
-  margin-bottom: 0.75em;
-  font-size: 0.82em;
+  margin-bottom: 0.7rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
 }
 
 .lit-note-links a {
-  color: #0072de !important;
+  color: $link-blue !important;
   text-decoration: none !important;
 }
 
 .lit-note-preview {
-  color: #777;
-  font-size: 0.9em;
-  line-height: 1.55;
+  font-family: $serif;
+  font-size: $t-body;
+  line-height: $lh-prose;
+  color: $ink-soft;
 }
 
 .lit-note-preview p,
 .lit-note-preview ul,
 .lit-note-preview ol {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   Open Source Contributions
+   ============================================================ */
+.os-list {
+  display: grid;
+  gap: 0.9em;
+  margin: 0.5em 0 1.5em;
+}
+
+.os-card {
+  padding: 16px 18px;
+  border: 1px solid $card-border;
+  border-radius: 8px;
+  background: #fff;
+  transition: box-shadow $card-ease, border-color $card-ease, transform $card-ease;
+}
+
+.os-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 114, 222, 0.11);
+  border-color: $card-border-hover;
+  transform: translateY(-1px);
+}
+
+.os-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55em;
+}
+
+.os-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: $ink !important;
+  text-decoration: none !important;
+  transition: color $card-ease;
+}
+
+.os-name .fa-github {
+  color: $github-ink;
+  transition: color $card-ease;
+}
+
+.os-name:hover,
+.os-name:hover .fa-github {
+  color: $link-blue !important;
+}
+
+.os-name-text {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.os-spacer {
+  flex: 1 1 auto;
+}
+
+.os-date {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.os-meta {
+  margin-top: 0.35rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+}
+
+/* Blurb and PR list live inside the hover panel, which supplies the
+   top padding and divider -- so no leading margin of their own. */
+.os-blurb {
+  font-family: $serif;
+  font-size: $t-body;
+  line-height: $lh-prose;
+  color: $ink-soft;
+}
+
+.os-prs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Only needs a divider when a blurb sits above it */
+.os-blurb + .os-prs {
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid $card-border;
+}
+
+.os-prs li {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+  line-height: $lh-snug;
+}
+
+.os-prs li:last-child {
+  margin-bottom: 0;
+}
+
+.os-pr-num {
+  font-family: $monospace;
+  font-size: $t-meta;
+  font-weight: 500;
+  color: $link-blue !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.os-pr-num:hover {
+  text-decoration: underline !important;
+}
+
+.os-pr-title {
+  flex: 1 1 14rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  color: $ink-soft;
+}
+
+.os-pr-state {
+  padding: 0 8px;
+  border-radius: 999px;
+  font-family: $sans-serif;
+  font-size: $t-micro;
+  font-weight: 500;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.os-pr-state--merged {
+  background: #f3eefc;
+  color: #8250df;
+}
+
+.os-pr-state--open {
+  background: #eaf5ec;
+  color: #1a7f37;
 }
 
 /* ============================================================
@@ -269,25 +699,25 @@ details {
    ============================================================ */
 .exp-entry,
 .edu-entry {
-  padding: 10px 14px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease-in-out;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background-color $card-ease, border-color $card-ease,
+    box-shadow $card-ease;
 }
 
 .exp-entry h3,
 .exp-entry div,
 .edu-entry h3,
 .edu-entry div {
-  font-family: "Inter", sans-serif;
-}
-
-.exp-entry span {
-  font-family: "Lora", Georgia, serif;
+  font-family: $sans-serif;
 }
 
 .exp-entry:hover,
 .edu-entry:hover {
-  background-color: #f3f7fd;
+  background-color: #f7fafe;
+  border-color: $card-border-hover;
+  box-shadow: 0 6px 20px rgba(0, 114, 222, 0.09);
 }
 
 .exp-entry img,
@@ -298,9 +728,257 @@ details {
 
 .exp-entry + .exp-entry,
 .edu-entry + .edu-entry {
-  border-top: 1px solid #f0f0f0;
-  margin-top: 0 !important;
-  padding-top: 14px;
+  margin-top: 0.5rem;
+}
+
+/* Education entries mirror the experience layout */
+.edu-entry {
+  display: flex;
+  align-items: flex-start;
+}
+
+.edu-logo {
+  width: 100px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.edu-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.edu-name {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: $ink;
+}
+
+.edu-date {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+  font-variant-numeric: tabular-nums;
+}
+
+.edu-degree {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-soft;
+}
+
+.edu-degree b {
+  color: $ink;
+  font-weight: 600;
+}
+
+.exp-inner-row {
+  display: flex;
+  align-items: center;
+}
+
+.exp-logo {
+  width: 100px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.exp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.exp-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75em;
+}
+
+.exp-name {
+  margin: 0;
+  font-family: $sans-serif;
+  font-size: $t-title;
+  font-weight: 600;
+  line-height: $lh-tight;
+  letter-spacing: -0.01em;
+  color: $ink;
+}
+
+/* Repo line: GitHub icon + repo name + live star count */
+.exp-repo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+}
+
+.exp-repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  color: $ink !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: color $card-ease;
+}
+
+.exp-repo-link .fa-github {
+  font-size: 1.1em;
+  color: $github-ink;
+  transition: color $card-ease;
+}
+
+.exp-repo-link:hover,
+.exp-repo-link:hover .fa-github {
+  color: $link-blue !important;
+}
+
+.exp-repo-name {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.exp-stars {
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1px 8px;
+  border: 1px solid $card-border;
+  border-radius: 999px;
+  background: #f7f8fa;
+  color: $ink-soft;
+  font-family: $sans-serif;
+  font-size: $t-micro;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+.exp-stars.is-loaded {
+  display: inline-flex;
+}
+
+.exp-stars .fa-star {
+  font-size: 0.85em;
+  color: #e3b341;
+}
+
+.exp-location {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+  white-space: nowrap;
+}
+
+.exp-date {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+  font-variant-numeric: tabular-nums;
+}
+
+.exp-role {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  font-weight: 600;
+  line-height: $lh-snug;
+  color: $ink;
+}
+
+.exp-detail {
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-soft;
+}
+
+.exp-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.15em;
+  margin-top: 3px;
+}
+
+.exp-links-label {
+  margin-right: 0.4rem;
+  font-family: $sans-serif;
+  font-size: $t-meta;
+  line-height: $lh-snug;
+  color: $ink-mute;
+}
+
+/* Subtle cue that a card has more to reveal on hover */
+.exp-entry.has-details,
+.pub-card.has-details,
+.os-card.has-details {
+  position: relative;
+}
+
+.exp-entry.has-details::after,
+.pub-card.has-details::after,
+.os-card.has-details::after {
+  content: "\f078"; /* font-awesome chevron-down */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 0.6em;
+  color: #c3cad1;
+  transition: opacity $card-ease, transform $card-ease;
+}
+
+.exp-entry.has-details:hover::after,
+.pub-card.has-details:hover::after,
+.os-card.has-details:hover::after {
+  opacity: 0;
+  transform: translateY(3px);
+}
+
+.exp-details ul {
+  margin: 0;
+  padding-left: 1.15em;
+  list-style: none;
+}
+
+.exp-details li {
+  position: relative;
+  margin-bottom: 0.45rem;
+  font-family: $serif;
+  font-size: $t-body;
+  line-height: $lh-prose;
+  color: $ink-soft;
+}
+
+.exp-details li:last-child {
+  margin-bottom: 0;
+}
+
+.exp-details li::before {
+  content: "";
+  position: absolute;
+  left: -0.95em;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: $link-blue;
+  opacity: 0.55;
 }
 
 /* ============================================================
@@ -322,17 +1000,38 @@ details {
 
   /* Publications: show abstract when tapped (class toggled by JS) */
   .pub-card.abstract-open .pub-abstract {
-    max-height: none !important;
-    padding: 10px 2px 2px !important;
-    border-top-color: #e8ecf0 !important;
+    grid-template-rows: 1fr !important;
+    opacity: 1 !important;
+    padding: 12px 2px 2px !important;
+    border-top-color: $card-border !important;
+  }
+
+  /* Disclosures: show panel when tapped */
+  .disclosure.details-open .disclosure-panel {
+    grid-template-rows: 1fr !important;
+    opacity: 1 !important;
+    padding: 0 14px 12px !important;
+  }
+
+  .disclosure.details-open .disclosure-summary::before {
+    transform: rotate(90deg);
+  }
+
+  /* Experiences & projects: show details when tapped (class toggled by JS) */
+  .exp-entry.details-open .exp-details,
+  .os-card.details-open .os-details {
+    grid-template-rows: 1fr !important;
+    opacity: 1 !important;
+    padding: 12px 2px 2px !important;
+    border-top-color: $card-border !important;
   }
 
   /* Experiences: stack logo above text */
-  .exp-entry {
+  .exp-inner-row {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
-  .exp-entry > img {
+  .exp-logo {
     margin-right: 0 !important;
     margin-bottom: 10px;
   }
