@@ -1,13 +1,36 @@
 <script>
-/* Hover reveals each card's detail panel via CSS. Where there is no real
-   hover, we toggle the panel on tap instead (clicks on links still follow
-   through). One handler covers every card type.
+/* Card detail panels open on hover where hovering is real, and on tap where
+   it is not.
 
-   The capability test must match the CSS media query exactly: gating on
-   'ontouchstart' instead would attach handlers on hover-capable laptops
-   that merely have a touchscreen, and skip them on pointer-less devices. */
+   A static media-query test is not enough: hybrids (touchscreen laptops,
+   Surface, iPad with a trackpad) match (hover: hover) and (pointer: fine)
+   yet may be driven by touch. On those, gating the tap handler off the
+   query left the panel pinned open by sticky :hover with no way to close.
+
+   So we track the input actually being used. `is-touch` on <html> disables
+   the CSS hover rules and turns on tap-to-toggle; a real mouse movement
+   switches back. Defaulting to hover-enabled keeps it working with JS off. */
 (function () {
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  var root = document.documentElement;
+  var hoverQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  function useTouch() { root.classList.add('is-touch'); }
+  function useMouse() { root.classList.remove('is-touch'); }
+
+  if (!hoverQuery.matches) useTouch();
+
+  if (window.PointerEvent) {
+    window.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'touch' || e.pointerType === 'pen') useTouch();
+      else useMouse();
+    }, true);
+  } else {
+    window.addEventListener('touchstart', useTouch, true);
+  }
+  /* A genuine mouse move (not the synthetic one a tap emits) returns to hover */
+  window.addEventListener('mousemove', function (e) {
+    if (e.movementX || e.movementY) useMouse();
+  }, true);
 
   var cards = [
     ['.pub-card.has-details', 'abstract-open'],
@@ -19,7 +42,9 @@
   cards.forEach(function (pair) {
     document.querySelectorAll(pair[0]).forEach(function (card) {
       card.addEventListener('click', function (e) {
-        if (!e.target.closest('a')) this.classList.toggle(pair[1]);
+        if (!root.classList.contains('is-touch')) return;
+        if (e.target.closest('a')) return;
+        this.classList.toggle(pair[1]);
       });
     });
   });

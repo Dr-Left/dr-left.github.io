@@ -208,7 +208,7 @@ hr {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .disclosure:hover .disclosure-summary::before {
+  html:not(.is-touch) .disclosure:hover .disclosure-summary::before {
     transform: rotate(90deg);
   }
 }
@@ -241,7 +241,7 @@ hr {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .disclosure:hover .disclosure-panel {
+  html:not(.is-touch) .disclosure:hover .disclosure-panel {
     grid-template-rows: 1fr;
     opacity: 1;
     padding: 0 14px 12px;
@@ -268,12 +268,14 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2.5rem 0 1rem;
+  margin: clamp(1.5rem, 5vw, 2.5rem) 0 1rem;
 }
 
 .globe {
   width: 100%;
-  max-width: 330px;
+  /* Shrink with the viewport on phones, where a 330px globe eats most of
+     the screen, but never below a size where the continents stop reading. */
+  max-width: clamp(170px, 56vw, 330px);
   aspect-ratio: 1;
   cursor: grab;
   touch-action: pan-y;
@@ -474,9 +476,9 @@ h1 {
    sticks after a tap, which would pin the panel open and defeat the
    tap-to-close toggle -- there the .*-open classes drive it instead. */
 @media (hover: hover) and (pointer: fine) {
-  .pub-card:hover .pub-abstract,
-  .exp-entry:hover .exp-details,
-  .os-card:hover .os-details {
+  html:not(.is-touch) .pub-card:hover .pub-abstract,
+  html:not(.is-touch) .exp-entry:hover .exp-details,
+  html:not(.is-touch) .os-card:hover .os-details {
     grid-template-rows: 1fr;
     opacity: 1;
     padding: 12px 2px 2px;
