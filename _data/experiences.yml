@@ -1,5 +1,11 @@
 - name: "Google"
   image: "/images/google.png"
+  date: "2026.09-Present"
+  role: "Student Researcher, Google Cloud AI Research"
+  detail: "Managed by Linfeng Song"
+
+- name: "Google"
+  image: "/images/google.png"
   location: "Seattle, WA, USA"
   date: "2026.05-2026.08"
   role: "SWE Intern, JAX Training Experience Team, Core ML"

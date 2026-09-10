@@ -208,8 +208,19 @@ h2.big em{font-style:italic;color:var(--vermilion)}
 }
 .seal::after{content:"";position:absolute;inset:4px;border:1px solid rgba(244,241,234,.34)}
 .sigrow:hover .seal{transform:rotate(2deg) scale(1.04);box-shadow:0 14px 40px -12px rgba(226,73,42,1)}
-.sigtext{font-size:14px;line-height:1.62;color:rgba(244,241,234,.55);max-width:44ch}
-.sigtext i{color:rgba(244,241,234,.8);font-style:italic}
+.pron{min-width:0}
+.pron .say{
+  margin:0;font-family:var(--serif);font-size:clamp(21px,2.5vw,34px);line-height:1.05;
+  color:var(--ivory);letter-spacing:.005em;
+}
+.pron .say i{font-style:italic;color:var(--gold)}
+.pron .say .slash{color:rgba(244,241,234,.28);font-style:normal}
+.pron .also{
+  margin:10px 0 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(244,241,234,.45);line-height:1.9;
+}
+.pron .also b{color:var(--vermilion);font-weight:400}
+.pron .also .cjk-in{font-family:"Noto Serif SC",serif;letter-spacing:.06em}
 h1{
   font-family:var(--serif);font-weight:400;
   font-size:clamp(54px,12.4vw,190px);line-height:.86;letter-spacing:-.02em;
@@ -272,15 +283,16 @@ h1 .thin{font-style:italic;color:var(--vermilion)}
 
 /* the stage — a held beat with nothing on it but the mask */
 .stage{
-  height:86vh;display:flex;align-items:flex-end;justify-content:flex-start;
-  padding-bottom:9vh;pointer-events:none;
+  height:86vh;display:flex;align-items:flex-start;justify-content:flex-start;
+  padding-top:clamp(18px,3vh,40px);pointer-events:none;
 }
 .stage p{
-  margin:0;max-width:26ch;text-align:left;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
-  line-height:2.1;color:rgba(244,241,234,.38);
+  margin:0;max-width:34ch;text-align:left;padding-left:clamp(0px,1.4vw,20px);
+  border-left:1px solid rgba(226,73,42,.45);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  line-height:2.1;color:rgba(244,241,234,.4);
 }
-.stage p b{display:block;font-weight:400;font-size:13px;letter-spacing:.18em;color:var(--gold)}
+.stage p b{display:block;font-weight:400;font-size:13px;letter-spacing:.16em;color:var(--gold);margin-top:2px}
 @media (max-width:900px){.stage{height:52vh}}
 
 /* attention widget */
@@ -296,13 +308,20 @@ h1 .thin{font-style:italic;color:var(--vermilion)}
 }
 .attn header .mode{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--vermilion);text-transform:uppercase}
 .attn canvas{width:100%;height:auto;display:block;image-rendering:auto}
-.attn .read{grid-template-columns:repeat(2,1fr)}
 .attn .read{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;
-  border-top:1px solid var(--hair);padding-top:14px;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;margin-top:16px;background:var(--hair);
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair);
 }
-.attn .read div span{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.34);margin-bottom:5px}
-.attn .read div b{font-family:var(--mono);font-size:19px;font-weight:500;letter-spacing:-.01em}
+.attn .read div{background:rgba(12,14,20,.9);padding:11px 12px 12px}
+.attn .read div span{
+  display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(244,241,234,.36);margin-bottom:6px;white-space:nowrap;
+}
+.attn .read div b{
+  font-family:var(--mono);font-size:19px;font-weight:500;letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;display:block;line-height:1;
+}
 .attn .read div b.acc{color:var(--gold)}
 .attn footer{margin-top:14px;font-size:12px;line-height:1.6;color:rgba(244,241,234,.42)}
 
@@ -698,7 +717,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <section id="hero" data-tone="night">
   <div class="wrap">
     <div class="top">
-      <div>Jingwei Zuo &mdash; Atelier no.&thinsp;01</div>
+      <div>Jingwei (Chris) Zuo &mdash; Atelier no.&thinsp;01</div>
       <div><a href="/">the ordinary site &nearr;</a></div>
     </div>
 
@@ -711,7 +730,10 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
     <div class="sigrow r" style="--d:430ms">
       <div class="seal" aria-hidden="true">{{ site.data.profile.name_zh }}</div>
-      <p class="sigtext" style="margin:0">A companion piece to the ordinary site, in which one curriculum vit&aelig; is treated as <i>a work of graphic design</i>.<span class="field-note"> The research is drawn at full size.</span></p>
+      <div class="pron">
+        <p class="say"><span class="slash">/</span>&thinsp;<i>dzwaw Jeeng-way</i>&thinsp;<span class="slash">/</span></p>
+        <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; in English, <b>Chris</b></p>
+      </div>
     </div>
 
     <div class="hero-meta r" style="--d:560ms">
@@ -756,15 +778,15 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
       <div class="attn r" style="--d:240ms">
         <header>
-          <h3>Attention mask &mdash; live</h3>
-          <div class="mode" id="attnMode">dense &middot; full KV cache</div>
+          <h3>The mask &middot; live</h3>
+          <div class="mode" id="attnMode">dense</div>
         </header>
         <canvas id="attnC" width="900" height="900" aria-label="Animated attention mask, dense versus sparse"></canvas>
         <div class="read">
-          <div><span>Kept &middot; n=32</span><b id="rKept">528</b></div>
-          <div><span>Cache</span><b id="rCache">O(n)</b></div>
-          <div><span>Saved &middot; n=32</span><b class="acc" id="rSaved">0%</b></div>
-          <div><span>Saved &middot; 32k ctx</span><b class="acc" id="rBig">0%</b></div>
+          <div><span>pairs kept</span><b id="rKept">528</b></div>
+          <div><span>cache size</span><b id="rCache">O(n)</b></div>
+          <div><span>mask cut, here</span><b class="acc" id="rSaved">0%</b></div>
+          <div><span>mask cut, at 32k</span><b class="acc" id="rBig">0%</b></div>
         </div>
         <footer>Retrieval heads keep everything &mdash; they have to go and find the needle. Streaming heads keep only a few attention sinks and a local window: 64 and 256 in the paper, four and five in this small drawing. At a 32k context that is a 98% cut in the mask, and end to end <i>DuoAttention</i> gives 2.1&times; less memory and 3.0&times; faster decoding with no measurable loss.</footer>
       </div>
@@ -779,7 +801,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT II / THE WORK (paper) ============ -->
 <section id="work" class="tone-paper" data-tone="paper">
   <div class="wrap">
-    <div class="runhead"><span>Jingwei Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; the record</span><span>Houston, Texas</span></div>
+    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; the record</span><span>Houston, Texas</span></div>
     <p class="kicker r">II &nbsp;&mdash;&nbsp; the record</p>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
     <p class="lede r" style="--d:160ms">Two of them. Both about the same stubborn idea &mdash; that a large model is mostly redundant, and the redundancy is structured enough to exploit.</p>
@@ -961,7 +983,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <footer class="f">
       <div>Atelier &mdash; an art-directed reading of one CV</div>
       <div>Press <kbd>L</kbd> for less</div>
-      <div>{{ site.data.profile.name }} &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; Houston</div>
+      <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; Houston</div>
     </footer>
   </div>
 </section>
@@ -1136,7 +1158,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         mode = document.getElementById("attnMode");
     var dense = 0, sparse = 0, i, j;
     for (i=0;i<N;i++) for (j=0;j<=i;j++){ dense++; if (j<SINK || i-j<WIN) sparse++; }
-    var t = 0, dir = 1, hover = false, last = 0;
+    var t = 0, osc = -0.45, dir = 1, hover = false, last = 0;
 
     c.addEventListener("pointerenter", function(){ hover = true; });
     c.addEventListener("pointerleave", function(){ hover = false; });
@@ -1153,11 +1175,19 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     function draw(ts){
       if (!last) last = ts;
       var dt = Math.min((ts-last)/1000, .05); last = ts;
-      if (typeof window.__phase === "number"){
-        t = clamp(window.__phase - 1, -0.15, 1.15);
-      } else if (!hover && !RM){
-        t += dir*dt*0.34; if (t>1.35){t=1.35;dir=-1;} if(t<-0.35){t=-0.35;dir=1;}
+      /* advance the card's own slow cycle, with a dwell at each end */
+      if (!hover && !RM){
+        osc += dir*dt*0.30;
+        if (osc > 1.45){ osc = 1.45; dir = -1; }
+        if (osc < -0.45){ osc = -0.45; dir = 1; }
       }
+      var ph = window.__phase, target = osc, rate = 3.2;
+      if (typeof ph === "number" && ph > 1.02 && ph < 1.98){
+        target = ph - 1;          /* the full-size mask is mid-cut: follow it */
+        rate = 11;
+        osc = target; dir = 1;    /* resume the cycle from wherever we land   */
+      }
+      t += (target - t) * Math.min(1, dt*rate);
       var k = clamp(t,0,1), ke = k*k*(3-2*k);
 
       var pad = W*0.02, cell = (W - pad*2)/N;
@@ -1202,7 +1232,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
          constants: 64 attention sinks and a 256-token recent window */
       var n2 = 32768, d2 = n2*(n2+1)/2, s2 = n2*(64+256);
       big.textContent = Math.round(lerp(0, (1-s2/d2)*100, ke)*10)/10+"%";
-      mode.textContent = ke>0.5 ? "sparse · streaming head" : "dense · full KV cache";
+      mode.textContent = ke>0.5 ? "sparse" : "dense";
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
