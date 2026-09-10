@@ -549,16 +549,28 @@ h1 .nick q::after{content:"\201D"}
 /* education */
 #edu{padding:16vh 0 11vh}
 .eduG{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--hair-ink);border:1px solid var(--hair-ink)}
-.eduC{background:var(--paper);padding:clamp(22px,3vw,38px);transition:.5s var(--ease);position:relative;overflow:hidden}
+.eduC{
+  background:var(--paper);padding:clamp(22px,3vw,38px);
+  transition:.5s var(--ease);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;min-height:270px;
+}
+.eduC > *:not(.crest){position:relative;z-index:1}
 .eduC:hover{background:var(--paper-2)}
 .eduC .yr{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--vermilion);margin-bottom:auto}
 .eduC h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.4vw,32px);margin:26px 0 14px;line-height:1.06}
 .eduC ul{margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.7;color:rgba(18,20,26,.72)}
 .eduC ul li{padding-top:9px;border-top:1px solid var(--hair-ink);margin-top:9px}
 .eduC ul li:first-child{border:0;margin:0;padding:0}
-.eduC .ghost{
-  position:absolute;right:-.1em;bottom:-.42em;font-family:var(--serif);font-size:130px;line-height:1;
-  color:rgba(18,20,26,.05);pointer-events:none;
+.eduC .crest{
+  position:absolute;right:-16%;bottom:-17%;width:60%;height:auto;
+  opacity:.12;filter:grayscale(1) contrast(1.15);
+  mix-blend-mode:multiply;pointer-events:none;user-select:none;
+  transition:opacity .9s var(--ease),transform 1s var(--ease),filter .9s var(--ease);
+}
+.eduC:hover .crest{opacity:.32;filter:grayscale(.4) contrast(1.05);transform:scale(1.06) rotate(-3deg)}
+.eduC .no{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
+  color:rgba(18,20,26,.34);margin-top:auto;padding-top:20px;
 }
 
 /* services strip */
@@ -635,7 +647,13 @@ h1 .nick q::after{content:"\201D"}
   cursor:default;
 }
 #coda:hover .line{color:rgba(244,241,234,.06);-webkit-text-stroke-color:rgba(226,73,42,.75)}
-#coda .line em{font-style:italic}
+#coda .line{text-wrap:balance}
+#coda .line .conj{
+  font-size:.30em;font-style:italic;letter-spacing:.01em;
+  padding:0 .12em;vertical-align:baseline;position:relative;top:-.12em;
+  -webkit-text-stroke:1px rgba(244,241,234,.34);
+}
+#coda:hover .line .conj{-webkit-text-stroke-color:rgba(217,164,65,.8)}
 #coda .after{
   margin:clamp(24px,4vw,44px) auto 0;max-width:46ch;
   font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
@@ -858,8 +876,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="pull r">
       <div class="mark" aria-hidden="true">&ldquo;</div>
       <div>
-        <blockquote>Agents decide what is <em>worth</em> computing. Systems decide what is <em>possible</em> to compute. Neither question is interesting alone.</blockquote>
-        <cite>the working hypothesis, stated plainly</cite>
+        <blockquote>Agents <em>sketch</em> the ambition; systems <em>build</em> the ground beneath it.</blockquote>
       </div>
     </div>
   </div>
@@ -867,7 +884,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
   <!-- ---- open source ---- -->
   <div class="wrap" id="os">
     <p class="kicker r">III &nbsp;&mdash;&nbsp; in public</p>
-    <h2 class="big r" style="--d:80ms">Code that <em>left the desk</em></h2>
+    <h2 class="big r" style="--d:80ms"><em>Code</em> that left the desk</h2>
     <p class="lede r" style="--d:150ms">&ldquo;Talk is cheap. Show me the code.&rdquo;<cite>&mdash;&thinsp;Linus Torvalds</cite></p>
 
     <div class="constel r" style="--d:140ms"
@@ -929,10 +946,11 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="eduG r" style="--d:140ms;margin-top:clamp(26px,4vw,50px)">
       {% for edu in site.data.education %}
       <div class="eduC">
+        {% if edu.image %}<img class="crest" src="{{ edu.image }}" alt="" aria-hidden="true" loading="lazy">{% endif %}
         <div class="yr">{{ edu.date }}</div>
         <h3>{{ edu.name }}</h3>
         <ul>{% for d in edu.degrees %}<li>{{ d }}</li>{% endfor %}</ul>
-        <div class="ghost" aria-hidden="true">0{{ forloop.index }}</div>
+        <div class="no" aria-hidden="true">0{{ forloop.index }}</div>
       </div>
       {% endfor %}
     </div>
@@ -1000,7 +1018,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     </div>
 
     <div id="coda">
-      <p class="line r">Compute <em>more</em><br>with <em>less</em>.</p>
+      <p class="line r">Less <span class="conj">is</span> More</p>
       <p class="after r" style="--d:120ms">that is the whole of it &mdash; the rest is engineering</p>
       <p><a class="up r" href="#hero" style="--d:200ms"><i></i>back to the beginning</a></p>
       <div class="chop r" style="--d:260ms"><img src="/images/seal.jpg" alt="A carved seal reading {{ site.data.profile.name_zh }}" width="91" height="90"></div>
