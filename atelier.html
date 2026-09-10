@@ -157,6 +157,7 @@ h2.big em{font-style:italic;color:var(--vermilion)}
   font-size:clamp(17px,1.5vw,22px);line-height:1.55;max-width:58ch;
   color:rgba(244,241,234,.76);
 }
+.lede.sm{font-size:clamp(13.5px,1.02vw,15.5px);line-height:1.6;max-width:46ch;letter-spacing:.005em}
 .tone-paper .lede{color:rgba(18,20,26,.7)}
 
 /* ---------- reveal ---------- */
@@ -868,9 +869,9 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="two" style="margin-top:clamp(30px,5vw,60px)">
       <div class="r" style="--d:120ms">
         <p class="dropcap" style="font-size:17.5px;color:rgba(244,241,234,.85);max-width:50ch">Two literatures grew up in different rooms. One asks what a language model can be made to <i>do</i> &mdash; plan, use tools, argue with a copy of itself, act as one of many. The other asks what a language model <i>costs</i>: memory, bandwidth, latency, watts.</p>
-        <p style="max-width:52ch">My work is the hinge between them, and it turns both ways. An agent is the most expensive way yet invented to use a model &mdash; every step is another forward pass, every tool call another long context, every collaborator another cache. Build a multi-agent system honestly and you will meet the systems problem within the hour. Build the systems well and you find out which agents were possible all along.</p>
-        <p style="max-width:52ch">So I have worked both ends: <i>AgentVerse</i> on the agent side, <i>DuoAttention</i> and <i>MaxText</i> on the systems side. The useful discovery is that neither side is legible on its own. Capability sets the ambition; cost decides which ambitions are permitted to exist. The energy ChatGPT spends in a year answering questions could power some <b>43,204&nbsp;US homes</b> for that year &mdash; and every agentic step multiplies that bill again.</p>
-        <p style="max-width:52ch">One honest answer is drawn alongside. Every mote is a query&ndash;key pair of a causal attention mask &mdash; a triangle, because a token may only look backwards. Keep scrolling and watch what a <i>streaming head</i> throws away: a few attention sinks, a narrow local window, nothing else. The generated text does not notice. The memory bill falls by an order of magnitude.</p>
+        <p style="max-width:50ch">I work the hinge, and it turns both ways. An agent is the most expensive way yet found to use a model: every step another forward pass, every tool call another long context, every collaborator another cache.</p>
+        <p style="max-width:50ch">So I work both ends &mdash; <i>AgentVerse</i> on the agent side, <i>DuoAttention</i> and <i>MaxText</i> on the systems side. Capability sets the ambition; cost decides which ambitions are allowed to exist.</p>
+        <p style="max-width:50ch">Alongside is one answer. Every mote is a query&ndash;key pair of a causal mask. Watch what a <i>streaming head</i> keeps: a few sinks, a narrow window, nothing else. The text does not notice. The memory bill falls by an order of magnitude.</p>
         <p class="field-note" style="max-width:52ch;color:rgba(244,241,234,.45);font-size:13.5px">The card alongside is that same mask at reading scale, synchronised mote for mote.</p>
       </div>
 
@@ -914,7 +915,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; publications</span><span>{{ site.data.profile.location_long }}</span></div>
     <p class="kicker r">II &nbsp;&mdash;&nbsp; publications</p>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
-    <p class="lede r" style="--d:160ms">Two papers, one from each side of the hinge: a framework for making many agents work together, and a method for making the attention they lean on affordable. Read side by side, they are one argument &mdash; that what a model can do and what it costs to do it are a single problem.</p>
+    <p class="lede sm r" style="--d:160ms">One from each side of the hinge: many agents made to cooperate, and the attention they lean on made affordable.</p>
 
     <div style="margin-top:clamp(40px,7vw,84px)">
       {% for pub in site.data.publications %}
