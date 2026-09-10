@@ -3,8 +3,8 @@
      widget needs no network access and no third-party library at runtime. -->
 <div class="globe-wrap">
   <canvas class="globe" id="globe" role="img"
-          aria-label="Rotating globe marking Kirkland, Washington"></canvas>
-  <div class="globe-caption">Currently in <strong>Kirkland, WA</strong> &middot; drag to spin</div>
+          aria-label="Rotating globe marking {{ site.data.profile.location_long }}"></canvas>
+  <div class="globe-caption">Currently in <strong>{{ site.data.profile.location }}</strong> &middot; drag to spin</div>
 </div>
 
 <script>
@@ -37,8 +37,8 @@
   var N = xs.length;
   xs = Float32Array.from(xs); ys = Float32Array.from(ys); zs = Float32Array.from(zs);
 
-  /* Kirkland, WA */
-  var HLAT = 47.68 * Math.PI / 180, HLON = -122.21 * Math.PI / 180;
+  /* the pin comes from _data/profile.yml */
+  var HLAT = {{ site.data.profile.lat }} * Math.PI / 180, HLON = {{ site.data.profile.lon }} * Math.PI / 180;
   var hx = Math.cos(HLAT) * Math.sin(HLON),
       hy = Math.sin(HLAT),
       hz = Math.cos(HLAT) * Math.cos(HLON);

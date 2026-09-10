@@ -1,17 +1,24 @@
 ---
 layout: null
-permalink: /atelier/
-sitemap: false
-robots: noindex
+permalink: /
+redirect_from:
+  - /atelier/
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atelier &mdash; {{ site.data.profile.name }}</title>
+<title>{{ site.data.profile.name }} ({{ site.data.profile.name_en }}) &mdash; {{ site.data.profile.discipline }}</title>
 <meta name="description" content="{{ site.data.profile.name }} (Chris) &mdash; LLM agents and efficient machine learning systems.">
-<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{{ site.url }}/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.data.profile.name }}">
+<meta property="og:title" content="{{ site.data.profile.name }} ({{ site.data.profile.name_en }})">
+<meta property="og:description" content="{{ site.data.profile.discipline }} &mdash; Ph.D. student in Computer Science at Rice University.">
+<meta property="og:url" content="{{ site.url }}/">
+<meta property="og:image" content="{{ site.url }}/images/profile_small.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -760,6 +767,12 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
   .facC .glyph{opacity:.4}
 }
 
+/* the visitor counter renders a map widget; it is only here to count */
+.visitor-widget{
+  position:absolute!important;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);opacity:0;pointer-events:none;
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   #grain{animation:none}
@@ -785,12 +798,12 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
 <nav id="rail" aria-label="Sections">
   <a href="#hero" data-t="hero"><span>Opening</span><i></i></a>
-  <a href="#thesis" data-t="thesis"><span>Thesis</span><i></i></a>
+  <a href="#thesis" data-t="thesis"><span>Research</span><i></i></a>
   <a href="#work" data-t="work"><span>Publications</span><i></i></a>
   <a href="#os" data-t="os"><span>Open source</span><i></i></a>
   <a href="#chron" data-t="chron"><span>Experiences</span><i></i></a>
   <a href="#edu" data-t="edu"><span>Education</span><i></i></a>
-  <a href="#facets" data-t="facets"><span>Off duty</span><i></i></a>
+  <a href="#facets" data-t="facets"><span>Hobbies</span><i></i></a>
   <a href="#contact" data-t="contact"><span>Contact</span><i></i></a>
 </nav>
 
@@ -801,7 +814,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
   <div class="wrap">
     <div class="top">
       <div>Jingwei (Chris) Zuo &mdash; Atelier no.&thinsp;01</div>
-      <div><a href="/">the ordinary site &nearr;</a></div>
+      <div><a href="/classic/">the ordinary site &nearr;</a></div>
     </div>
 
     <div class="namewrap">
@@ -815,15 +828,15 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="sigrow r" style="--d:430ms">
       <div class="seal"><img src="/images/seal.jpg" alt="A carved seal reading {{ site.data.profile.name_zh }}" width="91" height="90"></div>
       <div class="pron">
-        <p class="say"><span class="slash">/</span>&thinsp;<i>dzwaw Jeeng-way</i>&thinsp;<span class="slash">/</span></p>
-        <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; <b>Kirkland, WA</b></p>
+        <p class="say"><span class="slash">/</span>&thinsp;<i>{{ site.data.profile.pronunciation }}</i>&thinsp;<span class="slash">/</span></p>
+        <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; <b>{{ site.data.profile.location }}</b></p>
       </div>
     </div>
 
     <div class="hero-meta r" style="--d:560ms">
       <div>
         <span>Discipline</span>
-        <p>Agents, and the systems that carry&nbsp;them</p>
+        <p>{{ site.data.profile.discipline }}</p>
       </div>
       <div>
         <span>Position</span>
@@ -849,7 +862,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT I / THESIS ============ -->
 <section id="thesis" data-tone="night">
   <div class="wrap">
-    <p class="kicker r">I &nbsp;&mdash;&nbsp; the question</p>
+    <p class="kicker r">I &nbsp;&mdash;&nbsp; research</p>
     <h2 class="q r">How to compute <span class="hl">more</span> with <span class="hl">less</span> resources?</h2>
 
     <div class="two" style="margin-top:clamp(30px,5vw,60px)">
@@ -898,7 +911,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT II / THE WORK (paper) ============ -->
 <section id="work" class="tone-paper" data-tone="paper">
   <div class="wrap">
-    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; publications</span><span>Kirkland, Washington</span></div>
+    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; publications</span><span>{{ site.data.profile.location_long }}</span></div>
     <p class="kicker r">II &nbsp;&mdash;&nbsp; publications</p>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
     <p class="lede r" style="--d:160ms">Two papers, one from each side of the hinge: a framework for making many agents work together, and a method for making the attention they lean on affordable. Read side by side, they are one argument &mdash; that what a model can do and what it costs to do it are a single problem.</p>
@@ -1020,7 +1033,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT III / THE PERSON ============ -->
 <section id="facets" data-tone="night">
   <div class="wrap">
-    <p class="kicker r">VI &nbsp;&mdash;&nbsp; off duty</p>
+    <p class="kicker r">VI &nbsp;&mdash;&nbsp; hobbies</p>
     <h2 class="big r" style="--d:80ms">Four other <em>appetites</em></h2>
     <p class="lede r" style="--d:150ms">A researcher is a person with a research problem, not a research problem with a person attached.</p>
 
@@ -1058,7 +1071,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ CONTACT ============ -->
 <section id="contact" data-tone="night">
   <div class="wrap">
-    <p class="kicker r">VII &nbsp;&mdash;&nbsp; the door</p>
+    <p class="kicker r">VII &nbsp;&mdash;&nbsp; contact</p>
     <h2 class="big r" style="--d:70ms;max-width:20ch">Let us have a <em>coffee</em> about it.</h2>
     <p class="lede r" style="--d:140ms">Other people's talk inspires me, and now and then my words return the favour. If we are in the same city, that is reason enough.</p>
     <p style="margin:clamp(30px,5vw,60px) 0 0">
@@ -1066,7 +1079,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     </p>
 
     <div class="doors r" style="--d:260ms">
-      <a href="/">The ordinary site</a>
+      <a href="/classic/">The ordinary site</a>
       <a href="/projects/">Hobby projects</a>
       <a href="https://github.com/Dr-Left" target="_blank" rel="noopener">GitHub</a>
       <a href="/90s.html">Plain HTML, 1996 edition</a>
@@ -1083,7 +1096,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       <div>Atelier &mdash; an art-directed reading of one CV</div>
       <div>Press <kbd>L</kbd> for less</div>
       <div>Proudly co&#8209;designed with Claude Opus&nbsp;5</div>
-      <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; Kirkland, WA</div>
+      <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; {{ site.data.profile.location }}</div>
     </footer>
   </div>
 </section>
@@ -1652,5 +1665,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
   }
 })();
 </script>
+
+{% include analytics.html %}
 </body>
 </html>

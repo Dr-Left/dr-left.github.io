@@ -1,12 +1,22 @@
 name: "Jingwei Zuo"
+name_en: "Chris"
 name_zh: "左京伟"
+pronunciation: "dzwaw Jeeng-way"
 email: "jingwei.zuo [at] rice [dot] edu"
 email_link: "jingwei.zuo@rice.edu"
+
+# where I actually am, and the pin the globe draws
+location: "Kirkland, WA"
+location_long: "Kirkland, Washington"
+lat: 47.68
+lon: -122.21
+
+discipline: "Agents, and the systems that carry them"
 
 intro: |
   I am a second year Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu), advised by [Dr. Yuke Wang](https://www.wang-yuke.com). Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
 
-  My research focuses on efficient machine learning systems.
+  My work sits at the hinge between two literatures: what a language model can be made to **do**, and what it **costs** to do it. Agents sketch the ambition; systems build the ground beneath it.
 
 research_question: "How to compute more with less resources?"
 

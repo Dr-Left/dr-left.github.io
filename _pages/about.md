@@ -1,14 +1,16 @@
 ---
-permalink: /
-title: "Jingwei Zuo(左京伟)"
+permalink: /classic/
+title: "Jingwei (Chris) Zuo (左京伟)"
 excerpt: "About me"
 author_profile: true
-redirect_from: 
+redirect_from:
   - /about/
   - /about.html
 ---
 
 {{ site.data.profile.intro | markdownify }}
+
+{{ site.data.profile.name }} ({{ site.data.profile.name_zh }}) is pronounced */{{ site.data.profile.pronunciation }}/*; in English I go by **{{ site.data.profile.name_en }}**. I am physically in {{ site.data.profile.location }}.
 
 Email: {{ site.data.profile.email }}
 
