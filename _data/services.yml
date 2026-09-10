@@ -1,0 +1,9 @@
+# Academic service, newest first. Rendered on both the main page and /atelier/.
+- role: "Reviewer"
+  venue: "NeurIPS 2026"
+
+- role: "Artifact evaluator"
+  venue: "PPoPP 2026"
+
+- role: "Reviewer"
+  venue: "NeurIPS 2025"

@@ -223,13 +223,20 @@ h2.big em{font-style:italic;color:var(--vermilion)}
 .pron .also .cjk-in{font-family:"Noto Serif SC",serif;letter-spacing:.06em}
 h1{
   font-family:var(--serif);font-weight:400;
-  font-size:clamp(54px,12.4vw,190px);line-height:.86;letter-spacing:-.02em;
+  font-size:clamp(42px,8.9vw,138px);line-height:.87;letter-spacing:-.02em;
   margin:0;text-transform:uppercase;
 }
 h1 .ln{display:block;overflow:hidden}
 h1 .ln b{display:block;font-weight:400;transform:translateY(102%);transition:transform 1.1s var(--ease);transition-delay:var(--d,0ms)}
 body.ready h1 .ln b{transform:translateY(0)}
-h1 .thin{font-style:italic;color:var(--vermilion)}
+h1 .nick{
+  font-style:italic;color:var(--vermilion);
+  font-size:1.1em;letter-spacing:-.03em;
+  text-shadow:0 0 clamp(20px,4vw,70px) rgba(226,73,42,.32);
+}
+h1 .nick q{quotes:none}
+h1 .nick q::before,h1 .nick q::after{content:"\201C";}
+h1 .nick q::after{content:"\201D"}
 
 .hero-meta{
   margin-top:clamp(22px,3.4vw,42px);
@@ -555,7 +562,8 @@ h1 .thin{font-style:italic;color:var(--vermilion)}
   padding:clamp(20px,3vw,32px) 0;display:flex;flex-wrap:wrap;gap:18px 40px;align-items:baseline;
 }
 .strip span{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(18,20,26,.5)}
-.strip p{margin:0;font-family:var(--serif);font-size:clamp(20px,2.4vw,30px)}
+.strip p{margin:0;font-family:var(--serif);font-size:clamp(19px,2.1vw,27px);line-height:1.15}
+.strip p em{font-style:italic;color:var(--vermilion)}
 
 /* =========================================================
    ACT III — NIGHT, RESOLVED
@@ -724,7 +732,8 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="namewrap">
       <h1>
         <span class="ln"><b style="--d:80ms">Jingwei</b></span>
-        <span class="ln"><b class="thin" style="--d:200ms">Zuo</b></span>
+        <span class="ln"><b class="nick" style="--d:200ms"><q>Chris</q></b></span>
+        <span class="ln"><b style="--d:320ms">Zuo</b></span>
       </h1>
     </div>
 
@@ -732,7 +741,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       <div class="seal" aria-hidden="true">{{ site.data.profile.name_zh }}</div>
       <div class="pron">
         <p class="say"><span class="slash">/</span>&thinsp;<i>dzwaw Jeeng-way</i>&thinsp;<span class="slash">/</span></p>
-        <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; in English, <b>Chris</b></p>
+        <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; in <b>Kirkland, WA</b> for now</p>
       </div>
     </div>
 
@@ -801,7 +810,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT II / THE WORK (paper) ============ -->
 <section id="work" class="tone-paper" data-tone="paper">
   <div class="wrap">
-    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; the record</span><span>Houston, Texas</span></div>
+    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; the record</span><span>Kirkland, Washington</span></div>
     <p class="kicker r">II &nbsp;&mdash;&nbsp; the record</p>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
     <p class="lede r" style="--d:160ms">Two of them. Both about the same stubborn idea &mdash; that a large model is mostly redundant, and the redundancy is structured enough to exploit.</p>
@@ -914,7 +923,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
     <div class="strip r" style="--d:200ms;margin-top:clamp(40px,6vw,72px)">
       <span>Academic service</span>
-      <p>Reviewer &mdash; NeurIPS 2025</p>
+      {% for s in site.data.services %}<p>{{ s.role }} &mdash; <em>{{ s.venue }}</em></p>{% endfor %}
     </div>
   </div>
 </section>
@@ -983,7 +992,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <footer class="f">
       <div>Atelier &mdash; an art-directed reading of one CV</div>
       <div>Press <kbd>L</kbd> for less</div>
-      <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; Houston</div>
+      <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; Kirkland, WA</div>
     </footer>
   </div>
 </section>

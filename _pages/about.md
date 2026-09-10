@@ -63,8 +63,8 @@ Educations
 Academic Services
 -------
 
-Service as a reviewer for the following conferences:
-- NeurIPS 2025
+{% for s in site.data.services %}- {{ s.role }} for **{{ s.venue }}**
+{% endfor %}
 
 To Learn More About Me
 -------

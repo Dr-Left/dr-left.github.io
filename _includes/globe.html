@@ -3,8 +3,8 @@
      widget needs no network access and no third-party library at runtime. -->
 <div class="globe-wrap">
   <canvas class="globe" id="globe" role="img"
-          aria-label="Rotating globe marking Houston, Texas"></canvas>
-  <div class="globe-caption">Currently in <strong>Houston, TX</strong> &middot; drag to spin</div>
+          aria-label="Rotating globe marking Kirkland, Washington"></canvas>
+  <div class="globe-caption">Currently in <strong>Kirkland, WA</strong> &middot; drag to spin</div>
 </div>
 
 <script>
@@ -37,8 +37,8 @@
   var N = xs.length;
   xs = Float32Array.from(xs); ys = Float32Array.from(ys); zs = Float32Array.from(zs);
 
-  /* Houston, TX */
-  var HLAT = 29.76 * Math.PI / 180, HLON = -95.36 * Math.PI / 180;
+  /* Kirkland, WA */
+  var HLAT = 47.68 * Math.PI / 180, HLON = -122.21 * Math.PI / 180;
   var hx = Math.cos(HLAT) * Math.sin(HLON),
       hy = Math.sin(HLAT),
       hz = Math.cos(HLAT) * Math.cos(HLON);
@@ -117,7 +117,7 @@
       for (var k = 0; k < pts.length; k += 2) ctx.fillRect(pts[k], pts[k + 1], s, s);
     }
 
-    /* Houston marker, only while it is on the near face */
+    /* home marker, only while it is on the near face */
     var m = project(hx, hy, hz, spin);
     if (m[2] > 0) {
       var mx = cx + m[0] * R, my = cy - m[1] * R;
