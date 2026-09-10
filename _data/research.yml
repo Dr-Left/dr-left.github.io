@@ -1,0 +1,14 @@
+# The two directions the work runs in. Rendered on the main page and /atelier/.
+- direction: "Efficient systems for AI"
+  short: "systems for AI"
+  topics:
+    - "Sparse attention"
+    - "Sparse architectures for deep learning"
+    - "Efficient resource allocation and scheduling of deep-learning workloads"
+
+- direction: "AI for efficient systems"
+  short: "AI for systems"
+  topics:
+    - "Agents for kernel generation"
+    - "Agents for building system infrastructure"
+    - "Agent-automated LLM training"

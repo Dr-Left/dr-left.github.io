@@ -289,6 +289,47 @@ h1 .nick q::after{content:"\201D"}
 .two p{color:rgba(244,241,234,.7);font-size:15.5px;line-height:1.72}
 .two p a{color:var(--ice)}
 
+/* the two directions, and the hinge between them */
+.hinge{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(16px,2.4vw,34px);
+  align-items:stretch;margin-top:clamp(44px,7vw,86px);
+}
+@media (max-width:900px){
+  .hinge{grid-template-columns:1fr;gap:14px}
+  .hinge .pivot{transform:rotate(90deg);padding:6px 0}
+}
+.dir{
+  border:1px solid var(--hair);background:rgba(9,11,16,.88);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:clamp(20px,2.6vw,32px);
+  transition:border-color .6s var(--ease),background .6s var(--ease);
+}
+.dir:hover{border-color:rgba(226,73,42,.5);background:rgba(18,11,10,.72)}
+.dir .k{
+  margin:0 0 16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(244,241,234,.34);
+}
+.dir h3{
+  margin:0 0 20px;font-family:var(--serif);font-weight:400;
+  font-size:clamp(22px,2.6vw,36px);line-height:1.06;letter-spacing:-.01em;
+}
+.dir h3 em{font-style:italic;color:var(--vermilion)}
+.dir ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--hair)}
+.dir ul li{
+  padding:11px 0 11px 20px;border-bottom:1px solid var(--hair);position:relative;
+  font-size:14px;line-height:1.55;color:rgba(244,241,234,.7);
+}
+.dir ul li:last-child{border-bottom:0;padding-bottom:0}
+.dir ul li::before{
+  content:"";position:absolute;left:0;top:1.32em;width:9px;height:1px;background:var(--gold);
+}
+.hinge .pivot{
+  display:grid;place-items:center;color:rgba(244,241,234,.3);
+  font-size:clamp(20px,2.4vw,30px);line-height:1;user-select:none;
+}
+.hinge:hover .pivot{color:var(--gold)}
+.hinge .pivot span{display:block;transition:color .6s var(--ease)}
+
 /* the stage — a held beat with nothing on it but the mask */
 .stage{
   height:86vh;display:flex;align-items:flex-start;justify-content:flex-start;
@@ -845,6 +886,20 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
           <div><span>mask cut, at 32k</span><b class="acc" id="rBig">0%</b></div>
         </div>
         <footer>Retrieval heads keep everything &mdash; they have to go and find the needle. Streaming heads keep only a few attention sinks and a local window: 64 and 256 in the paper, four and five in this small drawing. At a 32k context that is a 98% cut in the mask, and end to end <i>DuoAttention</i> gives 2.1&times; less memory and 3.0&times; faster decoding with no measurable loss.</footer>
+      </div>
+    </div>
+
+    <div class="hinge r" style="--d:120ms">
+      <div class="dir">
+        <p class="k">direction one</p>
+        <h3>Efficient systems <em>for</em> AI</h3>
+        <ul>{% for t in site.data.research[0].topics %}<li>{{ t }}</li>{% endfor %}</ul>
+      </div>
+      <div class="pivot" aria-hidden="true"><span>&#8646;</span></div>
+      <div class="dir">
+        <p class="k">direction two</p>
+        <h3>AI <em>for</em> efficient systems</h3>
+        <ul>{% for t in site.data.research[1].topics %}<li>{{ t }}</li>{% endfor %}</ul>
       </div>
     </div>
 

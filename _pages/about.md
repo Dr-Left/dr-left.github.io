@@ -20,6 +20,12 @@ My main research question is:
 👉  {{ site.data.profile.research_question }}
 {: .notice}
 
+My interests run in two directions, and each one feeds the other:
+
+{% for d in site.data.research %}- **{{ d.direction }}**
+{% for t in d.topics %}    - {{ t }}
+{% endfor %}{% endfor %}
+
 <div class="disclosure">
   <div class="disclosure-summary">💡  How I develop such a research focus?</div>
   <div class="disclosure-panel">
