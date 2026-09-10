@@ -314,15 +314,13 @@ h1 .nick q::after{content:"\201D"}
   font-size:clamp(22px,2.6vw,36px);line-height:1.06;letter-spacing:-.01em;
 }
 .dir h3 em{font-style:italic;color:var(--vermilion)}
-.dir ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--hair)}
-.dir ul li{
-  padding:11px 0 11px 20px;border-bottom:1px solid var(--hair);position:relative;
-  font-size:14px;line-height:1.55;color:rgba(244,241,234,.7);
+.dir ul{
+  margin:0;padding:0 0 0 clamp(14px,1.4vw,20px);list-style:none;
+  display:grid;gap:13px;border-left:1px solid rgba(226,73,42,.38);
+  transition:border-color .6s var(--ease);
 }
-.dir ul li:last-child{border-bottom:0;padding-bottom:0}
-.dir ul li::before{
-  content:"";position:absolute;left:0;top:1.32em;width:9px;height:1px;background:var(--gold);
-}
+.dir:hover ul{border-left-color:rgba(217,164,65,.7)}
+.dir ul li{font-size:14.5px;line-height:1.5;color:rgba(244,241,234,.74)}
 .hinge .pivot{
   display:grid;place-items:center;color:rgba(244,241,234,.3);
   font-size:clamp(20px,2.4vw,30px);line-height:1;user-select:none;
@@ -331,20 +329,8 @@ h1 .nick q::after{content:"\201D"}
 .hinge .pivot span{display:block;transition:color .6s var(--ease)}
 
 /* the stage — a held beat with nothing on it but the mask */
-.stage{
-  height:86vh;display:flex;align-items:flex-start;justify-content:flex-start;
-  padding-top:clamp(18px,3vh,40px);pointer-events:none;
-}
-.stage p{
-  position:sticky;top:30vh;
-  margin:0;max-width:34ch;text-align:left;padding-left:clamp(0px,1.4vw,20px);
-  border-left:1px solid rgba(226,73,42,.45);
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-  line-height:2.1;color:rgba(244,241,234,.58);
-  opacity:0;
-}
-.stage p b{display:block;font-weight:400;font-size:13px;letter-spacing:.16em;color:var(--gold);margin-top:2px}
-@media (max-width:900px){.stage{height:52vh}}
+.stage{height:86vh;pointer-events:none}
+@media (max-width:900px){.stage{height:44vh}}
 
 /* attention widget */
 .attn{
@@ -468,7 +454,9 @@ h1 .nick q::after{content:"\201D"}
   filter:grayscale(1) contrast(1.08);
   transition:filter .9s var(--ease),transform 1.1s var(--ease);
 }
-.plate:hover img{filter:grayscale(.1) contrast(1.02);transform:scale(1.015)}
+.pub:hover .plate img,.plate:hover img{filter:grayscale(.1) contrast(1.02);transform:scale(1.015)}
+.pub:hover .plate,.plate:hover{border-color:rgba(226,73,42,.45)}
+.pub:hover .plate figcaption{color:rgba(18,20,26,.7)}
 .plate::after{
   content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 90% at 50% 10%,transparent 55%,rgba(18,20,26,.07));
@@ -903,9 +891,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       </div>
     </div>
 
-    <div class="stage">
-      <p id="stageNote">most of the pairs, discarded<b>the text does not notice</b></p>
-    </div>
+    <div class="stage" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -1114,7 +1100,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 </div>
 <div class="callout" id="coGone" aria-hidden="true" style="color:rgba(244,241,234,.6)">
   <span class="dot"></span><span class="rule"></span>
-  <span class="lab">everything else<b>discarded, unnoticed</b></span>
+  <span class="lab">most of the pairs, discarded<b>the text does not notice</b></span>
 </div>
 
 <div id="toast" role="status" aria-live="polite"></div>
@@ -1531,14 +1517,10 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       { el:document.getElementById("coGone"), v:noteAt(Math.round(G*0.88), Math.round(G*0.34)) }
     ].filter(function(x){ return !!x.el; });
     var proj = new THREE.Vector3();
-    var stageNote = document.getElementById("stageNote");
     function placeNotes(){
-      var vis = smooth(1.12, 1.5, phase) * (1 - smooth(1.9, 2.02, phase));
-      if (stageNote){
-        /* keyed to the scroll itself, so it is never behind the cut */
-        var nv = smooth(1.0, 1.10, target) * opT;
-        stageNote.style.opacity = nv.toFixed(3);
-      }
+      /* keyed to the scroll target, never to the eased value, so the notes
+         cannot arrive behind the cut they describe */
+      var vis = smooth(1.02, 1.22, target) * (1 - smooth(1.9, 2.02, phase)) * opT;
       if (small) vis = 0;
       notes.forEach(function(nt){
         if (vis < 0.02){ nt.el.style.opacity = 0; return; }
