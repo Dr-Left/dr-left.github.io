@@ -69,7 +69,7 @@ body::-webkit-scrollbar-thumb{background:#2a2d38;border-radius:9px}
 
 /* ---------- the field ---------- */
 #field{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
+  position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
   opacity:1;transition:opacity .5s linear;
   will-change:opacity;
 }
@@ -709,6 +709,16 @@ kbd{
 #ring.big{width:58px;height:58px;background:rgba(244,241,234,.1)}
 
 body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
+
+/* wide but short displays: keep the opening on one screen */
+@media (min-width:900px) and (max-height:860px){
+  #hero{padding:7vh 0 9vh}
+  h1{font-size:clamp(42px,6.6vw,104px)}
+  .sigrow{margin-top:clamp(16px,2.4vw,26px)}
+  .hero-meta{margin-top:clamp(14px,2vw,24px);gap:12px 30px;padding-top:16px}
+  .hero-meta div p{font-size:13.5px}
+  .cue{bottom:14px}
+}
 
 @media (max-width:700px){
   .facC{min-height:0}
@@ -1438,10 +1448,12 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       "}"
     ].join("\n");
 
+    var baseSize = small ? 0.30 : 0.34;
+    var sizeScale = function(){ return baseSize * Math.min(window.devicePixelRatio || 1, 2); };
     var mat = new THREE.ShaderMaterial({
       uniforms:{
         uPhase:{value:0}, uTime:{value:0},
-        uSize:{value: small ? 0.30 : 0.34}, uKeep:{value:1}, uGal:{value:0}
+        uSize:{value: sizeScale()}, uKeep:{value:1}, uGal:{value:0}
       },
       vertexShader:vert, fragmentShader:frag,
       transparent:true, depthWrite:false, blending:THREE.AdditiveBlending
@@ -1496,7 +1508,9 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       anchors.actIII = F - h*0.95;
       anchors.actIIIin = F - h*0.22;
       cam.aspect = window.innerWidth/window.innerHeight; cam.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(window.innerWidth, window.innerHeight, false);
+      mat.uniforms.uSize.value = sizeScale() * (less ? 2.1 : 1);
     }
     measure();
     window.addEventListener("resize", measure);
@@ -1528,7 +1542,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       if (e.key === "l" || e.key === "L"){
         less = !less;
         mat.uniforms.uKeep.value = less ? 0.12 : 1.0;
-        mat.uniforms.uSize.value = (small?0.30:0.34) * (less ? 2.1 : 1.0);
+        mat.uniforms.uSize.value = sizeScale() * (less ? 2.1 : 1.0);
         toast(less ? "less mode — 12% of the compute, same picture" : "back to full precision");
       }
     });
