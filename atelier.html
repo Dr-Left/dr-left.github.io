@@ -111,13 +111,13 @@ body::-webkit-scrollbar-thumb{background:#2a2d38;border-radius:9px}
 }
 #curtain.up{transform:translateY(-101%);opacity:0;pointer-events:none}
 #curtain .word{
-  font-family:var(--serif);font-size:clamp(52px,13vw,180px);line-height:1;
-  letter-spacing:.06em;color:var(--ivory);position:relative;
+  font-family:var(--serif);font-size:clamp(38px,10vw,146px);line-height:1;
+  letter-spacing:.02em;color:var(--ivory);position:relative;white-space:nowrap;
 }
+#curtain .word .conj{font-size:.30em;font-style:italic;padding:0 .34em;position:relative;top:-.34em}
 #curtain .word span{display:inline-block;transform:translateY(105%);animation:rise .9s var(--ease) forwards}
-#curtain .word span:nth-child(2){animation-delay:.07s}
-#curtain .word span:nth-child(3){animation-delay:.14s}
-#curtain .word span:nth-child(4){animation-delay:.21s}
+#curtain .word span:nth-child(2){animation-delay:.10s}
+#curtain .word span:nth-child(3){animation-delay:.20s}
 @keyframes rise{to{transform:translateY(0)}}
 #curtain .sub{
   position:absolute;left:50%;transform:translateX(-50%);bottom:-2.4em;
@@ -295,8 +295,8 @@ h1 .nick q::after{content:"\201D"}
   margin:0;max-width:34ch;text-align:left;padding-left:clamp(0px,1.4vw,20px);
   border-left:1px solid rgba(226,73,42,.45);
   font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
-  line-height:2.1;color:rgba(244,241,234,.4);
-  opacity:0;transition:opacity .45s linear;
+  line-height:2.1;color:rgba(244,241,234,.58);
+  opacity:0;
 }
 .stage p b{display:block;font-weight:400;font-size:13px;letter-spacing:.16em;color:var(--gold);margin-top:2px}
 @media (max-width:900px){.stage{height:52vh}}
@@ -735,8 +735,8 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <div id="prog" aria-hidden="true"></div>
 
 <div id="curtain" aria-hidden="true">
-  <div class="word"><span>L</span><span>E</span><span>S</span><span>S</span>
-    <div class="sub">compute more with less</div>
+  <div class="word"><span>Less</span><span class="conj">is</span><span>More</span>
+    <div class="sub">atelier no.&thinsp;01 &mdash; jingwei (chris) zuo</div>
   </div>
 </div>
 
@@ -876,7 +876,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="pull r">
       <div class="mark" aria-hidden="true">&ldquo;</div>
       <div>
-        <blockquote>Agents <em>sketch</em> the ambition; systems <em>build</em> the ground beneath it.</blockquote>
+        <blockquote>Agents sketch the <em>ambition</em>; systems build the <em>ground</em> beneath it.</blockquote>
       </div>
     </div>
   </div>
@@ -1463,8 +1463,8 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     function placeNotes(){
       var vis = smooth(1.12, 1.5, phase) * (1 - smooth(1.9, 2.02, phase));
       if (stageNote){
-        /* the caption belongs to the cut, not to the scroll position */
-        var nv = smooth(1.02, 1.26, phase) * opT;
+        /* keyed to the scroll itself, so it is never behind the cut */
+        var nv = smooth(1.0, 1.10, target) * opT;
         stageNote.style.opacity = nv.toFixed(3);
       }
       if (small) vis = 0;
@@ -1534,11 +1534,18 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     });
 
     /* ---- loop ---- */
-    var t0 = performance.now(), mx = 0, my = 0;
+    var t0 = performance.now(), lastT = t0, mx = 0, my = 0;
     function frame(now){
       var t = (now - t0)/1000;
       if (!document.hidden){
-        phase += (target - phase) * (RM ? 1 : 0.075);
+        if (RM){ phase = target; }
+        else {
+          var d = target - phase;
+          /* snap most of the way on a jump, ease the rest, frame-rate corrected */
+          if (Math.abs(d) > 0.55) phase += d * 0.55;
+          else phase += d * Math.min(1, (now - lastT) / 1000 * 9);
+        }
+        lastT = now;
         mat.uniforms.uPhase.value = phase;
         mat.uniforms.uTime.value = RM ? 0 : t;
         mat.uniforms.uGal.value = clamp(phase-2, 0, 1);
