@@ -10,7 +10,7 @@ robots: noindex
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atelier &mdash; {{ site.data.profile.name }}</title>
-<meta name="description" content="An art-directed companion to the work of {{ site.data.profile.name }}: efficient machine learning systems.">
+<meta name="description" content="{{ site.data.profile.name }} (Chris) &mdash; LLM agents and efficient machine learning systems.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,17 +197,14 @@ h2.big em{font-style:italic;color:var(--vermilion)}
   margin-top:clamp(24px,3.6vw,42px);max-width:660px;
 }
 .seal{
-  flex:0 0 auto;width:clamp(58px,6vw,76px);height:clamp(58px,6vw,76px);
-  background:var(--vermilion);color:var(--ivory);
-  font-family:"Noto Serif SC",var(--serif);font-weight:700;
-  writing-mode:vertical-rl;letter-spacing:.12em;
-  display:grid;place-items:center;font-size:clamp(15px,1.6vw,20px);
+  flex:0 0 auto;width:clamp(62px,6.4vw,82px);height:clamp(62px,6.4vw,82px);
+  background:var(--paper);padding:5px;
   transform:rotate(-3.5deg);position:relative;
   transition:transform .8s var(--ease),box-shadow .8s var(--ease);
-  box-shadow:0 10px 30px -14px rgba(226,73,42,.85);
+  box-shadow:0 12px 34px -16px rgba(226,73,42,.75),0 0 0 1px rgba(244,241,234,.10);
 }
-.seal::after{content:"";position:absolute;inset:4px;border:1px solid rgba(244,241,234,.34)}
-.sigrow:hover .seal{transform:rotate(2deg) scale(1.04);box-shadow:0 14px 40px -12px rgba(226,73,42,1)}
+.seal img{width:100%;height:100%;object-fit:contain;display:block}
+.sigrow:hover .seal{transform:rotate(2.5deg) scale(1.05);box-shadow:0 16px 44px -14px rgba(226,73,42,.95),0 0 0 1px rgba(244,241,234,.2)}
 .pron{min-width:0}
 .pron .say{
   margin:0;font-family:var(--serif);font-size:clamp(21px,2.5vw,34px);line-height:1.05;
@@ -294,10 +291,12 @@ h1 .nick q::after{content:"\201D"}
   padding-top:clamp(18px,3vh,40px);pointer-events:none;
 }
 .stage p{
+  position:sticky;top:30vh;
   margin:0;max-width:34ch;text-align:left;padding-left:clamp(0px,1.4vw,20px);
   border-left:1px solid rgba(226,73,42,.45);
   font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
   line-height:2.1;color:rgba(244,241,234,.4);
+  opacity:0;transition:opacity .45s linear;
 }
 .stage p b{display:block;font-weight:400;font-size:13px;letter-spacing:.16em;color:var(--gold);margin-top:2px}
 @media (max-width:900px){.stage{height:52vh}}
@@ -643,6 +642,15 @@ h1 .nick q::after{content:"\201D"}
 }
 #coda .up:hover{color:var(--ivory)}
 #coda .up i{display:block;width:1px;height:26px;background:linear-gradient(transparent,var(--vermilion))}
+#coda .chop{
+  width:clamp(46px,4.4vw,58px);height:clamp(46px,4.4vw,58px);
+  margin:clamp(28px,4vw,46px) auto 0;padding:4px;background:var(--paper);
+  transform:rotate(2.5deg);
+  box-shadow:0 10px 28px -16px rgba(226,73,42,.7),0 0 0 1px rgba(244,241,234,.10);
+  transition:transform .9s var(--ease);
+}
+#coda:hover .chop{transform:rotate(-3deg) scale(1.05)}
+#coda .chop img{width:100%;height:100%;object-fit:contain;display:block}
 
 footer.f{
   margin-top:clamp(50px,9vw,110px);padding:26px 0 30px;border-top:1px solid var(--hair);
@@ -738,7 +746,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     </div>
 
     <div class="sigrow r" style="--d:430ms">
-      <div class="seal" aria-hidden="true">{{ site.data.profile.name_zh }}</div>
+      <div class="seal"><img src="/images/seal.jpg" alt="A carved seal reading {{ site.data.profile.name_zh }}" width="91" height="90"></div>
       <div class="pron">
         <p class="say"><span class="slash">/</span>&thinsp;<i>dzwaw Jeeng-way</i>&thinsp;<span class="slash">/</span></p>
         <p class="also">Zuo Jingwei &middot; <span class="cjk-in">左京伟</span> &middot; in <b>Kirkland, WA</b> for now</p>
@@ -748,7 +756,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="hero-meta r" style="--d:560ms">
       <div>
         <span>Discipline</span>
-        <p>Efficient machine&nbsp;learning systems</p>
+        <p>Agents, and the systems that carry&nbsp;them</p>
       </div>
       <div>
         <span>Position</span>
@@ -779,10 +787,11 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
     <div class="two" style="margin-top:clamp(30px,5vw,60px)">
       <div class="r" style="--d:120ms">
-        <p class="dropcap" style="font-size:17.5px;color:rgba(244,241,234,.85);max-width:50ch">Modern neural networks are magnificent and profligate. The energy ChatGPT spends in a year answering questions could power roughly <b>43,204&nbsp;US homes</b> for that same year.</p>
-        <p style="max-width:52ch">Scaling a model up to reach superior capability matters. Keeping the bill down matters just as much. That tension is the whole of my work: if intelligence is to be available to everyone, and the planet is to survive supplying it, then the interesting question is not how large a system can be &mdash; it is how little it can spend.</p>
+        <p class="dropcap" style="font-size:17.5px;color:rgba(244,241,234,.85);max-width:50ch">Two literatures grew up in different rooms. One asks what a language model can be made to <i>do</i> &mdash; plan, use tools, argue with a copy of itself, act as one of many. The other asks what a language model <i>costs</i>: memory, bandwidth, latency, watts.</p>
+        <p style="max-width:52ch">My work is the hinge between them, and it turns both ways. An agent is the most expensive way yet invented to use a model &mdash; every step is another forward pass, every tool call another long context, every collaborator another cache. Build a multi-agent system honestly and you will meet the systems problem within the hour. Build the systems well and you find out which agents were possible all along.</p>
+        <p style="max-width:52ch">So I have worked both ends: <i>AgentVerse</i> on the agent side, <i>DuoAttention</i> and <i>MaxText</i> on the systems side. The useful discovery is that neither side is legible on its own. Capability sets the ambition; cost decides which ambitions are permitted to exist. The energy ChatGPT spends in a year answering questions could power some <b>43,204&nbsp;US homes</b> for that year &mdash; and every agentic step multiplies that bill again.</p>
         <p style="max-width:52ch">One honest answer is drawn alongside. Every mote is a query&ndash;key pair of a causal attention mask &mdash; a triangle, because a token may only look backwards. Keep scrolling and watch what a <i>streaming head</i> throws away: a few attention sinks, a narrow local window, nothing else. The generated text does not notice. The memory bill falls by an order of magnitude.</p>
-        <p class="field-note" style="max-width:52ch;color:rgba(244,241,234,.45);font-size:13.5px">The card alongside is that same mask at reading scale, synchronised mote for mote with the one drawn at full size behind it.</p>
+        <p class="field-note" style="max-width:52ch;color:rgba(244,241,234,.45);font-size:13.5px">The card alongside is that same mask at reading scale, synchronised mote for mote.</p>
       </div>
 
       <div class="attn r" style="--d:240ms">
@@ -802,7 +811,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     </div>
 
     <div class="stage">
-      <p class="r">most of the pairs, discarded<b>the text does not notice</b></p>
+      <p id="stageNote">most of the pairs, discarded<b>the text does not notice</b></p>
     </div>
   </div>
 </section>
@@ -813,7 +822,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; the record</span><span>Kirkland, Washington</span></div>
     <p class="kicker r">II &nbsp;&mdash;&nbsp; the record</p>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
-    <p class="lede r" style="--d:160ms">Two of them. Both about the same stubborn idea &mdash; that a large model is mostly redundant, and the redundancy is structured enough to exploit.</p>
+    <p class="lede r" style="--d:160ms">Two papers, one from each side of the hinge: a framework for making many agents work together, and a method for making the attention they lean on affordable. Read side by side, they are one argument &mdash; that what a model can do and what it costs to do it are a single problem.</p>
 
     <div style="margin-top:clamp(40px,7vw,84px)">
       {% for pub in site.data.publications %}
@@ -843,7 +852,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <div class="pull r">
       <div class="mark" aria-hidden="true">&ldquo;</div>
       <div>
-        <blockquote>A large model is mostly redundant. The redundancy is <em>structured</em>. Therefore it is exploitable.</blockquote>
+        <blockquote>Agents decide what is <em>worth</em> computing. Systems decide what is <em>possible</em> to compute. Neither question is interesting alone.</blockquote>
         <cite>the working hypothesis, stated plainly</cite>
       </div>
     </div>
@@ -853,6 +862,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
   <div class="wrap" id="os">
     <p class="kicker r">III &nbsp;&mdash;&nbsp; in public</p>
     <h2 class="big r" style="--d:80ms">Code that <em>left the desk</em></h2>
+    <p class="lede r" style="--d:150ms">The same split, in public: one repository for getting agents to cooperate, two for making the training and the inference underneath them cheap enough to bother.</p>
 
     <div class="constel r" style="--d:140ms"
          data-nodes="{% for os in site.data.opensource %}{{ os.slug }}|{{ os.name }}|{{ os.date | split: '-' | last }}{% unless forloop.last %};{% endunless %}{% endfor %}">
@@ -987,6 +997,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       <p class="line r">Compute <em>more</em><br>with <em>less</em>.</p>
       <p class="after r" style="--d:120ms">that is the whole of it &mdash; the rest is engineering</p>
       <p><a class="up r" href="#hero" style="--d:200ms"><i></i>back to the beginning</a></p>
+      <div class="chop r" style="--d:260ms"><img src="/images/seal.jpg" alt="A carved seal reading {{ site.data.profile.name_zh }}" width="91" height="90"></div>
     </div>
 
     <footer class="f">
@@ -1424,8 +1435,14 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       { el:document.getElementById("coGone"), v:noteAt(Math.round(G*0.88), Math.round(G*0.34)) }
     ].filter(function(x){ return !!x.el; });
     var proj = new THREE.Vector3();
+    var stageNote = document.getElementById("stageNote");
     function placeNotes(){
       var vis = smooth(1.12, 1.5, phase) * (1 - smooth(1.9, 2.02, phase));
+      if (stageNote){
+        /* the caption belongs to the cut, not to the scroll position */
+        var nv = smooth(1.02, 1.26, phase) * opT;
+        stageNote.style.opacity = nv.toFixed(3);
+      }
       if (small) vis = 0;
       notes.forEach(function(nt){
         if (vis < 0.02){ nt.el.style.opacity = 0; return; }
