@@ -62,6 +62,14 @@ exists because each line is a bug that actually reached the live site.
 
 ## Other things that have bitten
 
+- **This file must stay in `_config.yml`'s `exclude:`.** It is not site
+  content, and while a local `jekyll build` copies it harmlessly, the GitHub
+  Pages build failed silently for ten minutes with it present (it contains
+  literal Liquid delimiters in the note below). Nothing deployed until it was
+  excluded. The same goes for any new repo-level `.md`.
+- When a push does not appear live, check whether a page added two commits ago
+  is serving before assuming slowness: a canary file proves whether the build
+  ran at all. Pages gives no error at the URL, only an email to the owner.
 - `jekyll-redirect-from` must stay in **both** `plugins:` and `whitelist:` in
   `_config.yml`; the gem being installed is not enough, and without it every
   `redirect_from` in the repo is silently dead.
