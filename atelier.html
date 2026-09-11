@@ -1,6 +1,7 @@
 ---
 layout: null
-permalink: /
+permalink: /v1/
+sitemap: false
 redirect_from:
   - /atelier/
 ---
@@ -11,12 +12,13 @@ redirect_from:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ site.data.profile.name }} ({{ site.data.profile.name_en }}) &mdash; {{ site.data.profile.discipline }}</title>
 <meta name="description" content="{{ site.data.profile.name }} (Chris) &mdash; LLM agents and efficient machine learning systems.">
-<link rel="canonical" href="{{ site.url }}/">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="{{ site.url }}/v1/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{ site.data.profile.name }}">
 <meta property="og:title" content="{{ site.data.profile.name }} ({{ site.data.profile.name_en }})">
 <meta property="og:description" content="{{ site.data.profile.discipline }} &mdash; Ph.D. student in Computer Science at Rice University.">
-<meta property="og:url" content="{{ site.url }}/">
+<meta property="og:url" content="{{ site.url }}/v1/">
 <meta property="og:image" content="{{ site.url }}/images/profile_small.png">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/images/favicon.ico">
