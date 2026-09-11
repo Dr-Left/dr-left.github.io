@@ -1380,10 +1380,12 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     function buildNet(out, flag, count, R){
       var sizes = small ? [2,4,5,4,2] : [3,5,6,5,3];
       var L = sizes.length;
+      var widest = Math.max.apply(null, sizes);
+      var pitch = 2 * R * 0.58 / (widest - 1);   /* one spacing for every layer */
       var layers = sizes.map(function(m, li){
         var col = [], x = (li/(L-1) - 0.5) * 2 * R * 0.74;
         for (var k=0;k<m;k++){
-          var y = m === 1 ? 0 : ((k/(m-1)) - 0.5) * 2 * R * 0.58;
+          var y = (k - (m-1)/2) * pitch;
           col.push([x, y, (Math.random()-0.5) * R * 0.05]);
         }
         return col;
