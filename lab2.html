@@ -142,12 +142,10 @@ section{position:relative}
 h2.big{
   font-family:var(--sans);font-weight:700;
   font-size:clamp(30px,5vw,70px);line-height:1.02;letter-spacing:-.032em;
-  margin:0 0 .5em;padding-top:clamp(16px,2.2vw,26px);
-  border-top:1px solid var(--hair);
+  margin:0 0 .5em;padding-top:clamp(6px,1vw,14px);
 }
 /* the accent holds its colour but stands upright in this edition */
 h2.big em{font-style:normal;color:var(--vermilion)}
-.tone-paper h2.big{border-top-color:var(--hair-ink)}
 
 .lede{
   font-size:clamp(17px,1.5vw,22px);line-height:1.55;max-width:58ch;
@@ -533,7 +531,7 @@ h1 .nick q::after{content:"\201D"}
 .osrow:hover{padding-left:14px;background:linear-gradient(90deg,rgba(226,73,42,.07),transparent 60%)}
 @media (max-width:820px){.osrow{grid-template-columns:1fr;gap:10px}}
 .osrow h3{font-family:var(--sans);font-weight:700;font-size:clamp(21px,2.5vw,34px);margin:0;line-height:1.08;letter-spacing:-.025em}
-.osrow h3 i{font-style:normal;display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(15,23,34,.5);margin-top:12px}
+.osrow h3 i{font-style:normal;display:block;font-size:13.5px;letter-spacing:0;color:rgba(15,23,34,.55);margin-top:10px}
 .osrow p{margin:0;font-size:14px;line-height:1.7;color:rgba(15,23,34,.7)}
 .osrow .stars{
   font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink);
@@ -562,12 +560,12 @@ h1 .nick q::after{content:"\201D"}
 }
 @media (max-width:820px){.tl{padding-left:22px}}
 .ev{
-  display:grid;grid-template-columns:150px 62px minmax(0,1fr) 74px;gap:clamp(14px,2.6vw,34px);
+  display:grid;grid-template-columns:150px 88px minmax(0,1fr) 74px;gap:clamp(14px,2.6vw,34px);
   padding:clamp(26px,4vw,52px) 0 clamp(26px,4vw,52px) clamp(18px,2.4vw,40px);
   border-top:1px solid var(--hair-ink);position:relative;
 }
 .ev:last-child{border-bottom:1px solid var(--hair-ink)}
-@media (max-width:1100px){.ev{grid-template-columns:150px 62px minmax(0,1fr)}.ev .num{display:none}}
+@media (max-width:1100px){.ev{grid-template-columns:150px 88px minmax(0,1fr)}.ev .num{display:none}}
 @media (max-width:820px){.ev{grid-template-columns:1fr;gap:14px;padding-left:16px}}
 .ev .num{
   font-family:var(--serif);font-size:56px;line-height:.8;text-align:right;
@@ -581,11 +579,11 @@ h1 .nick q::after{content:"\201D"}
 .ev.in::before{background:var(--vermilion);border-color:var(--vermilion)}
 .ev .when{font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:rgba(15,23,34,.56);padding-top:6px}
 .ev .when span{display:block;margin-top:6px;font-family:var(--sans);font-size:11.5px;letter-spacing:0;color:rgba(15,23,34,.45)}
-.ev .sig{width:52px;height:52px;border-radius:50%;overflow:hidden;background:#fff;border:1px solid var(--hair-ink);display:grid;place-items:center}
-.ev .sig img{width:100%;height:100%;object-fit:contain;padding:6px;filter:grayscale(1);transition:filter .6s}
+.ev .sig{width:78px;height:78px;border-radius:50%;overflow:hidden;background:#fff;border:1px solid var(--hair-ink);display:grid;place-items:center}
+.ev .sig img{width:100%;height:100%;object-fit:contain;padding:9px;filter:grayscale(1);transition:filter .6s}
 .ev:hover .sig img{filter:none}
 .ev h3{font-family:var(--sans);font-weight:700;font-size:clamp(20px,2.3vw,30px);margin:0 0 6px;line-height:1.12;letter-spacing:-.024em}
-.ev .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--vermilion);margin:0 0 16px}
+.ev .role{font-size:14px;letter-spacing:0;color:var(--vermilion);margin:0 0 16px;line-height:1.4}
 .ev ul{margin:0;padding:0;list-style:none}
 .ev ul li{
   position:relative;padding-left:20px;margin-bottom:11px;font-size:14.5px;line-height:1.7;
@@ -622,9 +620,20 @@ h1 .nick q::after{content:"\201D"}
 
 /* services strip */
 .strip{
-  border-top:1px solid var(--hair-ink);border-bottom:1px solid var(--hair-ink);
-  padding:clamp(20px,3vw,32px) 0;display:flex;flex-wrap:wrap;gap:18px 40px;align-items:baseline;
+  padding:clamp(20px,3vw,32px) 0;
+  display:grid;grid-template-columns:minmax(0,170px) minmax(240px,32ch);
+  justify-content:start;gap:12px clamp(20px,3.4vw,52px);align-items:start;
 }
+@media (max-width:720px){.strip{grid-template-columns:1fr}}
+.svc{margin:0;padding:0;list-style:none}
+.svc li{display:flex;align-items:baseline;gap:6px;padding:6px 0;font-size:13.5px}
+.svc li + li{border-top:1px solid rgba(22,53,126,.12)}
+.svc li i{font-style:normal;color:rgba(15,23,34,.6);white-space:nowrap}
+.svc li u{
+  flex:1;border-bottom:1px dotted rgba(22,53,126,.45);
+  text-decoration:none;transform:translateY(-.3em);min-width:18px;
+}
+.svc li b{font-weight:500;color:var(--vermilion);white-space:nowrap;letter-spacing:-.005em}
 .strip span{font-size:13px;font-style:italic;color:rgba(15,23,34,.5)}
 .strip p{margin:0;font-family:var(--sans);font-weight:500;font-size:clamp(16px,1.7vw,21px);line-height:1.2;letter-spacing:-.012em}
 .strip p em{font-style:italic;color:var(--vermilion)}
@@ -673,7 +682,8 @@ h1 .nick q::after{content:"\201D"}
 .facC .glyph g,.facC .glyph rect,.facC .glyph path{transform-box:fill-box}
 
 /* tennis: it bounces, and squashes where it lands */
-.facC .glyph .ball{transform-origin:50% 100%;animation:g-bounce 1.45s cubic-bezier(.32,0,.62,1) infinite}
+.facC .glyph .ball{transform-origin:50% 100%}
+.facC:hover .glyph .ball{animation:g-bounce 1.45s cubic-bezier(.32,0,.62,1) infinite}
 .facC .glyph .ground{opacity:.4}
 @keyframes g-bounce{
   0%   {transform:translateY(-14%) scale(1,1)}
@@ -683,7 +693,8 @@ h1 .nick q::after{content:"\201D"}
 }
 
 /* piano: the keys go down in turn */
-.facC .glyph .key{transform-origin:50% 0;animation:g-press 2.2s ease-in-out infinite}
+.facC .glyph .key{transform-origin:50% 0}
+.facC:hover .glyph .key{animation:g-press 2.2s ease-in-out infinite}
 .facC .glyph .key:nth-of-type(2){animation-delay:.0s}
 .facC .glyph .key:nth-of-type(3){animation-delay:.16s}
 .facC .glyph .key:nth-of-type(4){animation-delay:.32s}
@@ -695,14 +706,16 @@ h1 .nick q::after{content:"\201D"}
 }
 
 /* aperture: it opens and closes, and the blades turn as it does */
-.facC .glyph .iris{transform-origin:50% 50%;animation:g-iris 3.4s ease-in-out infinite}
+.facC .glyph .iris{transform-origin:50% 50%}
+.facC:hover .glyph .iris{animation:g-iris 3.4s ease-in-out infinite}
 @keyframes g-iris{
   0%,100%{transform:scale(.52) rotate(-9deg)}
   50%    {transform:scale(1.12) rotate(9deg)}
 }
 
 /* book: a leaf turns over on the spine */
-.facC .glyph .leaf{transform-origin:100% 50%;animation:g-leaf 3.8s ease-in-out infinite}
+.facC .glyph .leaf{transform-origin:100% 50%}
+.facC:hover .glyph .leaf{animation:g-leaf 3.8s ease-in-out infinite}
 @keyframes g-leaf{
   0%,34%  {transform:scaleX(1);opacity:1}
   62%     {transform:scaleX(-1);opacity:1}
@@ -914,6 +927,10 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         <span>Correspondence</span>
         <p><a href="mailto:{{ site.data.profile.email_link }}">{{ site.data.profile.email }}</a></p>
       </div>
+      <div>
+        <span>Code</span>
+        <p><a href="https://github.com/Dr-Left">github.com/Dr&#8209;Left</a></p>
+      </div>
     </div>
   </div>
   <div class="cue"><i></i>scroll</div>
@@ -1081,7 +1098,9 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
     <div class="strip r" style="--d:200ms;margin-top:clamp(40px,6vw,72px)">
       <span>Academic service</span>
-      {% for s in site.data.services %}<p>{{ s.role }} &mdash; <em>{{ s.venue }}</em></p>{% endfor %}
+      <ul class="svc">
+        {% for s in site.data.services %}<li><i>{{ s.role }}</i><u></u><b>{{ s.venue }}</b></li>{% endfor %}
+      </ul>
     </div>
   </div>
 </section>
@@ -1129,7 +1148,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     <h2 class="big r" style="--d:70ms;max-width:20ch">Let us have a <em>coffee</em> about it.</h2>
     <p class="lede r" style="--d:140ms">Other people's talk inspires me, and now and then my words return the favour. If we are in the same city, that is reason enough.</p>
     <p style="margin:clamp(30px,5vw,60px) 0 0">
-      <a class="mail r" style="--d:200ms" href="mailto:{{ site.data.profile.email_link }}">{{ site.data.profile.email_link }}</a>
+      <a class="mail r" style="--d:200ms" href="mailto:{{ site.data.profile.email_link }}">{{ site.data.profile.email }}</a>
     </p>
 
     <div class="doors r" style="--d:260ms">
@@ -1442,12 +1461,12 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
        Layers are planes, not rings: a ring stack is rotationally
        symmetric and so never reads as layered from any angle. ---- */
     function buildNet(out, flag, count, R){
-      var sizes = small ? [2,4,5,4,2] : [3,5,6,5,3];
+      var sizes = small ? [3,5,2] : [4,6,3];
       var L = sizes.length;
       var widest = Math.max.apply(null, sizes);
-      var pitch = 2 * R * 0.58 / (widest - 1);   /* one spacing for every layer */
+      var pitch = 2 * R * 0.76 / (widest - 1);   /* one spacing for every layer */
       var layers = sizes.map(function(m, li){
-        var col = [], x = (li/(L-1) - 0.5) * 2 * R * 0.74;
+        var col = [], x = (li/(L-1) - 0.5) * 2 * R * 0.92;
         for (var k=0;k<m;k++){
           var y = (k - (m-1)/2) * pitch;
           col.push([x, y, (Math.random()-0.5) * R * 0.05]);
@@ -1461,8 +1480,8 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         layers[li].forEach(function(a){ layers[li+1].forEach(function(b){ edges.push([a,b]); }); });
 
       var nodeCount = sizes.reduce(function(p,q){ return p+q; }, 0);
-      var NR = R * 0.078;                       /* a neuron you can see */
-      var perNode = 118, perEdge = 68;
+      var NR = R * 0.105;                      /* a neuron you can see */
+      var perNode = 96, perEdge = 30;
       var w = 0;
       function put(x,y,z,kind){
         if (w >= count) return;
@@ -1583,10 +1602,10 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       "  {",
       "    vec3 nv = normalize((modelViewMatrix * vec4(normalize(pos), 0.0)).xyz);",
       "    float rim = 1.0 - abs(dot(nv, normalize(-mv.xyz)));",
-      "    a *= mix(1.0, 0.86 + 0.34*pow(rim, 2.0), sph);",
+      "    a *= mix(1.0, 0.78 + 0.3*pow(rim, 2.0), sph);",
       "    float wire = max(aNode, 0.0);",
       "    float held = step(aNode, -0.5);",
-      "    a *= mix(1.0, mix(mix(1.15, 2.3, wire), 0.0, held), sph);",
+      "    a *= mix(1.0, mix(mix(0.62, 1.25, wire), 0.0, held), sph);",
       "  }",
       "  float keptGrow = 1.0 + 1.35 * aAlive * clamp(uPhase - 1.0, 0.0, 1.0) * (1.0 - uGal);",
       "  keptGrow *= 1.0 + 0.28 * max(aNode, 0.0) * sph;",
@@ -1738,7 +1757,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         if (mouse){ mx += (mouse.x - mx)*0.05; my += (mouse.y - my)*0.05; }
         var settle = clamp(phase,0,1), gal = clamp(phase-2,0,1);
         var sheet = settle * (1-gal);
-        group.position.x = small ? 0 : (26*(1-settle) + 19*sheet + 17*gal);
+        group.position.x = small ? 0 : (17*(1-settle) + 19*sheet + 17*gal);
         group.position.y = (small ? -19 : 2)*(1-settle) - 3*gal;
         var spin = RM ? 0 : t*0.045;
         /* act I: the sphere turns freely; the mask is a sheet held to the light;
