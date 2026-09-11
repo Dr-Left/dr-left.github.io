@@ -1464,21 +1464,23 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     var pSph = new Float32Array(N*3), pMat = new Float32Array(N*3),
         pSpa = new Float32Array(N*3), pGal = new Float32Array(N*3),
         aAlive = new Float32Array(N), aRand = new Float32Array(N), aTone = new Float32Array(N),
-        aNode = new Float32Array(N), aPath = new Float32Array(N);
+        aNode = new Float32Array(N), aPath = new Float32Array(N),
+        aEnds = new Float32Array(N*2);
 
     /* ---- the network: flat layers, wired left to right ----
        Layers are planes, not rings: a ring stack is rotationally
        symmetric and so never reads as layered from any angle. ---- */
-    function buildNet(out, flag, path, count, R){
+    function buildNet(out, flag, path, ends, count, R){
       var sizes = small ? [3,5,2] : [4,6,3];
       var L = sizes.length;
       var widest = Math.max.apply(null, sizes);
       var pitch = 2 * R * 0.76 / (widest - 1);   /* one spacing for every layer */
+      var nextId = 0;
       var layers = sizes.map(function(m, li){
         var col = [], x = (li/(L-1) - 0.5) * 2 * R * 0.92;
         for (var k=0;k<m;k++){
           var y = (k - (m-1)/2) * pitch;
-          col.push([x, y, (Math.random()-0.5) * R * 0.05]);
+          col.push([x, y, (Math.random()-0.5) * R * 0.05, nextId++]);
         }
         return col;
       });
@@ -1492,10 +1494,11 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       var NR = R * 0.105;                      /* a neuron you can see */
       var perNode = 96, perEdge = 30;
       var w = 0;
-      function put(x,y,z,kind,at){
+      function put(x,y,z,kind,at,src,dst){
         if (w >= count) return;
         out[w*3] = x; out[w*3+1] = y; out[w*3+2] = z;
-        flag[w] = kind; path[w] = at; w++;
+        flag[w] = kind; path[w] = at;
+        ends[w*2] = src; ends[w*2+1] = dst; w++;
       }
       /* neurons: hollow circles drawn in the plane of the diagram, the way
          a feed-forward network is always drawn */
@@ -1504,7 +1507,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         col.forEach(function(p){
           for (var k=0;k<perNode;k++){
             var a = (k/perNode)*Math.PI*2, rad = NR * (1 + (Math.random()-0.5)*0.035);
-            put(p[0] + Math.cos(a)*rad, p[1] + Math.sin(a)*rad, p[2] + (Math.random()-0.5)*R*0.004, 1, at);
+            put(p[0] + Math.cos(a)*rad, p[1] + Math.sin(a)*rad, p[2] + (Math.random()-0.5)*R*0.004, 1, at, p[3], p[3]);
           }
         });
       });
@@ -1517,18 +1520,18 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
           var t = a0 + (a1-a0)*((k+0.5)/perEdge), j = R*0.0018;
           put(e[0][0]+dx*t + (Math.random()-0.5)*j,
               e[0][1]+dy*t + (Math.random()-0.5)*j,
-              e[0][2]+dz*t + (Math.random()-0.5)*j, 0, (e[2] + t)/(L-1));
+              e[0][2]+dz*t + (Math.random()-0.5)*j, 0, (e[2] + t)/(L-1), e[0][3], e[1][3]);
         }
       });
       /* the rest wait in a loose cloud, hidden, and arrive with the mask */
       while (w < count){
         var u3 = Math.random()*Math.PI*2, v3 = Math.acos(2*Math.random()-1),
             r3 = R*(0.7 + Math.random()*0.9);
-        put(r3*Math.sin(v3)*Math.cos(u3), r3*Math.sin(v3)*Math.sin(u3)*0.8, r3*Math.cos(v3)*0.8, -1, -1);
+        put(r3*Math.sin(v3)*Math.cos(u3), r3*Math.sin(v3)*Math.sin(u3)*0.8, r3*Math.cos(v3)*0.8, -1, -1, 0, 0);
       }
     }
     var SPAN = small ? 42 : 52, R = small ? 13 : 25;
-    buildNet(pSph, aNode, aPath, N, R);
+    buildNet(pSph, aNode, aPath, aEnds, N, R);
     var idx = 0, i, j;
     for (i=0;i<G;i++){
       for (j=0;j<=i;j++){
@@ -1571,13 +1574,37 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     geo.setAttribute("aTone", new THREE.BufferAttribute(aTone,1));
     geo.setAttribute("aNode", new THREE.BufferAttribute(aNode,1));
     geo.setAttribute("aPath", new THREE.BufferAttribute(aPath,1));
+    geo.setAttribute("aEnds", new THREE.BufferAttribute(aEnds,2));
     geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 120);
 
     var vert = [
       "attribute vec3 aSph; attribute vec3 aMat; attribute vec3 aSpa; attribute vec3 aGal;",
-      "attribute float aAlive; attribute float aRand; attribute float aTone; attribute float aNode; attribute float aPath;",
+      "attribute float aAlive; attribute float aRand; attribute float aTone; attribute float aNode; attribute float aPath; attribute vec2 aEnds;",
       "uniform float uPhase; uniform float uTime; uniform float uSize; uniform float uKeep; uniform float uGal; uniform float uPulse;",
       "varying float vA; varying float vTone; varying float vCore; varying float vGlow;",
+      "float hash(float n)",
+      "{",
+      "  return fract(sin(n * 12.9898) * 43758.5453123);",
+      "}",
+      "float fire(float t, float at, float nodeFlag, vec2 ends, float thr)",
+      "{",
+      "  float pass = mod(floor(t), 64.0);",
+      "  float head = fract(t);",
+      "  float onA = step(hash(ends.x * 3.17 + pass * 7.77), thr);",
+      "  float onB = step(hash(ends.y * 3.17 + pass * 7.77), thr);",
+      "  float on = onA * onB;",
+      "  if (on < 0.5) return 0.0;",
+      "  float d = at - head;",
+      "  d = d - floor(d + 0.5);",
+      "  float wdt = d > 0.0 ? 0.0012 : 0.017;",
+      "  float pulse = exp(-(d*d) / wdt);",
+      "  float after = 0.0;",
+      "  if (nodeFlag > 0.5 && d < 0.0)",
+      "  {",
+      "    after = 0.5 * exp(d * 4.5);",
+      "  }",
+      "  return max(pulse, after);",
+      "}",
       "float ease(float x)",
       "{",
       "  return x<0.5 ? 4.0*x*x*x : 1.0-pow(-2.0*x+2.0,3.0)/2.0;",
@@ -1621,20 +1648,18 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       "    a *= mix(1.0, mix(mix(0.62, 1.25, wire), 0.0, held), sph);",
       "    if (aPath >= 0.0 && uPulse > 0.5)",
       "    {",
-      "      float at = aPath + (aRand - 0.5) * 0.035;",
-      "      float head = fract(uTime * 0.24);",
-      "      float d = at - head;",
-      "      d = d - floor(d + 0.5);",
-      "      float w = d > 0.0 ? 0.0016 : 0.020;",
-      "      float pulse = exp(-(d*d) / w);",
-      "      float second = exp(-(pow(fract(d + 0.5) - 0.5, 2.0)) / 0.0016);",
-      "      pulse = max(pulse, second * 0.42);",
-      "      a += 3.2 * pulse * sph;",
-      "      glow = pulse * sph;",
+      "      /* two overlapping passes, each firing a different sparse subset:",
+      "         a wire lights only when both of its neurons fire */",
+      "      float at = aPath + (aRand - 0.5) * 0.03;",
+      "      float t1 = uTime * 0.30;",
+      "      float lit = max(fire(t1, at, aNode, aEnds, 0.5),",
+      "                      fire(t1 + 0.5, at, aNode, aEnds, 0.5));",
+      "      a += 4.4 * lit * sph;",
+      "      glow = lit * sph;",
       "    }",
       "  }",
       "  float keptGrow = 1.0 + 1.35 * aAlive * clamp(uPhase - 1.0, 0.0, 1.0) * (1.0 - uGal);",
-      "  keptGrow *= 1.0 + 0.28 * max(aNode, 0.0) * sph + 1.5 * glow;",
+      "  keptGrow *= 1.0 + 0.28 * max(aNode, 0.0) * sph + 2.1 * glow;",
       "  gl_PointSize = uSize * (1.0 + 0.28*aRand) * (1.0 + 0.95*uGal) * keptGrow * (300.0 / max(-mv.z, 1.0));",
       "  vA = a * (0.55 + 0.45*br);",
       "  vTone = aTone;",
