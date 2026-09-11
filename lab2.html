@@ -18,7 +18,7 @@ sitemap: false
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap&text=%E5%B7%A6%E4%BA%AC%E4%BC%9F" rel="stylesheet">
 <style>
 /* ===========================================================
-   ATELIER — three acts: night, paper, night.
+   Three acts: night, paper, night.
    Act I  : the machine  (WebGL attention field)
    Act II : the work     (editorial paper)
    Act III: the person   (night, resolved)
@@ -132,8 +132,8 @@ section{position:relative}
 .wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 var(--pad)}
 
 .kicker{
-  font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
-  color:var(--gold);display:flex;align-items:center;gap:14px;margin:0 0 26px;
+  font-size:13px;letter-spacing:0;font-style:italic;
+  color:var(--gold);display:flex;align-items:center;gap:14px;margin:0 0 22px;
 }
 .kicker::after{content:"";flex:1;height:1px;background:currentColor;opacity:.32}
 .tone-paper .kicker{color:var(--vermilion)}
@@ -248,8 +248,8 @@ h1 .nick q::after{content:"\201D"}
   border-top:1px solid var(--hair);padding-top:20px;max-width:min(560px,100%);
 }
 .hero-meta div span{
-  display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;
-  text-transform:uppercase;color:rgba(244,241,234,.34);margin-bottom:7px;
+  display:block;font-size:12.5px;letter-spacing:0;
+  color:rgba(244,241,234,.42);margin-bottom:5px;
 }
 .hero-meta div p{margin:0;font-size:14.5px;line-height:1.45;color:rgba(244,241,234,.86)}
 .hero-meta a{color:var(--ice);text-decoration:none;border-bottom:1px solid rgba(143,184,201,.34)}
@@ -342,27 +342,14 @@ h1 .nick q::after{content:"\201D"}
   backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
   padding:clamp(16px,2vw,26px);
 }
-.attn header{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:16px}
-.attn header h3{
-  margin:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;
-  text-transform:uppercase;color:rgba(244,241,234,.55);font-weight:500;
+.attn .tally{
+  margin:16px 0 0;font-size:14px;line-height:1.65;color:rgba(244,241,234,.72);
+  border-top:1px solid var(--hair);padding-top:14px;
 }
-.attn header .mode{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--vermilion);text-transform:uppercase}
+.attn .tally b{font-weight:400;color:var(--gold);font-variant-numeric:tabular-nums}
+.attn .tally span{color:var(--gold)}
 .attn canvas{width:100%;height:auto;display:block;image-rendering:auto}
-.attn .read{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:1px;margin-top:16px;background:var(--hair);
-  border-top:1px solid var(--hair);border-left:1px solid var(--hair);
-}
-.attn .read div{background:rgba(12,14,20,.9);padding:11px 12px 12px}
-.attn .read div span{
-  display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(244,241,234,.36);margin-bottom:6px;white-space:nowrap;
-}
-.attn .read div b{
-  font-family:var(--mono);font-size:19px;font-weight:500;letter-spacing:-.01em;
-  font-variant-numeric:tabular-nums;display:block;line-height:1;
-}
+
 .attn .read div b.acc{color:var(--gold)}
 .attn footer{margin-top:14px;font-size:12px;line-height:1.6;color:rgba(244,241,234,.42)}
 
@@ -576,8 +563,8 @@ h1 .nick q::after{content:"\201D"}
   width:9px;height:9px;border-radius:50%;background:var(--paper);border:1.5px solid var(--ink);
 }
 .ev.in::before{background:var(--vermilion);border-color:var(--vermilion)}
-.ev .when{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:rgba(18,20,26,.56);padding-top:6px}
-.ev .when span{display:block;margin-top:8px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(18,20,26,.4)}
+.ev .when{font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:rgba(18,20,26,.56);padding-top:6px}
+.ev .when span{display:block;margin-top:6px;font-family:var(--sans);font-size:11.5px;letter-spacing:0;color:rgba(18,20,26,.45)}
 .ev .sig{width:52px;height:52px;border-radius:50%;overflow:hidden;background:#fff;border:1px solid var(--hair-ink);display:grid;place-items:center}
 .ev .sig img{width:100%;height:100%;object-fit:contain;padding:6px;filter:grayscale(1);transition:filter .6s}
 .ev:hover .sig img{filter:none}
@@ -600,7 +587,7 @@ h1 .nick q::after{content:"\201D"}
 }
 .eduC > *:not(.crest){position:relative;z-index:1}
 .eduC:hover{background:var(--paper-2)}
-.eduC .yr{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--vermilion);margin-bottom:auto}
+.eduC .yr{font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:var(--vermilion);margin-bottom:auto}
 .eduC h3{font-family:var(--sans);font-weight:700;font-size:clamp(19px,2vw,26px);margin:26px 0 14px;line-height:1.14;letter-spacing:-.022em}
 .eduC ul{margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.7;color:rgba(18,20,26,.72)}
 .eduC ul li{padding-top:9px;border-top:1px solid var(--hair-ink);margin-top:9px}
@@ -622,7 +609,7 @@ h1 .nick q::after{content:"\201D"}
   border-top:1px solid var(--hair-ink);border-bottom:1px solid var(--hair-ink);
   padding:clamp(20px,3vw,32px) 0;display:flex;flex-wrap:wrap;gap:18px 40px;align-items:baseline;
 }
-.strip span{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(18,20,26,.5)}
+.strip span{font-size:13px;font-style:italic;color:rgba(18,20,26,.5)}
 .strip p{margin:0;font-family:var(--sans);font-weight:500;font-size:clamp(16px,1.7vw,21px);line-height:1.2;letter-spacing:-.012em}
 .strip p em{font-style:italic;color:var(--vermilion)}
 
@@ -674,8 +661,8 @@ h1 .nick q::after{content:"\201D"}
 #contact{padding:8vh 0 0;position:relative;z-index:6}
 #contact::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,12,.42),rgba(7,8,12,.8) 62%,var(--night))}
 .mail{
-  display:inline-block;font-family:var(--serif);font-size:clamp(28px,6.2vw,92px);
-  line-height:1;text-decoration:none;letter-spacing:-.02em;
+  display:inline-block;font-family:var(--serif);font-size:clamp(21px,2.9vw,40px);
+  line-height:1.1;text-decoration:none;letter-spacing:-.01em;
   background:linear-gradient(var(--vermilion),var(--vermilion)) no-repeat left bottom / 0% 2px;
   transition:background-size .7s var(--ease),color .5s;word-break:break-word;
 }
@@ -808,7 +795,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
 <div id="curtain" aria-hidden="true">
   <div class="word"><span>Less</span><span class="conj">is</span><span>More</span>
-    <div class="sub">atelier no.&thinsp;01 &mdash; jingwei (chris) zuo</div>
+    <div class="sub">jingwei (chris) zuo &mdash; {{ site.data.profile.location }}</div>
   </div>
 </div>
 
@@ -829,7 +816,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <section id="hero" data-tone="night">
   <div class="wrap">
     <div class="top">
-      <div>Jingwei (Chris) Zuo &mdash; Atelier no.&thinsp;02</div>
+      <div>Jingwei (Chris) Zuo &mdash; {{ site.data.profile.discipline | downcase }}</div>
       <div><a href="/classic/">the ordinary site &nearr;</a></div>
     </div>
 
@@ -890,17 +877,11 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       </div>
 
       <div class="attn r" style="--d:240ms">
-        <header>
-          <h3>The mask &middot; live</h3>
-          <div class="mode" id="attnMode">dense</div>
-        </header>
+
         <canvas id="attnC" width="900" height="900" aria-label="Animated attention mask, dense versus sparse"></canvas>
-        <div class="read">
-          <div><span>pairs kept</span><b id="rKept">528</b></div>
-          <div><span>cache size</span><b id="rCache">O(n)</b></div>
-          <div><span>mask cut, here</span><b class="acc" id="rSaved">0%</b></div>
-          <div><span>mask cut, at 32k</span><b class="acc" id="rBig">0%</b></div>
-        </div>
+        <p class="tally"><b id="rKept">528</b> of 528 query&ndash;key pairs survive, so the cache
+        <span id="rCache">still grows with the context</span>. <span id="rSaved">None</span> of the mask is
+        gone here, and <b id="rBig">none</b> of it at a 32,768&#8209;token context.</p>
         <footer>Retrieval heads keep everything &mdash; they have to go and find the needle. Streaming heads keep only a few attention sinks and a local window: 64 and 256 in the paper, four and five in this small drawing. At a 32k context that is a 98% cut in the mask, and end to end <i>DuoAttention</i> gives 2.1&times; less memory and 3.0&times; faster decoding with no measurable loss.</footer>
       </div>
     </div>
@@ -926,7 +907,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <!-- ============ ACT II / THE WORK (paper) ============ -->
 <section id="work" class="tone-paper" data-tone="paper">
   <div class="wrap">
-    <div class="runhead"><span>Jingwei (Chris) Zuo &mdash; Atelier</span><span><b>Part II</b> &middot; publications</span><span>{{ site.data.profile.location_long }}</span></div>
+    <div class="runhead"><span>Jingwei (Chris) Zuo</span><span><b>Part II</b> &middot; publications</span><span>{{ site.data.profile.location_long }}</span></div>
     <h2 class="big r" style="--d:80ms">Selected <em>papers</em></h2>
     <p class="lede sm r" style="--d:160ms">One from each side of the hinge: many agents made to cooperate, and the attention they lean on made affordable.</p>
 
@@ -1103,7 +1084,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     </div>
 
     <footer class="f">
-      <div>Atelier no.&thinsp;02 &mdash; a second edition</div>
+      <div>Second edition</div>
       <div>Press <kbd>L</kbd> for less</div>
       <div>Proudly co&#8209;designed with Claude Opus&nbsp;5</div>
       <div>Jingwei (Chris) Zuo &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; {{ site.data.profile.location }}</div>
@@ -1277,8 +1258,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     var ctx = c.getContext("2d");
     var N = 32, SINK = 4, WIN = 5;
     var kept = document.getElementById("rKept"), cache = document.getElementById("rCache"),
-        saved = document.getElementById("rSaved"), big = document.getElementById("rBig"),
-        mode = document.getElementById("attnMode");
+        saved = document.getElementById("rSaved"), big = document.getElementById("rBig");
     var dense = 0, sparse = 0, i, j;
     for (i=0;i<N;i++) for (j=0;j<=i;j++){ dense++; if (j<SINK || i-j<WIN) sparse++; }
     var t = 0, osc = -0.45, dir = 1, hover = false, last = 0;
@@ -1349,13 +1329,14 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
       var nk = Math.round(lerp(dense, sparse, ke));
       kept.textContent = nk.toLocaleString();
-      cache.textContent = ke>0.5 ? "O(1)" : "O(n)";
-      saved.textContent = Math.round((1-nk/dense)*100)+"%";
+      var pc = Math.round((1-nk/dense)*100);
+      saved.textContent = pc === 0 ? "None" : pc + "%";
+      cache.textContent = ke > 0.5 ? "has stopped growing with the context" : "still grows with the context";
       /* the same idea at a realistic context length, with DuoAttention's own
          constants: 64 attention sinks and a 256-token recent window */
       var n2 = 32768, d2 = n2*(n2+1)/2, s2 = n2*(64+256);
-      big.textContent = Math.round(lerp(0, (1-s2/d2)*100, ke)*10)/10+"%";
-      mode.textContent = ke>0.5 ? "sparse" : "dense";
+      var pcBig = Math.round(lerp(0, (1-s2/d2)*100, ke)*10)/10;
+      big.textContent = pcBig === 0 ? "none" : pcBig + "%";
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
@@ -1393,75 +1374,70 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         aAlive = new Float32Array(N), aRand = new Float32Array(N), aTone = new Float32Array(N),
         aNode = new Float32Array(N);
 
-    /* ---- the network: layers of nodes, joined by dotted connections ---- */
+    /* ---- the network: flat layers, wired left to right ----
+       Layers are planes, not rings: a ring stack is rotationally
+       symmetric and so never reads as layered from any angle. ---- */
     function buildNet(out, flag, count, R){
-      var plan = small
-        ? [[-1.00,7,.40],[-.50,12,.70],[0,14,.86],[.50,12,.70],[1.00,7,.40]]
-        : [[-1.00,9,.40],[-.52,16,.70],[-.02,20,.88],[.50,16,.70],[1.00,9,.40]];
-      var layers = plan.map(function(L,li){
-        var ring = [], m = L[1];
+      var sizes = small ? [2,4,5,4,2] : [3,5,6,5,3];
+      var L = sizes.length;
+      var layers = sizes.map(function(m, li){
+        var col = [], x = (li/(L-1) - 0.5) * 2 * R * 0.74;
         for (var k=0;k<m;k++){
-          var a = (k/m)*Math.PI*2 + li*0.55;
-          ring.push([L[0]*R*1.06, Math.cos(a)*L[2]*R, Math.sin(a)*L[2]*R]);
+          var y = m === 1 ? 0 : ((k/(m-1)) - 0.5) * 2 * R * 0.58;
+          col.push([x, y, (Math.random()-0.5) * R * 0.05]);
         }
-        return ring;
+        return col;
       });
 
-      /* which pairs are wired: each node reaches the three nearest ahead */
+      /* every node reaches every node in the next layer */
       var edges = [];
-      for (var li=0; li<layers.length-1; li++){
-        var A = layers[li], B = layers[li+1];
-        for (var ai=0; ai<A.length; ai++){
-          var order = B.map(function(b,bi){
-            var dy = b[1]-A[ai][1], dz = b[2]-A[ai][2];
-            return [bi, dy*dy+dz*dz];
-          }).sort(function(p,q){ return p[1]-q[1]; });
-          for (var t=0; t<3 && t<order.length; t++) edges.push([A[ai], B[order[t][0]]]);
-        }
-      }
+      for (var li=0; li<L-1; li++)
+        layers[li].forEach(function(a){ layers[li+1].forEach(function(b){ edges.push([a,b]); }); });
 
-      var nodeCount = layers.reduce(function(a,r){ return a+r.length; }, 0);
-      /* a fifth of the motes build the nodes, most of the rest draw the wires */
-      var perNode = Math.max(6, Math.floor(count*0.20/nodeCount));
-      var wireBudget = count - perNode*nodeCount;
-      var perEdge = Math.max(4, Math.floor(wireBudget*0.93/edges.length));
+      var nodeCount = sizes.reduce(function(p,q){ return p+q; }, 0);
+      var NR = R * 0.078;                       /* a neuron you can see */
+      var perNode = 260, perEdge = 68;
       var w = 0;
-
-      function put(x,y,z,isNode){
+      function put(x,y,z,kind){
         if (w >= count) return;
-        out[w*3] = x; out[w*3+1] = y; out[w*3+2] = z; flag[w] = isNode; w++;
+        out[w*3] = x; out[w*3+1] = y; out[w*3+2] = z; flag[w] = kind; w++;
       }
-      layers.forEach(function(ring){
-        ring.forEach(function(p){
+      /* neurons: shells, so each reads as a body rather than a smudge */
+      layers.forEach(function(col){
+        col.forEach(function(p){
           for (var k=0;k<perNode;k++){
-            var u = Math.random()*Math.PI*2, v = Math.acos(2*Math.random()-1);
-            var rad = R*0.035*Math.pow(Math.random(),0.4);
+            var u = Math.random()*Math.PI*2, v = Math.acos(2*Math.random()-1),
+                rad = NR * Math.pow(Math.random(), 0.34);
             put(p[0]+rad*Math.sin(v)*Math.cos(u), p[1]+rad*Math.sin(v)*Math.sin(u), p[2]+rad*Math.cos(v), 1);
           }
         });
       });
+      /* connections: continuous runs, starting at the surface of each neuron */
       edges.forEach(function(e){
+        var dx = e[1][0]-e[0][0], dy = e[1][1]-e[0][1], dz = e[1][2]-e[0][2];
+        var len = Math.sqrt(dx*dx+dy*dy+dz*dz) || 1;
+        var a0 = NR/len, a1 = 1 - NR/len;
         for (var k=0;k<perEdge;k++){
-          var t = (k+0.5)/perEdge, j = R*0.012;
-          put(e[0][0]+(e[1][0]-e[0][0])*t + (Math.random()-0.5)*j,
-              e[0][1]+(e[1][1]-e[0][1])*t + (Math.random()-0.5)*j,
-              e[0][2]+(e[1][2]-e[0][2])*t + (Math.random()-0.5)*j, 0);
+          var t = a0 + (a1-a0)*((k+0.5)/perEdge), j = R*0.0018;
+          put(e[0][0]+dx*t + (Math.random()-0.5)*j,
+              e[0][1]+dy*t + (Math.random()-0.5)*j,
+              e[0][2]+dz*t + (Math.random()-0.5)*j, 0);
         }
       });
-      /* whatever is left becomes faint depth around the structure */
+      /* the rest wait in a loose cloud, hidden, and arrive with the mask */
       while (w < count){
-        var u2 = Math.random()*Math.PI*2, v2 = Math.acos(2*Math.random()-1), r2 = R*(0.95+Math.random()*0.22);
-        put(r2*Math.sin(v2)*Math.cos(u2), r2*Math.sin(v2)*Math.sin(u2)*0.8, r2*Math.cos(v2)*0.8, 0);
+        var u3 = Math.random()*Math.PI*2, v3 = Math.acos(2*Math.random()-1),
+            r3 = R*(0.7 + Math.random()*0.9);
+        put(r3*Math.sin(v3)*Math.cos(u3), r3*Math.sin(v3)*Math.sin(u3)*0.8, r3*Math.cos(v3)*0.8, -1);
       }
     }
-
     var SPAN = small ? 42 : 52, R = small ? 13 : 25;
     buildNet(pSph, aNode, N, R);
     var idx = 0, i, j;
     for (i=0;i<G;i++){
       for (j=0;j<=i;j++){
         var o = idx*3;
-        /* matrix — causal plane */
+        /* matrix - causal plane */
         var mx = (j/(G-1)-0.5)*SPAN, my = -(i/(G-1)-0.5)*SPAN;
         pMat[o]=mx; pMat[o+1]=my; pMat[o+2]=Math.sin(i*0.21)*0.5+Math.cos(j*0.17)*0.5;
         /* sparse — kept cells hold station, dropped ones fall away */
@@ -1533,7 +1509,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       "  }",
       "  float br = 0.55 + 0.45*sin(uTime*1.4 + aRand*24.0);",
       "  float sph = 1.0 - clamp(uPhase, 0.0, 1.0);",
-      "  pos += vec3(sin(uTime*0.35 + aRand*10.0), cos(uTime*0.29 + aRand*8.0), sin(uTime*0.24 + aRand*6.0)) * 0.42;",
+      "  pos += vec3(sin(uTime*0.35 + aRand*10.0), cos(uTime*0.29 + aRand*8.0), sin(uTime*0.24 + aRand*6.0)) * (0.42 - 0.34*sph);",
       "  if (uKeep < 0.99 && aRand > uKeep) a *= 0.04;",
       "  vec4 mv = modelViewMatrix * vec4(pos, 1.0);",
       "  gl_Position = projectionMatrix * mv;",
@@ -1541,11 +1517,13 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
       "  {",
       "    vec3 nv = normalize((modelViewMatrix * vec4(normalize(pos), 0.0)).xyz);",
       "    float rim = 1.0 - abs(dot(nv, normalize(-mv.xyz)));",
-      "    a *= mix(1.0, 0.62 + 0.95*pow(rim, 2.0), sph);",
-      "    a *= mix(1.0, mix(0.72, 2.05, aNode), sph);",
+      "    a *= mix(1.0, 0.86 + 0.34*pow(rim, 2.0), sph);",
+      "    float wire = max(aNode, 0.0);",
+      "    float held = step(aNode, -0.5);",
+      "    a *= mix(1.0, mix(mix(1.15, 1.9, wire), 0.0, held), sph);",
       "  }",
       "  float keptGrow = 1.0 + 1.35 * aAlive * clamp(uPhase - 1.0, 0.0, 1.0) * (1.0 - uGal);",
-      "  keptGrow *= 1.0 + 1.15 * aNode * sph;",
+      "  keptGrow *= 1.0 + 0.55 * max(aNode, 0.0) * sph;",
       "  gl_PointSize = uSize * (1.0 + 0.28*aRand) * (1.0 + 0.95*uGal) * keptGrow * (300.0 / max(-mv.z, 1.0));",
       "  vA = a * (0.55 + 0.45*br);",
       "  vTone = aTone;",
@@ -1699,8 +1677,10 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
         var spin = RM ? 0 : t*0.045;
         /* act I: the sphere turns freely; the mask is a sheet held to the light;
            act III: the spiral lies back like a plate on a table */
-        group.rotation.y = spin*(1-settle*0.82) + mx*0.34 + sheet*0.21 + gal*0.42;
-        group.rotation.x = -my*0.24 - sheet*0.15 + gal*0.98 + Math.sin(t*0.13)*0.03*(1-settle);
+        var sway = RM ? 0 : Math.sin(t*0.23)*0.26;
+        /* a layered form has a front, so hold the three-quarter view */
+        group.rotation.y = (-0.54 + sway)*(1-settle) + mx*0.34 + sheet*0.21 + gal*0.42;
+        group.rotation.x = -my*0.24 + 0.12*(1-settle) - sheet*0.15 + gal*0.98 + Math.sin(t*0.13)*0.025*(1-settle);
         group.rotation.z = Math.sin(t*0.08)*0.02 + gal*0.12;
         cam.position.z = lerp(74, 61, settle) + gal*15;
         cam.position.x = mx*3.2; cam.position.y = my*2.2;
