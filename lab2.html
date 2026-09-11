@@ -694,15 +694,16 @@ h1 .nick q::after{content:"\201D"}
 
 /* piano: the keys go down in turn */
 .facC .glyph .key{transform-origin:50% 0}
-.facC:hover .glyph .key{animation:g-press 2.2s ease-in-out infinite}
-.facC .glyph .key:nth-of-type(2){animation-delay:.0s}
-.facC .glyph .key:nth-of-type(3){animation-delay:.16s}
-.facC .glyph .key:nth-of-type(4){animation-delay:.32s}
-.facC .glyph .key:nth-of-type(5){animation-delay:.48s}
-.facC .glyph .key:nth-of-type(6){animation-delay:.64s}
+.facC:hover .glyph .key{animation:g-press 1.9s ease-in-out infinite}
+.facC .glyph .key:nth-of-type(2){animation-delay:0s}
+.facC .glyph .key:nth-of-type(3){animation-delay:.08s}
+.facC .glyph .key:nth-of-type(4){animation-delay:.16s}
+.facC .glyph .key:nth-of-type(5){animation-delay:.24s}
+.facC .glyph .key:nth-of-type(6){animation-delay:.32s}
 @keyframes g-press{
-  0%,74%,100%{transform:translateY(0) scaleY(1)}
-  82%        {transform:translateY(3%) scaleY(1.06)}
+  0%        {transform:translateY(0) scaleY(1)}
+  7%        {transform:translateY(3.5%) scaleY(1.07)}
+  17%,100%  {transform:translateY(0) scaleY(1)}
 }
 
 /* aperture: it opens and closes, and the blades turn as it does */
@@ -715,13 +716,13 @@ h1 .nick q::after{content:"\201D"}
 
 /* book: a leaf turns over on the spine */
 .facC .glyph .leaf{transform-origin:100% 50%}
-.facC:hover .glyph .leaf{animation:g-leaf 3.8s ease-in-out infinite}
+.facC:hover .glyph .leaf{animation:g-leaf 2.9s ease-in-out infinite}
 @keyframes g-leaf{
-  0%,34%  {transform:scaleX(1);opacity:1}
-  62%     {transform:scaleX(-1);opacity:1}
-  69%     {transform:scaleX(-1);opacity:0}
-  70%     {transform:scaleX(1);opacity:0}
-  78%,100%{transform:scaleX(1);opacity:1}
+  0%      {transform:scaleX(1);opacity:1}
+  30%     {transform:scaleX(-1);opacity:1}
+  36%     {transform:scaleX(-1);opacity:0}
+  37%     {transform:scaleX(1);opacity:0}
+  45%,100%{transform:scaleX(1);opacity:1}
 }
 .facC:hover .glyph{opacity:.72;transform:rotate(-9deg) scale(1.06)}
 .facC:hover .glyph *{stroke:var(--gold)}
