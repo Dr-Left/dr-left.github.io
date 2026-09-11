@@ -143,6 +143,8 @@ include:
   - files
   - .well-known
 exclude:
+  - CLAUDE.md
+  - README_my.md
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
