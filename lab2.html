@@ -342,13 +342,28 @@ h1 .nick q::after{content:"\201D"}
   backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
   padding:clamp(16px,2vw,26px);
 }
-.attn .tally{
-  margin:16px 0 0;font-size:14px;line-height:1.65;color:rgba(244,241,234,.72);
-  border-top:1px solid var(--hair);padding-top:14px;
+.attn header{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:16px}
+.attn header h3{
+  margin:0;font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(244,241,234,.55);font-weight:500;
 }
-.attn .tally b{font-weight:400;color:var(--gold);font-variant-numeric:tabular-nums}
-.attn .tally span{color:var(--gold)}
+.attn header .mode{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--vermilion);text-transform:uppercase}
 .attn canvas{width:100%;height:auto;display:block;image-rendering:auto}
+.attn .read{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;margin-top:16px;background:var(--hair);
+  border-top:1px solid var(--hair);border-left:1px solid var(--hair);
+}
+.attn .read div{background:rgba(12,14,20,.9);padding:11px 12px 12px}
+.attn .read div span{
+  display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(244,241,234,.36);margin-bottom:6px;white-space:nowrap;
+}
+.attn .read div b{
+  font-family:var(--mono);font-size:19px;font-weight:500;letter-spacing:-.01em;
+  font-variant-numeric:tabular-nums;display:block;line-height:1;
+}
+.attn .read div b.acc{color:var(--gold)}
 
 .attn .read div b.acc{color:var(--gold)}
 .attn footer{margin-top:14px;font-size:12px;line-height:1.6;color:rgba(244,241,234,.42)}
@@ -816,7 +831,7 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 <section id="hero" data-tone="night">
   <div class="wrap">
     <div class="top">
-      <div>Jingwei (Chris) Zuo &mdash; {{ site.data.profile.discipline | downcase }}</div>
+      <div>Jingwei (Chris) Zuo &mdash; {{ site.data.profile.discipline }}</div>
       <div><a href="/classic/">the ordinary site &nearr;</a></div>
     </div>
 
@@ -878,10 +893,17 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
       <div class="attn r" style="--d:240ms">
 
+        <header>
+          <h3>The mask &middot; live</h3>
+          <div class="mode" id="attnMode">dense</div>
+        </header>
         <canvas id="attnC" width="900" height="900" aria-label="Animated attention mask, dense versus sparse"></canvas>
-        <p class="tally"><b id="rKept">528</b> of 528 query&ndash;key pairs survive, so the cache
-        <span id="rCache">still grows with the context</span>. <span id="rSaved">None</span> of the mask is
-        gone here, and <b id="rBig">none</b> of it at a 32,768&#8209;token context.</p>
+        <div class="read">
+          <div><span>pairs kept</span><b id="rKept">528</b></div>
+          <div><span>cache size</span><b id="rCache">O(n)</b></div>
+          <div><span>mask cut, here</span><b class="acc" id="rSaved">0%</b></div>
+          <div><span>mask cut, at 32k</span><b class="acc" id="rBig">0%</b></div>
+        </div>
         <footer>Retrieval heads keep everything &mdash; they have to go and find the needle. Streaming heads keep only a few attention sinks and a local window: 64 and 256 in the paper, four and five in this small drawing. At a 32k context that is a 98% cut in the mask, and end to end <i>DuoAttention</i> gives 2.1&times; less memory and 3.0&times; faster decoding with no measurable loss.</footer>
       </div>
     </div>
@@ -1258,7 +1280,8 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
     var ctx = c.getContext("2d");
     var N = 32, SINK = 4, WIN = 5;
     var kept = document.getElementById("rKept"), cache = document.getElementById("rCache"),
-        saved = document.getElementById("rSaved"), big = document.getElementById("rBig");
+        saved = document.getElementById("rSaved"), big = document.getElementById("rBig"),
+        mode = document.getElementById("attnMode");
     var dense = 0, sparse = 0, i, j;
     for (i=0;i<N;i++) for (j=0;j<=i;j++){ dense++; if (j<SINK || i-j<WIN) sparse++; }
     var t = 0, osc = -0.45, dir = 1, hover = false, last = 0;
@@ -1329,14 +1352,13 @@ body.nofield .stage,body.nofield .field-note,body.nofield .callout{display:none}
 
       var nk = Math.round(lerp(dense, sparse, ke));
       kept.textContent = nk.toLocaleString();
-      var pc = Math.round((1-nk/dense)*100);
-      saved.textContent = pc === 0 ? "None" : pc + "%";
-      cache.textContent = ke > 0.5 ? "has stopped growing with the context" : "still grows with the context";
+      cache.textContent = ke>0.5 ? "O(1)" : "O(n)";
+      saved.textContent = Math.round((1-nk/dense)*100)+"%";
       /* the same idea at a realistic context length, with DuoAttention's own
          constants: 64 attention sinks and a 256-token recent window */
       var n2 = 32768, d2 = n2*(n2+1)/2, s2 = n2*(64+256);
-      var pcBig = Math.round(lerp(0, (1-s2/d2)*100, ke)*10)/10;
-      big.textContent = pcBig === 0 ? "none" : pcBig + "%";
+      big.textContent = Math.round(lerp(0, (1-s2/d2)*100, ke)*10)/10+"%";
+      mode.textContent = ke>0.5 ? "sparse" : "dense";
       requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
