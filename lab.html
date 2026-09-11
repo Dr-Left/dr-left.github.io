@@ -1,0 +1,266 @@
+---
+layout: null
+permalink: /lab/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.data.profile.name }} ({{ site.data.profile.name_en }}) &middot; one page</title>
+<meta name="description" content="A one-page record: research, publications, experience, open source, education.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/images/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   An experiment in the opposite direction from the front page.
+
+   Constraints held on purpose, after impeccable.style/slop:
+   no gradient, no glow, no shadow, no border-radius, no card, no icon,
+   no motion, no hero, no gradient text, no italic serif display, no
+   letterspaced micro-label, no numbered section chrome, no colour at all.
+   No JavaScript. Hierarchy comes from size, weight, rule and space.
+   Every word below the masthead is from _data; none of it is written to
+   sell anything.
+   ========================================================================= */
+
+:root{
+  --ink:#16181b;
+  --mid:#5c6066;
+  --paper:#ffffff;
+  --rule:#d7d9dc;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);overflow-wrap:break-word;
+  font-family:var(--sans);font-size:15px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#e6e7e9;--mid:#9aa0a6;--paper:#121315;--rule:#2c2f33}
+}
+
+.sheet{max-width:74ch;margin:0 auto;padding:56px 24px 96px}
+@media (max-width:600px){.sheet{padding:32px 18px 64px}}
+
+a{color:inherit;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* masthead ------------------------------------------------------------- */
+header h1{
+  font-size:25px;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0;
+}
+header .said{font-family:var(--mono);font-size:13px;color:var(--mid);margin:4px 0 0}
+header .what{margin:14px 0 0;max-width:62ch}
+header .what p{margin:0 0 8px}
+header .what p:last-child{margin-bottom:0}
+header dl{
+  margin:18px 0 0;display:grid;grid-template-columns:7.5em 1fr;gap:2px 16px;
+  font-size:14px;
+}
+@media (max-width:480px){header dl{grid-template-columns:1fr}}
+header dt{font-family:var(--mono);font-size:12.5px;color:var(--mid)}
+header dd{margin:0}
+
+/* sections ------------------------------------------------------------- */
+section{margin-top:40px}
+h2{
+  font-size:13px;font-weight:600;margin:0 0 14px;padding-bottom:6px;
+  border-bottom:1px solid var(--ink);
+}
+h3{font-size:15px;font-weight:600;margin:0;line-height:1.35}
+
+dl.rows{margin:0;display:grid;grid-template-columns:9.5em 1fr;gap:0 20px}
+@media (max-width:640px){dl.rows{grid-template-columns:1fr;gap:0}}
+dl.rows dt{
+  font-family:var(--mono);font-size:12.5px;color:var(--mid);
+  padding:14px 0 0;border-top:1px solid var(--rule);
+}
+dl.rows dd{margin:0;padding:14px 0 16px;border-top:1px solid var(--rule)}
+@media (max-width:640px){
+  dl.rows dt{border-top:1px solid var(--rule);padding-bottom:2px}
+  dl.rows dd{border-top:0;padding-top:2px}
+}
+dl.rows dd .meta{color:var(--mid);margin:2px 0 0}
+dl.rows dd p{margin:6px 0 0}
+dl.rows dd p.body{max-width:60ch}
+
+ul.plain{margin:8px 0 0;padding-left:18px}
+ul.plain li{margin:4px 0;max-width:60ch}
+
+.refs{font-family:var(--mono);font-size:12.5px;margin:8px 0 0;overflow-wrap:break-word}
+.refs a{margin-right:12px;white-space:nowrap}
+
+details{margin:8px 0 0}
+details summary{
+  font-family:var(--mono);font-size:12.5px;color:var(--mid);cursor:pointer;
+  width:max-content;
+}
+details summary:hover{color:var(--ink)}
+details[open] summary{margin-bottom:2px}
+
+/* the figure ----------------------------------------------------------- */
+figure{margin:18px 0 0}
+figure .pair{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
+figure svg{display:block;width:210px;height:210px;max-width:44vw}
+figure .mask-cell{fill:var(--ink);fill-opacity:.82;shape-rendering:crispEdges}
+figure .mask-frame{stroke:var(--ink);stroke-width:1;fill:none}
+figure figcaption{
+  font-size:13px;color:var(--mid);margin:10px 0 0;max-width:62ch;
+}
+figure .lab{font-family:var(--mono);font-size:12px;color:var(--mid);margin:0 0 6px}
+
+/* footer --------------------------------------------------------------- */
+footer{margin-top:48px;padding-top:14px;border-top:1px solid var(--ink);font-size:13.5px;color:var(--mid)}
+footer p{margin:0 0 6px}
+
+@media print{
+  @page{margin:16mm}
+  body{font-size:10.5pt;background:#fff;color:#000}
+  .sheet{max-width:none;padding:0}
+  a{text-decoration:none}
+  details{display:block}
+  details summary{display:none}
+  figure,footer{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header>
+  <h1>{{ site.data.profile.name }} ({{ site.data.profile.name_en }}) {{ site.data.profile.name_zh }}</h1>
+  <p class="said">/{{ site.data.profile.pronunciation }}/</p>
+  <div class="what">{{ site.data.profile.intro | markdownify }}</div>
+  <dl>
+    <dt>Now</dt><dd>{{ site.data.experiences[0].role }}, {{ site.data.experiences[0].date }}</dd>
+    <dt>Based in</dt><dd>{{ site.data.profile.location_long }}</dd>
+    <dt>Email</dt><dd><a href="mailto:{{ site.data.profile.email_link }}">{{ site.data.profile.email_link }}</a></dd>
+    <dt>Code</dt><dd><a href="https://github.com/Dr-Left">github.com/Dr-Left</a></dd>
+  </dl>
+</header>
+
+<section>
+  <h2>Research</h2>
+  <p style="margin:0;max-width:62ch">{{ site.data.profile.research_question }}</p>
+  <dl class="rows" style="margin-top:16px">
+    {% for d in site.data.research %}
+    <dt>{{ d.short }}</dt>
+    <dd>
+      <h3>{{ d.direction }}</h3>
+      <ul class="plain">{% for t in d.topics %}<li>{{ t }}</li>{% endfor %}</ul>
+    </dd>
+    {% endfor %}
+  </dl>
+
+  <figure>
+    <p class="lab">Figure 1. A causal attention mask at n=48, before and after a streaming head.</p>
+    <div class="pair">
+      <svg viewBox="-1 -1 50 50" role="img" aria-label="Dense causal mask: every query attends to all 1,176 earlier key positions.">
+        <rect class="mask-frame" x="0" y="0" width="48" height="48"/>
+        {% for i in (0..47) %}<rect class="mask-cell" x="0" y="{{ i }}" width="{{ i | plus: 1 }}" height="1"/>{% endfor %}
+      </svg>
+      <svg viewBox="-1 -1 50 50" role="img" aria-label="Sparse mask: four sink columns and a five-token window, 396 pairs.">
+        <rect class="mask-frame" x="0" y="0" width="48" height="48"/>
+        {% for i in (0..47) %}<rect class="mask-cell" x="0" y="{{ i }}" width="{% if i < 3 %}{{ i | plus: 1 }}{% else %}4{% endif %}" height="1"/>{% endfor %}
+        {% for i in (4..47) %}<rect class="mask-cell" x="{% if i < 8 %}4{% else %}{{ i | minus: 4 }}{% endif %}" y="{{ i }}" width="{% if i < 8 %}{{ i | minus: 3 }}{% else %}5{% endif %}" height="1"/>{% endfor %}
+      </svg>
+    </div>
+    <figcaption>
+      Left, 1,176 query&ndash;key pairs. Right, four sink columns and a five-token window: 396 pairs, 66 per cent fewer, and the cache stops growing with the context. DuoAttention applies this to the heads that tolerate it and keeps the full cache for the heads that do not, which measures 2.1&times; less memory and 3.0&times; faster decoding. At a 32,768-token context, with the 64 sinks and 256-token window the paper uses, the same rule removes 98.0 per cent of the mask.
+    </figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>Publications</h2>
+  <dl class="rows">
+    {% for pub in site.data.publications %}
+    <dt>{{ pub.venue }}</dt>
+    <dd>
+      <h3>{{ pub.title }}</h3>
+      <p class="meta">{{ pub.authors | strip_html }}</p>
+      <p class="body">{{ pub.abstract }}</p>
+      {% if pub.links %}<p class="refs">{% for l in pub.links %}<a href="{{ l.url }}">{{ l.label }}</a> {% endfor %}</p>{% endif %}
+    </dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <dl class="rows">
+    {% for exp in site.data.experiences %}
+    <dt>{{ exp.date }}</dt>
+    <dd>
+      <h3>{{ exp.name }}{% if exp.location %}, {{ exp.location }}{% endif %}</h3>
+      <p class="meta">{{ exp.role }}{% if exp.detail %}. {{ exp.detail }}{% endif %}</p>
+      {% if exp.highlights %}
+      <details>
+        <summary>{{ exp.highlights | size }} notes</summary>
+        <ul class="plain">{% for h in exp.highlights %}<li>{{ h }}</li>{% endfor %}</ul>
+      </details>
+      {% endif %}
+      {% if exp.prs %}<p class="refs">{% for p in exp.prs %}<a href="{{ p.url }}">{{ exp.repo.name }} {{ p.label }}</a> {% endfor %}</p>{% endif %}
+    </dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section>
+  <h2>Open source</h2>
+  <dl class="rows">
+    {% for os in site.data.opensource %}
+    <dt>{{ os.date }}</dt>
+    <dd>
+      <h3><a href="{{ os.url }}">{{ os.name }}</a></h3>
+      <p class="meta">{{ os.org }}. {{ os.role }}.</p>
+      <p class="body">{{ os.blurb }}</p>
+      {% if os.contributions %}
+      <p class="refs">{% for c in os.contributions %}<a href="{{ c.url }}" title="{{ c.title }}">{{ c.label }}{% if c.state == 'open' %} (open){% endif %}</a> {% endfor %}</p>
+      {% endif %}
+    </dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <dl class="rows">
+    {% for edu in site.data.education %}
+    <dt>{{ edu.date }}</dt>
+    <dd>
+      <h3>{{ edu.name }}</h3>
+      {% for d in edu.degrees %}<p class="meta">{{ d | strip_html }}</p>{% endfor %}
+    </dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<section>
+  <h2>Service</h2>
+  <dl class="rows">
+    {% for s in site.data.services %}
+    <dt>{{ s.venue }}</dt>
+    <dd><h3>{{ s.role }}</h3></dd>
+    {% endfor %}
+  </dl>
+</section>
+
+<footer>
+  <p>This page is an experiment: one column, no colour, no script, no motion. It reads the same <code>_data</code> files as the rest of the site, so it cannot disagree with them.</p>
+  <p><a href="/">Front page</a> &nbsp; <a href="/classic/">Classic</a> &nbsp; <a href="/90s.html">1996</a></p>
+</footer>
+
+</div>
+</body>
+</html>
