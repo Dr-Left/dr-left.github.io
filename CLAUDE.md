@@ -52,6 +52,11 @@ exists because each line is a bug that actually reached the live site.
   `document.documentElement.scrollWidth === clientWidth`, and check that every
   section shares one left and right edge (an `#id { padding: … }` shorthand beats
   `.wrap`'s side padding and silently removes a section's gutters).
+- **Gutter assertion.** Walk every `.wrap` and compare content-box insets:
+  they must all share one left and one right value at each width. An
+  `#id { padding: … }` shorthand silently zeroes the side gutters (it has bitten
+  three sections of the front page and then the figure on /lab/), and overflow
+  tests do not catch it because nothing overflows.
 - **`prefers-reduced-motion: reduce`** — curtain, reveals and all motion off, no
   console errors.
 - **No WebGL / CDN blocked** (route `**/three*.js` to abort): the page must set
