@@ -1,0 +1,76 @@
+---
+layout: blog-base
+---
+{% comment %}
+  One post: night masthead, then the paper reading column.
+  Front matter needed is only title/date/excerpt — see CLAUDE.md.
+{% endcomment %}
+{% assign blog_posts = site.blogs | sort: "date" | reverse %}
+
+<section id="head">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="where">{{ site.data.profile.name }} &mdash; {{ site.data.profile.discipline }}</span>
+      <span><a href="/blogs/">all writing &nwarr;</a></span>
+    </div>
+
+    <div style="margin-top:clamp(44px,9vh,110px)">
+      <p class="kicker r">Essay</p>
+      <h1 class="post r" style="--d:60ms">{{ page.title }}</h1>
+      {% if page.excerpt %}
+      <p class="lede r" style="--d:150ms;margin-top:clamp(24px,3.2vw,40px)">{{ page.excerpt | markdownify | strip_html | strip_newlines | strip }}</p>
+      {% endif %}
+      <div class="byline r" style="--d:220ms">
+        <span><b>{{ site.data.profile.name_en }} Zuo</b></span>
+        <span><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
+        {% capture blog_read_time %}{% include read-time.html %}{% endcapture %}
+        <span>{{ blog_read_time | strip }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tone-paper">
+  <div class="wrap">
+    <div class="runhead">
+      <span>{{ page.title }}</span>
+      <span><b>Essay</b> &middot; {{ page.date | date: "%Y" }}</span>
+      <span class="where"><a href="/blogs/">index</a></span>
+    </div>
+
+    <article class="prose">
+      {{ content }}
+    </article>
+
+    <p class="endmark">{{ site.data.profile.name_en }} Zuo &middot; {{ page.date | date: "%B %Y" }}</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    {% comment %}
+      Neighbours in the newest-first list. Liquid takes a variable as a
+      subscript but not a filter expression, so the indices are computed first.
+    {% endcomment %}
+    {% assign idx = 0 %}
+    {% for post in blog_posts %}{% if post.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+    {% assign total = blog_posts | size %}
+    {% assign newer_i = idx | minus: 1 %}
+    {% assign older_i = idx | plus: 1 %}
+    {% assign newer = null %}{% assign older = null %}
+    {% if newer_i >= 0 %}{% assign newer = blog_posts[newer_i] %}{% endif %}
+    {% if older_i < total %}{% assign older = blog_posts[older_i] %}{% endif %}
+
+    <div class="doors">
+      <a href="/blogs/">All writing</a>
+      {% if newer %}<a href="{{ newer.url }}">Newer &middot; {{ newer.title }}</a>{% endif %}
+      {% if older %}<a href="{{ older.url }}">Older &middot; {{ older.title }}</a>{% endif %}
+      <a href="/">The front page</a>
+    </div>
+
+    <footer class="f">
+      <div>{{ page.title }}</div>
+      <div>{{ site.data.profile.name }} &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; {{ site.data.profile.location }}</div>
+    </footer>
+  </div>
+</section>

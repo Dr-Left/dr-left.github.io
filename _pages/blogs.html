@@ -1,0 +1,71 @@
+---
+layout: blog-base
+permalink: /blogs/
+title: "Writing"
+blog_title: "Writing"
+blog_desc: "Essays by Jingwei (Chris) Zuo — longer-form thinking on agents, systems, and research."
+sitemap: true
+redirect_from:
+  - /blog/
+---
+
+<section id="masthead">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="where">{{ site.data.profile.name }} &mdash; {{ site.data.profile.discipline }}</span>
+      <span><a href="/">the front page &nwarr;</a></span>
+    </div>
+
+    <div style="margin-top:clamp(50px,10vh,120px)">
+      <p class="kicker r">Part IV &middot; writing</p>
+      <h1 class="title r" style="--d:60ms">Things I <em>wrote</em></h1>
+      <p class="lede r" style="--d:150ms;margin-top:clamp(26px,3.4vw,42px)">
+        Longer than a paper's abstract and slower than a post. What I think when
+        I am not measuring anything.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="tone-paper">
+  <div class="wrap">
+    <div class="runhead">
+      <span>{{ site.data.profile.name }}</span>
+      <span><b>Part IV</b> &middot; writing</span>
+      <span class="where">{{ site.data.profile.location_long }}</span>
+    </div>
+
+    {% assign blog_posts = site.blogs | sort: "date" | reverse %}
+    {% for post in blog_posts %}
+    <a class="entry r" href="{{ post.url }}" style="--d:{{ forloop.index0 | times: 90 }}ms">
+      <div class="idx">{{ forloop.index | prepend: '0' | slice: -2, 2 }}<small>{{ post.date | date: "%b %Y" }}</small></div>
+      <div>
+        <h2>{{ post.title }}</h2>
+        {% if post.excerpt %}<p class="blurb">{{ post.excerpt | markdownify | strip_html | strip_newlines | strip }}</p>{% endif %}
+        {% if post.tags.size > 0 %}
+        <div class="tags">{% for tag in post.tags %}<span>{{ tag }}</span>{% endfor %}</div>
+        {% endif %}
+      </div>
+      {% capture blog_read_time %}{% include read-time.html %}{% endcapture %}
+      <div class="go">{{ blog_read_time | strip }} &nearr;</div>
+    </a>
+    {% else %}
+    <p class="empty">Nothing here yet &mdash; the first one is being thought about.</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="doors">
+      <a href="/">The front page</a>
+      <a href="/classic/">The ordinary site</a>
+      <a href="/projects/">Hobby projects</a>
+      <a href="https://github.com/Dr-Left" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <footer class="f">
+      <div>Writing</div>
+      <div>{{ site.data.profile.name }} &middot; <span style="font-family:'Noto Serif SC',serif;letter-spacing:.08em">{{ site.data.profile.name_zh }}</span> &middot; {{ site.data.profile.location }}</div>
+    </footer>
+  </div>
+</section>

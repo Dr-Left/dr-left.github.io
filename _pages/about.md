@@ -44,6 +44,14 @@ News
 {% include news-list.html %}
 
 
+Blogs
+-------
+
+{% include blog-list.html limit=3 %}
+
+<p class="blog-more"><a href="/blogs/">All posts &rarr;</a></p>
+<br>
+
 Publications
 -------
 

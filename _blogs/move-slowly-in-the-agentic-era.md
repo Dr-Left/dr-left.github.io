@@ -1,0 +1,111 @@
+---
+title: "Move Slowly in the Agentic Era"
+date: 2026-09-28
+excerpt: "When generation costs drop to zero, raw throughput stops being an advantage — it becomes a liability. The case for deliberately slowing down, in three pillars."
+tags:
+  - Agents
+  - AI Safety
+  - Research
+---
+
+## The Cult of Velocity
+
+In the agentic era, moving fast is no longer an ambition—it has become the unquestioned default.
+
+Users have grown accustomed to weekly flagship model drops. Product teams push features to production daily. Managers expect status reports and code commits at an unprecedented cadence. And engineers write code faster than ever before.
+
+The assembly line looks something like this: a human writes a brief prompt → an agent generates thousands of lines of code in seconds → a code-review agent glances over it with an automated checklist → pull requests are merged → move immediately to the next task.
+
+The same manic treadmill is spinning in academia. In hot subfields, hundreds of arXiv preprints drop in a single day. Merely keeping up with reading titles and abstracts has become prohibitively time-consuming. Top-tier venues like NeurIPS and ICLR accept thousands of submissions every cycle—and an open secret across the community is that a growing fraction of these pipelines are largely automated. Research questions, experimental code, prose, and even benchmark figures are synthesized by agents in an afternoon.
+
+Meanwhile, look at what this velocity is actually producing across the internet. We are drowning in synthetic noise: ghost-town GitHub repositories churned out by autonomous coding workflows, social platforms overrun with AI-generated media designed to farm engagement, and websites stuffed with unreadable, SEO-optimized text whose sole purpose is to capture token traffic.
+
+When generation costs drop to zero, raw throughput stops being an advantage. It becomes a liability.
+
+In the face of this deluge, I want to propose an intentional counter-movement: **moving slowly in the agentic era**.
+
+Moving slowly does not mean rejecting modern tools or writing every line of code by hand like a luddite. It means refusing to let raw generative speed dictate our standards of quality, accountability, and safety. The case for slowing down rests on three core pillars.
+
+## 1. Moving Slowly Delivers Actual Quality
+
+### The Software Engineering Trap: The Ballooning Black Box
+
+Imagine working under a manager who evaluates your productivity by raw lines of code (LoC) shipped each day. In the pre-agentic world, that was bad management; in the agentic world, it becomes an existential disaster.
+
+<figure class="blog-figure">
+  <img src="/images/blogs/move-slowly-fig1.png" alt="A curve that rises steeply and then flattens out.">
+  <figcaption>fig 1: moving fast will cause heavy tech debt in the future</figcaption>
+</figure>
+
+<figure class="blog-figure">
+  <img src="/images/blogs/move-slowly-fig2.png" alt="A curve that stays flat and then rises steeply.">
+  <figcaption>fig 2: moving slowly will eventually move fast</figcaption>
+</figure>
+
+Under that pressure, you have no choice. You invoke Claude Code or an autonomous terminal agent, feed it a prompt, and let it spit out five hundred lines of infrastructure and business logic. The agent brightly concludes:
+
+> "All 24 unit tests pass. Ready to ship."
+
+You hit merge. But here is the uncomfortable truth: **you don't actually know what those 24 tests covered.**
+
+You don't know which edge cases were quietly omitted. You don't know the failure modes lurking in the dependencies the agent pulled in. You don't know the underlying control flow. Multiply this across an entire team over six months, and your codebase degenerates into an unmaintainable swamp of synthetically generated code. When a critical production outage hits, nobody on the engineering team has the mental model required to debug the system because nobody actually wrote or digested it.
+
+Now consider the alternative. What if the pace was deliberately slowed down?
+
+When you aren't frantically rushing to meet an artificial deadline, you have the room to do rigorous code reviews alongside your agent. You can spend the time to deeply inspect every logic branch. You can interrogate the agent: *Why did you choose this data structure over an alternative? What happens if this external API times out? What are the memory and caching implications under high concurrency?*
+
+You understand every invariant and verify the test harness yourself. In this workflow, you aren't just an operator feeding prompts into a machine; you are exercising your judgment as a software engineer. The agent accelerates implementation, but your slowness preserves architectural integrity.
+
+### The Researcher's Dilemma: Significance Over Volume
+
+The same principle holds true in research. If an academic career is measured purely by paper count, the dominant strategy becomes obvious: run autonomous exploration scripts, generate marginal variations of existing techniques, write the paper with an LLM, and flood the next conference deadline.
+
+The tragedy of this approach is that it consumes vast amounts of energy, human attention, and compute while contributing almost nothing enduring to scientific knowledge.
+
+Moving slowly gives a researcher the rarest luxury: the time to sit with a research question and ruthlessly question its premises. Is this problem actually important? Does this phenomenon generalize, or is it an artifact of our evaluation benchmark? If you spend weeks refining the formulation and hypothesis before spinning up dozens of GPUs, the resulting work will actually move the field forward—rather than simply inflating an h-index to meet a graduation requirement.
+
+### The Consumer's Perspective: Piercing the Surface
+
+This applies to products as well. Generative tools make it trivial to build a dazzling "outer crust"—a sleek landing page, crisp animations, and an impressive initial demo. But when you scratch below the surface, many of these ultra-fast products are paper-thin wrappers that break on basic real-world workflows.
+
+If users and buyers slow down their evaluation, they stop falling for flashy demos and stop pouring money into brittle software. Slowing down creates room to reward companies that spend the time to solve difficult, unglamorous infrastructural problems.
+
+## 2. Moving Slowly Enables Full Human-Agent Alignment
+
+We frequently talk about "human-in-the-loop," but high velocity reduces that loop to an empty rubber stamp.
+
+Moving slowly does not mean micromanaging every single intermediary step. It is completely reasonable to let autonomous agents explore freely in the "middle" of a workflow—running exploratory scripts, generating candidate drafts, formatting data, or refactoring boilerplate where no immediate downstream harm exists.
+
+However, at the **terminal stage of delivery**, a human must sign their name, take full responsibility, and answer for the outcome if things break.
+
+You cannot take genuine moral or technical responsibility for a system you do not understand. If an automated financial pipeline fails, if an autonomous healthcare tool misdiagnoses a condition, or if a mission-critical infrastructure deploy takes down a network, saying *"the agent told me it worked"* is not an acceptable explanation.
+
+True alignment at the delivery boundary requires understanding three fundamental questions:
+
+1. **Failure Probability:** Under what operational conditions is this deliverable likely to fail?
+2. **Edge Distributions:** What assumptions did the model make that might not hold in production or in unexpected real-world distributions?
+3. **Core Mechanism:** What are the exact internal mechanisms driving this result, and where are its potential hazards?
+
+To answer these questions honestly, the person responsible must have the time to investigate. Slowness is the buffer that transforms human oversight from a meaningless checkbox into an actual firewall.
+
+## 3. Moving Slowly Preserves Supervision Over Autonomous Systems
+
+The final reason to move slowly is long-term and civilizational: if we surrender the comprehension of our own systems, we surrender the ability to supervise them.
+
+Consider where current trends lead. If every layer of our software stacks, communication channels, and security architectures is generated and maintained entirely by AI agents—with humans merely prodding the outer perimeter—we will eventually lose our internal grasp of how the infrastructure works.
+
+Take a concrete scenario: the design of an AI safety sandbox or containment protocol. Suppose we task autonomous agents with building the very virtualization environments, network isolation rules, and access control layers meant to restrict those agents. If no human engineer has the time or capacity to audit the underlying low-level code line by line, how can we be sure the environment doesn't contain subtle logic bypasses or evasion vectors?
+
+If we don't understand the lock, we cannot know if the key has been compromised.
+
+Moving slowly ensures that human comprehension remains synchronized with system complexity. By keeping ourselves deeply looped into the core components, we ensure that as autonomous agents grow more capable, our ability to audit, steer, and govern them scales alongside them.
+
+## Conclusion: Slowness as Taste and Conviction
+
+High velocity in the wrong direction is just a faster way to arrive at failure.
+
+In the pre-agentic era, moving fast was a sign of ambition because building software, gathering empirical evidence, and producing artifacts required substantial friction. That friction served as an organic filter. Now that the friction of generation has collapsed to zero, anyone can produce infinite volume instantly.
+
+In an era of endless, automated abundance, value shifts completely. It moves toward discernment, taste, and the willingness to stand behind what you put into the world.
+
+Use agents aggressively to explore, iterate, and automate the mundane in the middle. But when it comes to the boundaries—when it is time to choose what problems matter, what code to deploy, and what ideas to publish—slow down. The future will not belong to whoever generates the most tokens; it will belong to those who build things that actually last.

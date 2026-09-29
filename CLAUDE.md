@@ -1,12 +1,31 @@
 # Working notes for this repo
 
 Jekyll site (academicpages fork) published to jingwei-zuo.com via GitHub Pages
-from `master`. Two designs, one set of facts:
+from `master`. Several designs, one set of facts.
 
-- `/` — `atelier.html`, a single self-contained art-directed page (`layout: null`,
-  WebGL field, its own CSS/JS inline).
-- `/classic/` — `_pages/about.md`, the conventional academicpages design.
+The art-directed front pages are numbered editions. Each is a single
+self-contained page (`layout: null`, its own CSS/JS inline) and each keeps its
+old path as a `redirect_from`, so nothing that was ever linked goes dead:
+
+| path | file | what it is |
+| --- | --- | --- |
+| `/` | `index.md` | nothing but `redirect_to: /v3/` — the root always points at the current edition |
+| `/v1/` | `atelier.html` | first edition, the atelier (was `/atelier/`) |
+| `/v2/` | `lab.html` | second, the overprint (was `/lab/`) |
+| `/v3/` | `lab2.html` | **current front page** — WebGL attention field, three acts (was `/lab2/`) |
+
+Alongside them:
+
+- `/classic/` — `_pages/about.md`, the conventional academicpages design
+  (was `/`, `/about/`, `/about.html`).
+- `/blogs/` — the writing, in the current edition's language (see below).
+- `/projects/` — hobby projects, academicpages design.
 - `/90s.html` — a plain-HTML edition.
+
+**Promoting a new edition** means two edits: point `index.md`'s `redirect_to`
+at it, and give the outgoing edition a `/vN/` permalink with its old path in
+`redirect_from`. Then re-point the cross-links: the `.doors` row and the
+`#hero .top` link on each edition, and the header of `_layouts/blog-base.html`.
 
 ## Facts live in `_data/`, never in a template
 
@@ -16,6 +35,41 @@ discipline, intro), `publications.yml`, `experiences.yml`, `education.yml`,
 
 Every design reads the same file. If a fact has to be updated in two places,
 that is a bug — move it into `_data/` and have both templates read it.
+
+## Writing lives in `_blogs/`
+
+Drop a Markdown file into `_blogs/`; nothing else needs editing. No date in the
+filename — the slug *is* the filename, so `_blogs/my-post.md` serves at
+`/blogs/my-post/`.
+
+```markdown
+---
+title: "My post title"
+date: 2026-09-28
+excerpt: "One or two sentences; used on the cards and as the page's <lede>."
+tags: [Agents, Research]     # optional
+og_image: /images/blogs/x.png # optional, defaults to the profile photo
+---
+```
+
+Every surface reads `site.blogs` and sorts newest-first, so one file appears in
+four places at once: the index at `/blogs/`, the *Things I wrote* section on
+`/v3/`, the Blogs section on `/classic/`, and the neighbour links at the foot of
+each post. Post images go in `images/blogs/` and are referenced absolutely, in a
+`<figure class="blog-figure">`.
+
+- `_layouts/blog-base.html` — the shell: night at the edges, paper where the
+  reading happens. It **restates** `/v3/`'s tokens and type rather than sharing
+  them (a `layout: null` page loads no theme CSS). If a colour or face changes in
+  `lab2.html`, change it here too.
+- `_layouts/blog-post.html` — one post, inside that shell.
+- `_pages/blogs.html` — the index, inside that shell.
+- `_includes/blog-list.html` + the "Blog cards" block in `assets/css/main.scss`
+  — the `/classic/` rendering only.
+
+Being `layout: null`, these pages hit the trap below: they include
+`analytics.html` explicitly **and** carry their own `.visitor-widget` hiding
+rule.
 
 ## Build and preview
 

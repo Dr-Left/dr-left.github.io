@@ -1,0 +1,44 @@
+{% comment %}
+  Renders every entry in the _blogs collection, newest first.
+
+  The harness: drop a Markdown file into _blogs/ with front matter
+
+      ---
+      title: "Post title"
+      date: 2026-09-28
+      excerpt: "One or two sentences shown on the listing."   # optional
+      tags: [Agents, Engineering]                             # optional
+      ---
+
+  and it appears here and on the home page automatically. `limit` caps the
+  number rendered (the home page passes 3); omit it to render all of them.
+{% endcomment %}
+
+{% assign blog_posts = site.blogs | sort: "date" | reverse %}
+{% if include.limit %}{% assign blog_posts = blog_posts | slice: 0, include.limit %}{% endif %}
+
+<div class="blog-list">
+{% for post in blog_posts %}
+  <article class="blog-card">
+    <h3 class="blog-title">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h3>
+    <div class="blog-meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      <span class="blog-meta-sep" aria-hidden="true">&middot;</span>
+      {% capture blog_read_time %}{% include read-time.html %}{% endcapture %}
+      <span>{{ blog_read_time | strip }}</span>
+    </div>
+    {% if post.excerpt %}
+    <p class="blog-excerpt">{{ post.excerpt | markdownify | strip_html | strip_newlines | strip }}</p>
+    {% endif %}
+    {% if post.tags.size > 0 %}
+    <div class="blog-tags">
+      {% for tag in post.tags %}<span class="blog-tag">{{ tag }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </article>
+{% else %}
+  <p class="blog-empty">Nothing here yet.</p>
+{% endfor %}
+</div>
