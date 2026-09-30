@@ -16,7 +16,7 @@ discipline: "Systems for AI, and AI for systems"
 intro: |
   I am a second year Ph.D. student in the Computer Science department at [Rice University](https://www.rice.edu), advised by [Dr. Yuke Wang](https://www.wang-yuke.com). Prior to this, I obtained bachelor's degrees in both science and engineering from [Tsinghua University](https://www.tsinghua.edu.cn/en/).
 
-  My work sits at the hinge between two literatures: what a language model can be made to **do**, and what it **costs** to do it. Agents sketch the ambition; systems build the ground beneath it.
+  Multi-agent systems drastically increase inference costs: agent steps, tool iterations, and multi-turn collaboration rapidly blow up KV-cache memory and latency. My research focuses on making these systems computationally viable — **DuoAttention** and **DiLoCo** on **MaxText** on the systems side, **AgentVerse** on the capability side.
 
 research_question: "How to compute more with less resources?"
 

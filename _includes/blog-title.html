@@ -1,0 +1,12 @@
+{%- comment -%}
+  A post's title with one word or phrase set in the accent: pass post=…, and
+  the post's optional `title_em` front matter names the phrase. Without it the
+  title renders plain. <title>, meta tags and runheads keep using `title`.
+{%- endcomment -%}
+{%- assign t = include.post.title -%}
+{%- if include.post.title_em -%}
+{%- capture em -%}<em>{{ include.post.title_em }}</em>{%- endcapture -%}
+{{- t | replace: include.post.title_em, em -}}
+{%- else -%}
+{{- t -}}
+{%- endif -%}

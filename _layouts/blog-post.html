@@ -10,13 +10,13 @@ layout: blog-base
 <section id="head">
   <div class="wrap">
     <div class="topbar">
-      <span class="where">{{ site.data.profile.name }} &mdash; {{ site.data.profile.discipline }}</span>
+      <span></span>
       <span><a href="/blogs/">all writing &nwarr;</a></span>
     </div>
 
     <div style="margin-top:clamp(44px,9vh,110px)">
-      <p class="kicker r">Essay</p>
-      <h1 class="post r" style="--d:60ms">{{ page.title }}</h1>
+      <p class="kicker r">Blogpost</p>
+      <h1 class="post r" style="--d:60ms">{% include blog-title.html post=page %}</h1>
       {% if page.excerpt %}
       <p class="lede r" style="--d:150ms;margin-top:clamp(24px,3.2vw,40px)">{{ page.excerpt | markdownify | strip_html | strip_newlines | strip }}</p>
       {% endif %}
@@ -34,7 +34,7 @@ layout: blog-base
   <div class="wrap">
     <div class="runhead">
       <span>{{ page.title }}</span>
-      <span><b>Essay</b> &middot; {{ page.date | date: "%Y" }}</span>
+      <span><b>Blogpost</b> &middot; {{ page.date | date: "%Y" }}</span>
       <span class="where"><a href="/blogs/">index</a></span>
     </div>
 

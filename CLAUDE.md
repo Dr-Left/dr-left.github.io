@@ -45,6 +45,7 @@ filename — the slug *is* the filename, so `_blogs/my-post.md` serves at
 ```markdown
 ---
 title: "My post title"
+title_em: "post"             # optional: this phrase of the title is set in the accent
 date: 2026-09-28
 excerpt: "One or two sentences; used on the cards and as the page's <lede>."
 tags: [Agents, Research]     # optional

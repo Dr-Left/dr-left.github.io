@@ -1,5 +1,6 @@
 ---
 title: "Move Slowly in the Agentic Era"
+title_em: "Slowly"
 date: 2026-09-28
 excerpt: "When generating code and papers takes seconds, speed stops being an advantage. Moving fast without real human thinking doesn't build velocity—it just stacks technical debt until everything collapses."
 tags:
@@ -56,6 +57,10 @@ When you aren't frantically rushing to meet an artificial deadline, you have the
 
 You understand every invariant and verify the test harness yourself. In this workflow, you aren't just an operator feeding prompts into a machine; you are exercising your judgment as a software engineer. The agent accelerates implementation, but your slowness preserves architectural integrity.
 
+I know this trap firsthand. During an engineering internship, my success was evaluated mostly by throughput—how many corporate-standard pull requests and design docs I could ship. Under that pressure, I pushed code fast with coding agents. But toward the end, I paid the price: I spent days cleaning up the code that I didn't truly understand, and I panicked whenever a teammate asked me to explain the implementation details.
+
+After the internship ended, I switched to another team, where I had the time to rethink the project and features I implemented in the summer. I was no longer evaluated on this thing, as it was completely orthogonal to my new area of job responsibility. It was more like a hobby than an evaluation point to me now. As a result, I not only solved the final unfinished blockers in the previous task, but understood the code better by looking into it at a much slower pace. Eventually, moving slower saved my time, I shall say.
+
 ### The Researcher's Dilemma: Significance Over Volume
 
 The same principle holds true in research. If an academic career is measured purely by paper count, the dominant strategy becomes obvious: run autonomous exploration scripts, generate marginal variations of existing techniques, write the paper with an LLM, and flood the next conference deadline.
@@ -64,11 +69,21 @@ The tragedy of this approach is that it consumes vast amounts of energy, human a
 
 Moving slowly gives a researcher the rarest luxury: the time to sit with a research question and ruthlessly question its premises. Is this problem actually important? Does this phenomenon generalize, or is it an artifact of our evaluation benchmark? If you spend weeks refining the formulation and hypothesis before spinning up dozens of GPUs, the resulting work will actually move the field forward—rather than simply inflating an h-index to meet a graduation requirement.
 
+Being early in a PhD program, I see this exact tension in academia. The system constantly pushes you to publish early and often, treating papers like checkboxes for graduation rather than real contributions. I haven't published a paper over the last two years, but that doesn’t make me believe I am bad.
+
+I am not an experienced researcher yet, so maybe my words are of lower credibility here. But still, I think real research isn't about gaming conference deadlines with slight tweaks to existing methods. It's about taking the time to ask whether a problem is actually worth solving in the first place. If we measure a researcher's value only by how fast they can churn out papers with AI, we lose the entire point of doing science.
+
 ### The Consumer's Perspective: Piercing the Surface
 
 This applies to products as well. Generative tools make it trivial to build a dazzling "outer crust"—a sleek landing page, crisp animations, and an impressive initial demo. But when you scratch below the surface, many of these ultra-fast products are paper-thin wrappers that break on basic real-world workflows.
 
 If users and buyers slow down their evaluation, they stop falling for flashy demos and stop pouring money into brittle software. Slowing down creates room to reward companies that spend the time to solve difficult, unglamorous infrastructural problems.
+
+We see the same pattern as users chasing the latest AI models. Every few weeks, a new flagship model drops with claims that it is much smarter than the last. But how often do we stop and ask if the new model is actually better for our real workflows?
+
+When we are embracing the new Claude Opus 5.5, did we really remember the performance of Claude Opus 4.8 three months ago? At least, I still remember the Opus which followed existing repository rules, constraints, and custom skills without being overly smart like the one is now. Sometimes, the business world is controlling our sense to believe every day is better than the day before, but the day before the day before? Who remembers?
+
+The fact is that, even though every day is better than the day before, it can be actually of no difference to, or even worse than two days ago. This is the time arrow in the AI era. Slowing down helps us step off that treadmill and judge a tool by whether it actually makes our work more stable, not just whether the version number went up.
 
 ## 2. Moving Slowly Enables Full Human-Agent Alignment
 
