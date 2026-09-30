@@ -49,7 +49,7 @@ title_em: "post"             # optional: this phrase of the title is set in the 
 date: 2026-09-28
 excerpt: "One or two sentences; used on the cards and as the page's <lede>."
 tags: [Agents, Research]     # optional
-og_image: /images/blogs/x.png # optional, defaults to the profile photo
+og_image: /images/blogs/my-post-og.png # link-preview card; see below
 ---
 ```
 
@@ -58,6 +58,14 @@ four places at once: the index at `/blogs/`, the *Things I wrote* section on
 `/v3/`, the Blogs section on `/classic/`, and the neighbour links at the foot of
 each post. Post images go in `images/blogs/` and are referenced absolutely, in a
 `<figure class="blog-figure">`.
+
+The link-preview card (LinkedIn, X, Slack…) is generated, not drawn:
+`python3 _tools/og_card.py my-post` renders `images/blogs/my-post-og.png` at
+1200×630 from the post's `title`/`title_em`/`date`, in the site's fonts, with
+the seal as signature. Set `og_image` to it. A post without one falls back to
+`images/blogs/og-default.png` (`og_card.py` with no argument) — never the
+avatar. `_tools/` is underscored, so Jekyll does not publish it. Crawlers cache
+previews: after changing one, re-scrape it in LinkedIn's Post Inspector.
 
 - `_layouts/blog-base.html` — the shell: night at the edges, paper where the
   reading happens. It **restates** `/v3/`'s tokens and type rather than sharing

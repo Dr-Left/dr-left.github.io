@@ -1,6 +1,7 @@
 ---
 title: "Move Slowly in the Agentic Era"
 title_em: "Slowly"
+og_image: /images/blogs/move-slowly-in-the-agentic-era-og.png
 date: 2026-09-28
 excerpt: "When generating code and papers takes seconds, speed stops being an advantage. Moving fast without real human thinking doesn't build velocity—it just stacks technical debt until everything collapses."
 tags:
