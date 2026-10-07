@@ -43,6 +43,25 @@ layout: blog-base
     </article>
 
     <p class="endmark">{{ site.data.profile.name_en }} Zuo &middot; {{ page.date | date: "%B %Y" }}</p>
+
+    {% if page.comments %}
+    {% assign ut = site.comments.utterances %}
+    <section class="comments" id="comments" aria-label="Comments">
+      <p class="kicker">Comments</p>
+      <p class="comments-note">Each post's thread is a GitHub issue on
+        <a href="https://github.com/{{ ut.repo }}/issues?q=label%3A{{ ut.label }}" target="_blank" rel="noopener">{{ ut.repo }}</a>.
+        Sign in with GitHub to reply, or comment on the issue directly.</p>
+      <script src="https://utteranc.es/client.js"
+              repo="{{ ut.repo }}"
+              issue-term="{{ ut.issue-term }}"
+              label="{{ ut.label }}"
+              theme="github-light"
+              crossorigin="anonymous"
+              async></script>
+      <noscript><p class="comments-note">Comments need JavaScript; they are also on
+        <a href="https://github.com/{{ ut.repo }}/issues?q=label%3A{{ ut.label }}">GitHub</a>.</p></noscript>
+    </section>
+    {% endif %}
   </div>
 </section>
 

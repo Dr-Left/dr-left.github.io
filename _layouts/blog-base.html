@@ -312,6 +312,14 @@ h1.post em{font-style:italic;color:var(--vermilion)}
   clip-path:inset(50%);opacity:0;pointer-events:none;
 }
 
+/* comments — a GitHub-issue thread under the post (utterances) */
+.comments{max-width:70ch;margin:clamp(56px,8vw,96px) auto 0;padding-top:22px;border-top:1px solid var(--hair-ink)}
+.comments .kicker{margin-bottom:14px}
+.comments-note{font-size:14px;line-height:1.7;color:rgba(15,23,34,.62);margin:0 0 18px}
+.comments-note a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(226,73,42,.45)}
+.comments-note a:hover{color:var(--vermilion);border-color:var(--vermilion)}
+.comments .utterances{max-width:100%;margin:0}
+
 /* the end mark */
 .endmark{
   margin:clamp(50px,7vw,90px) auto 0;max-width:70ch;

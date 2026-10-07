@@ -22,6 +22,11 @@ future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
 talkmap_link             : false #change to true to add link to talkmap on talks page
 comments:
+  # blog posts: one GitHub issue per post, via utterances (https://utteranc.es)
+  utterances:
+    repo:                "Dr-Left/dr-left.github.io"
+    issue-term:          "pathname"
+    label:               "blog-comment"
   provider               : "giscus"
   giscus:
     repo:                "dr-left/dr-left.github.io"
@@ -244,6 +249,7 @@ defaults:
     values:
       layout: blog-post
       read_time: true
+      comments: true
   # _teaching
   - scope:
       path: ""

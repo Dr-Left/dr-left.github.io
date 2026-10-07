@@ -76,6 +76,12 @@ previews: after changing one, re-scrape it in LinkedIn's Post Inspector.
 - `_includes/blog-list.html` + the "Blog cards" block in `assets/css/main.scss`
   — the `/classic/` rendering only.
 
+Comments are GitHub issues via utterances (`site.comments.utterances` in
+`_config.yml`): one issue per post, matched by pathname and labelled
+`blog-comment`, created on the first comment. On by default for every post;
+`comments: false` in a post's front matter turns it off. The repo needs Issues
+enabled, the utterances app installed on it, and the label to exist.
+
 Being `layout: null`, these pages hit the trap below: they include
 `analytics.html` explicitly **and** carry their own `.visitor-widget` hiding
 rule.
